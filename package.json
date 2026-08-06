@@ -1,6 +1,6 @@
 {
   "name": "zoomlion-tower-crane-quote-web",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,10 +9,12 @@
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
-    "vite": "^5.4.11",
+    "@vitejs/plugin-react": "^5.2.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {}
+    "react-dom": "^18.3.1",
+    "vite": "^7.3.6",
+    "xlsx-js-style": "^1.2.0"
+  }
 }
