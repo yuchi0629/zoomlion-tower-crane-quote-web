@@ -1,0 +1,1362 @@
+{
+  "version": "1.1-web-static",
+  "generatedFrom": "quotation_database.json",
+  "brandColor": "#AADB1E",
+  "products": [
+    {
+      "model": "R220-10RA(CE)",
+      "productCode": "P017337",
+      "towerType": "平臂塔机",
+      "towerTypeEn": "Hammerhead tower crane",
+      "maxLoad": "10t",
+      "ratedTonnage": "10",
+      "defaultJibLength": "65",
+      "mastType": "圆榫节",
+      "towerSize": "中塔",
+      "forms": [
+        {
+          "installForm": "支腿固定式",
+          "height": "44.3",
+          "jibLength": "65",
+          "ropeCapacity": "530",
+          "wireRopeSpec": "35W×7-14-1870",
+          "hoistingHeight": "44.3",
+          "basePrice": 0,
+          "basicRows": [
+            {
+              "component": "上装总成",
+              "name": "起重臂",
+              "code": "WA7015-10E(Abroad).05",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "安全钢丝绳",
+              "code": "10 ZAB 6×19+FC-1570-ZS",
+              "quantity": "●×65",
+              "marker": "●×65"
+            },
+            {
+              "component": "上装总成",
+              "name": "绳夹",
+              "code": "10KTH",
+              "quantity": "●×6",
+              "marker": "●×6"
+            },
+            {
+              "component": "上装总成",
+              "name": "平衡臂",
+              "code": "WA7015-10E(Abroad).01A",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "信号接收器安装座",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "回转制动器显示灯安装座",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "三色灯安装座",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "司机室",
+              "code": "CP8-CIFA-W",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "上支座",
+              "code": "R220-10RA(CE).09",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "回转支承",
+              "code": "QWA1600.50Z3",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "下支座",
+              "code": "R220-10RA(CE).10A",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "载重小车",
+              "code": "XC10E",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "吊钩组",
+              "code": "DG10L",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "圆榫标准节",
+              "code": "RA",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "圆榫标准节",
+              "code": "2-RA",
+              "quantity": "●×7",
+              "marker": "●×7"
+            },
+            {
+              "component": "塔身总成",
+              "name": "圆榫基础节",
+              "code": "RAJZ2",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "RA外挂式平台",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "支腿组件",
+              "code": "R165-8RD.15",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "开关安装盒",
+              "code": "LJ-D2(2K)CE-K-6",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "起重量传感器总成(含线缆)",
+              "code": "R165-10(CE)-TWL-XZ",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "起重量限制器拉环",
+              "code": "TWL-2K",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "回转限位装置",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "起升绝对值编码器",
+              "code": "EAM580-SC0.5NC6.14180.A-GH1",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "回转绝对值编码器",
+              "code": "EAM580-SC0.5NC6.14180.A-GS1",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "变幅绝对值编码器",
+              "code": "EAM580-SC0.5NC6.14180.A-GV1",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "起重特性牌",
+              "code": "R220-10RA(CE)-TX",
+              "quantity": "●×2",
+              "marker": "●×2"
+            },
+            {
+              "component": "标牌",
+              "name": "CE铭牌",
+              "code": "R220-10RA(CE)-TXMP",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "CE铭牌安装架",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "幅度指示牌",
+              "code": "W6522-10S(CE)-TSP",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "司机安全操作规程牌",
+              "code": "TC-CZGC",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "起升机构",
+              "code": "H37FC25-530B(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "回转机构",
+              "code": "S55CA-130LA12/14A(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "回转机构",
+              "code": "S55CN-130LA12/14A(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "变幅机构",
+              "code": "T55FC70-b(DCE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "起升钢丝绳",
+              "code": "35W×7-14-1870",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "变幅钢丝绳",
+              "code": "6×19-9.3-1700-Ⅱ-右交",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "电控总成",
+              "code": "R220-10(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "起升机构带插头电缆包",
+              "code": "R220-10-LH01",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "变幅机构带插头电缆包",
+              "code": "R220-10-LV01",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "回转机构带插头电缆包",
+              "code": "R220-10-LS01",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "无线遥控附件包",
+              "code": "ATC-CE",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "电源箱总成",
+              "code": "PSB-CE",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "风速仪",
+              "code": "YF200-A",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "风速仪电缆",
+              "code": "YFXS-7m",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "电阻器",
+              "code": "RTH45S5V1-111-SS",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "主电缆",
+              "code": "H07RN-F 4G35",
+              "quantity": "●×54",
+              "marker": "●×54"
+            }
+          ],
+          "optionRows": [
+            {
+              "group": "选配",
+              "name": "平衡重",
+              "code": "W6522-10(CE)-PHZ",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "4.5m城市底架压重",
+              "code": "DJ-4.5m压重",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "平衡重框",
+              "code": "W6522-10(CE)-PHZK",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "圆榫标准节",
+              "code": "RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 17600.0,
+              "deductPrice": 0.0,
+              "priceSource": "X07|RA|矮标准节|10"
+            },
+            {
+              "group": "选配",
+              "name": "防碰撞系统",
+              "code": "TGAC_W",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "1.5P有氟分体式空调",
+              "code": "T-AC(CE)",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 2910.0,
+              "deductPrice": 0,
+              "priceSource": "A08|T-AC(CE)|空调|10"
+            },
+            {
+              "group": "选配",
+              "name": "预埋支腿定位框",
+              "code": "DWK/R6017-10RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "圆榫标准节",
+              "code": "RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 17600.0,
+              "deductPrice": 0.0,
+              "priceSource": "X07|RA|矮标准节|10"
+            },
+            {
+              "group": "选配",
+              "name": "圆榫标准节",
+              "code": "2-RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "圆榫基础节",
+              "code": "RAJZ2",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "RA支腿座",
+              "code": "/",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "4.5m城市底架",
+              "code": "DJ-45B",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": -115000.0,
+              "deductPrice": 0,
+              "priceSource": "X01|DJ-45B|4.5m城市底架|20"
+            },
+            {
+              "group": "选配",
+              "name": "支腿组件",
+              "code": "R165-8RD.15",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "Autec无线遥控器",
+              "code": "KAJC0770L0-00",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "爬升架",
+              "code": "R165-10RA.11",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "顶升机构",
+              "code": "R165-10RA.12",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "顶升油缸",
+              "code": "YG180/135-1950/2470-31.5",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "泵站",
+              "code": "BZ11-31.5R",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "胶管总成",
+              "code": "F02WA0A0181806-4000",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "胶管总成",
+              "code": "F02WA0A0181806-3000",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "过渡节",
+              "code": "R165Rg",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "引进系统",
+              "code": "WA6515-10YA.19",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "安装平台",
+              "code": "WA6515-10YA.20",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "中央集电环",
+              "code": "XC050-4-250-CUL-CE(V-0027)",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "W45回转绝对值编码器电缆",
+              "code": "/",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "圆榫非标节",
+              "code": "RA-3半节",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "圆榫非标节",
+              "code": "RA-2半节",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "电动扒杆包",
+              "name": "1T电动扒杆",
+              "code": "EBG1000(400V/50Hz)",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "电动扒杆包",
+              "name": "电动扒杆电控系统",
+              "code": "/",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            }
+          ]
+        },
+        {
+          "installForm": "底架固定式",
+          "height": "46.1",
+          "jibLength": "65",
+          "ropeCapacity": "530",
+          "wireRopeSpec": "35W×7-14-1870",
+          "hoistingHeight": "46.1",
+          "basePrice": 0,
+          "basicRows": [
+            {
+              "component": "上装总成",
+              "name": "起重臂",
+              "code": "WA7015-10E(Abroad).05",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "安全钢丝绳",
+              "code": "10 ZAB 6×19+FC-1570-ZS",
+              "quantity": "●×65",
+              "marker": "●×65"
+            },
+            {
+              "component": "上装总成",
+              "name": "绳夹",
+              "code": "10KTH",
+              "quantity": "●×6",
+              "marker": "●×6"
+            },
+            {
+              "component": "上装总成",
+              "name": "平衡臂",
+              "code": "WA7015-10E(Abroad).01A",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "信号接收器安装座",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "回转制动器显示灯安装座",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "三色灯安装座",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "司机室",
+              "code": "CP8-CIFA-W",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "上支座",
+              "code": "R220-10RA(CE).09",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "回转支承",
+              "code": "QWA1600.50Z3",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "下支座",
+              "code": "R220-10RA(CE).10A",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "载重小车",
+              "code": "XC10E",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "上装总成",
+              "name": "吊钩组",
+              "code": "DG10L",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "圆榫标准节",
+              "code": "RA",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "圆榫标准节",
+              "code": "2-RA",
+              "quantity": "●×7",
+              "marker": "●×7"
+            },
+            {
+              "component": "塔身总成",
+              "name": "圆榫基础节",
+              "code": "RAJZ2",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "RA外挂式平台",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "塔身总成",
+              "name": "RA支腿座",
+              "code": "/",
+              "quantity": "●×4",
+              "marker": "●×4"
+            },
+            {
+              "component": "塔身总成",
+              "name": "4.5m城市底架",
+              "code": "DJ-45B",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "开关安装盒",
+              "code": "LJ-D2(2K)CE-K-6",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "起重量传感器总成(含线缆)",
+              "code": "R165-10(CE)-TWL-XZ",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "起重量限制器拉环",
+              "code": "TWL-2K",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "回转限位装置",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "起升绝对值编码器",
+              "code": "EAM580-SC0.5NC6.14180.A-GH1",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "回转绝对值编码器",
+              "code": "EAM580-SC0.5NC6.14180.A-GS1",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "安全装置",
+              "name": "变幅绝对值编码器",
+              "code": "EAM580-SC0.5NC6.14180.A-GV1",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "起重特性牌",
+              "code": "R220-10RA(CE)-TX",
+              "quantity": "●×2",
+              "marker": "●×2"
+            },
+            {
+              "component": "标牌",
+              "name": "CE铭牌",
+              "code": "R220-10RA(CE)-TXMP",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "CE铭牌安装架",
+              "code": "/",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "幅度指示牌",
+              "code": "W6522-10S(CE)-TSP",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "标牌",
+              "name": "司机安全操作规程牌",
+              "code": "TC-CZGC",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "起升机构",
+              "code": "H37FC25-530B(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "回转机构",
+              "code": "S55CA-130LA12/14A(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "回转机构",
+              "code": "S55CN-130LA12/14A(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "变幅机构",
+              "code": "T55FC70-b(DCE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "起升钢丝绳",
+              "code": "35W×7-14-1870",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "机构及钢丝绳",
+              "name": "变幅钢丝绳",
+              "code": "6×19-9.3-1700-Ⅱ-右交",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "电控总成",
+              "code": "R220-10(CE)",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "起升机构带插头电缆包",
+              "code": "R220-10-LH01",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "变幅机构带插头电缆包",
+              "code": "R220-10-LV01",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "回转机构带插头电缆包",
+              "code": "R220-10-LS01",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "无线遥控附件包",
+              "code": "ATC-CE",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "电源箱总成",
+              "code": "PSB-CE",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "风速仪",
+              "code": "YF200-A",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "风速仪电缆",
+              "code": "YFXS-7m",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "电阻器",
+              "code": "RTH45S5V1-111-SS",
+              "quantity": "●",
+              "marker": "●"
+            },
+            {
+              "component": "电控系统",
+              "name": "主电缆",
+              "code": "H07RN-F 4G35",
+              "quantity": "●×56",
+              "marker": "●×56"
+            }
+          ],
+          "optionRows": [
+            {
+              "group": "选配",
+              "name": "平衡重",
+              "code": "W6522-10(CE)-PHZ",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "4.5m城市底架压重",
+              "code": "DJ-4.5m压重",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "平衡重框",
+              "code": "W6522-10(CE)-PHZK",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "圆榫标准节",
+              "code": "RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 17600.0,
+              "deductPrice": 0.0,
+              "priceSource": "X07|RA|矮标准节|10"
+            },
+            {
+              "group": "选配",
+              "name": "防碰撞系统",
+              "code": "TGAC_W",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "1.5P有氟分体式空调",
+              "code": "T-AC(CE)",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 2910.0,
+              "deductPrice": 0,
+              "priceSource": "A08|T-AC(CE)|空调|10"
+            },
+            {
+              "group": "选配",
+              "name": "预埋支腿定位框",
+              "code": "DWK/R6017-10RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "圆榫标准节",
+              "code": "RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 17600.0,
+              "deductPrice": 0.0,
+              "priceSource": "X07|RA|矮标准节|10"
+            },
+            {
+              "group": "选配",
+              "name": "圆榫标准节",
+              "code": "2-RA",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "圆榫基础节",
+              "code": "RAJZ2",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "RA支腿座",
+              "code": "/",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "4.5m城市底架",
+              "code": "DJ-45B",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": -115000.0,
+              "deductPrice": 0,
+              "priceSource": "X01|DJ-45B|4.5m城市底架|20"
+            },
+            {
+              "group": "选配",
+              "name": "支腿组件",
+              "code": "R165-8RD.15",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "选配",
+              "name": "Autec无线遥控器",
+              "code": "KAJC0770L0-00",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "爬升架",
+              "code": "R165-10RA.11",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "顶升机构",
+              "code": "R165-10RA.12",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "顶升油缸",
+              "code": "YG180/135-1950/2470-31.5",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "泵站",
+              "code": "BZ11-31.5R",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "胶管总成",
+              "code": "F02WA0A0181806-4000",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "胶管总成",
+              "code": "F02WA0A0181806-3000",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "过渡节",
+              "code": "R165Rg",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "引进系统",
+              "code": "WA6515-10YA.19",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "爬升部件包",
+              "name": "安装平台",
+              "code": "WA6515-10YA.20",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "中央集电环",
+              "code": "XC050-4-250-CUL-CE(V-0027)",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "W45回转绝对值编码器电缆",
+              "code": "/",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "圆榫非标节",
+              "code": "RA-3半节",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "中央集电环配套物资",
+              "name": "圆榫非标节",
+              "code": "RA-2半节",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "电动扒杆包",
+              "name": "1T电动扒杆",
+              "code": "EBG1000(400V/50Hz)",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            },
+            {
+              "group": "电动扒杆包",
+              "name": "电动扒杆电控系统",
+              "code": "/",
+              "quantity": "○",
+              "marker": "○",
+              "addPrice": 0,
+              "deductPrice": 0,
+              "priceSource": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "priceCatalog": [
+    {
+      "category_code": "X01",
+      "category": "基础",
+      "part_code": "DJ-45B",
+      "part_name": "4.5m城市底架",
+      "material_code": "000209951A0005000",
+      "material_description": "4.5m城市底架\\DJ-45B\\组件",
+      "change_type_code": "20",
+      "add_price": "-115,000",
+      "deduct_price": "",
+      "_dedupe": "X01|DJ-45B|4.5m城市底架|20"
+    },
+    {
+      "category_code": "X03",
+      "category": "平衡重",
+      "part_code": "PHZ-R220-10RA(24.6)",
+      "part_name": "平衡重(24.6T)",
+      "material_code": "",
+      "material_description": "",
+      "change_type_code": "10",
+      "add_price": "63,960",
+      "deduct_price": "",
+      "_dedupe": "X03|PHZ-R220-10RA(24.6)|平衡重(24.6T)|10"
+    },
+    {
+      "category_code": "X03",
+      "category": "平衡重",
+      "part_code": "PHZ-R220-10RA(26.4)",
+      "part_name": "平衡重(26.4T)",
+      "material_code": "",
+      "material_description": "",
+      "change_type_code": "10",
+      "add_price": "68,640",
+      "deduct_price": "",
+      "_dedupe": "X03|PHZ-R220-10RA(26.4)|平衡重(26.4T)|10"
+    },
+    {
+      "category_code": "X07",
+      "category": "选配部件",
+      "part_code": "RA",
+      "part_name": "矮标准节",
+      "material_code": "000209040B0500000",
+      "material_description": "圆榫标准节\\部件\\RA",
+      "change_type_code": "10",
+      "add_price": "17,600",
+      "deduct_price": "0",
+      "_dedupe": "X07|RA|矮标准节|10"
+    },
+    {
+      "category_code": "A08",
+      "category": "空调",
+      "part_code": "T-AC(CE)",
+      "part_name": "空调",
+      "material_code": "1130101558",
+      "material_description": "分体式空调组件\\T-AC(CE)",
+      "change_type_code": "10",
+      "add_price": "2,910",
+      "deduct_price": "",
+      "_dedupe": "A08|T-AC(CE)|空调|10"
+    }
+  ],
+  "ui": {
+    "languages": [
+      "??",
+      "English",
+      "Fran?ais",
+      "Deutsch"
+    ],
+    "tradeTerms": [
+      "FOB",
+      "CIF",
+      "EXZ",
+      "DDP",
+      "DAP"
+    ],
+    "currencies": [
+      "CNY",
+      "USD",
+      "EUR"
+    ],
+    "defaultQuoteCompany": "??????????????",
+    "defaultEmail": "liuyuchi@zoomlion.com",
+    "defaultAddress": "Zoomlion Smart City Headquarters Building, No.613 NaqiuRoad, WangCheng District, Changsha, Hunan, China"
+  }
+}
