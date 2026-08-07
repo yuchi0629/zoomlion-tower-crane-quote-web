@@ -415,6 +415,15 @@ td input[type="checkbox"] {
   text-align: center;
 }
 
+.data-note {
+  margin: 0 0 8px;
+  padding: 7px 10px;
+  border-left: 3px solid var(--brand);
+  background: #f4f8dc;
+  color: #53611f;
+  font-size: 12px;
+}
+
 .modal-backdrop {
   position: fixed;
   inset: 0;

@@ -73,10 +73,13 @@ const UI = {
     warranty: "质保期",
     others: "其他",
     tradeTerms: "交易条款及其他信息",
-    noConfig: "该机型配置表尚未发布，不能读取标准配置和选配信息。",
+    noConfig: "该机型尚未录入并发布详细配置表。",
     noForms: "该机型暂无安装参数。",
     noOptions: "当前安装形式暂无可选增减配置。",
     noMainComponents: "未读取到主要部件配置。",
+    priceTableSource: "增减配价格表",
+    configWorkbookSource: "机型配置表",
+    priceFallback: "未录入详细配置表，当前可选项来自增减配价格表。",
     published: "配置表已发布",
     notPublished: "配置表未发布",
     modelCount: "已载入型号",
@@ -158,10 +161,13 @@ const UI = {
     warranty: "Warranty",
     others: "Others",
     tradeTerms: "Trade Clause & Other Information",
-    noConfig: "The configuration workbook for this model has not been published.",
+    noConfig: "No detailed configuration workbook has been published for this model.",
     noForms: "No installation parameters are available for this model.",
     noOptions: "No optional additions or deductions are available for this installation form.",
     noMainComponents: "No main component configuration is available.",
+    priceTableSource: "Price option list",
+    configWorkbookSource: "Model configuration workbook",
+    priceFallback: "No detailed configuration workbook is available. Options are loaded from the price option list.",
     published: "Configuration Published",
     notPublished: "Configuration Not Published",
     modelCount: "Models Loaded",
@@ -243,10 +249,13 @@ const UI = {
     warranty: "Garantie",
     others: "Autres",
     tradeTerms: "Conditions commerciales et autres informations",
-    noConfig: "Le classeur de configuration de ce modele n'est pas publie.",
+    noConfig: "Aucun classeur de configuration detaillee n'est publie pour ce modele.",
     noForms: "Aucun parametre d'installation n'est disponible pour ce modele.",
     noOptions: "Aucun ajout ou deduction n'est disponible pour cette installation.",
     noMainComponents: "Aucune configuration des composants principaux n'est disponible.",
+    priceTableSource: "Liste tarifaire des options",
+    configWorkbookSource: "Classeur de configuration du modele",
+    priceFallback: "Aucun classeur de configuration detaillee. Les options proviennent de la liste tarifaire.",
     published: "Configuration publiee",
     notPublished: "Configuration non publiee",
     modelCount: "Modeles charges",
@@ -328,10 +337,13 @@ const UI = {
     warranty: "Garantie",
     others: "Sonstiges",
     tradeTerms: "Handelsbedingungen und weitere Informationen",
-    noConfig: "Die Konfigurationsarbeitsmappe fuer dieses Modell ist nicht veroeffentlicht.",
+    noConfig: "Fuer dieses Modell ist keine detaillierte Konfigurationsdatei veroeffentlicht.",
     noForms: "Fuer dieses Modell sind keine Aufstellungsparameter verfuegbar.",
     noOptions: "Fuer diese Aufstellungsart sind keine Zusatz- oder Abwahlpositionen verfuegbar.",
     noMainComponents: "Keine Hauptkomponentenkonfiguration verfuegbar.",
+    priceTableSource: "Optionspreisliste",
+    configWorkbookSource: "Modellkonfigurationsdatei",
+    priceFallback: "Keine detaillierte Konfigurationsdatei vorhanden. Die Optionen stammen aus der Optionspreisliste.",
     published: "Konfiguration veroeffentlicht",
     notPublished: "Konfiguration nicht veroeffentlicht",
     modelCount: "Geladene Modelle",
@@ -364,6 +376,39 @@ function cleanText(value) {
 function normalizePrice(value) {
   const number = Number(String(value ?? "").replaceAll(",", "").match(/-?\d+(?:\.\d+)?/)?.[0] || 0);
   return Number.isFinite(number) ? number : 0;
+}
+
+function priceOptionRow(item) {
+  const rawText = [
+    item.category,
+    item.partName,
+    item.partCode,
+    item.materialDescription,
+  ].join(" ");
+  if (rawText.includes("电源箱总成")) return null;
+  const name = cleanText(item.partName || item.materialDescription || item.partCode);
+  const modelCode = cleanText(item.partCode) || "/";
+  return {
+    composition: cleanText(item.category),
+    component: cleanText(item.category),
+    name,
+    code: cleanText(item.materialCode),
+    modelCode,
+    mark: "○",
+    itemDisplay: [name, modelCode].filter(Boolean).join("、"),
+    addPrice: item.addPrice,
+    deductPrice: item.deductPrice,
+    changeTypeCode: cleanText(item.changeTypeCode),
+    defaultType: cleanText(item.changeTypeCode) === "20" ? "deduction" : "addition",
+    source: "priceTable",
+  };
+}
+
+function optionPrice(item, changeType) {
+  if (item?.source !== "priceTable") return Math.abs(normalizePrice(item?.price));
+  const preferred = changeType === "deduction" ? item.deductPrice : item.addPrice;
+  const fallback = changeType === "deduction" ? item.addPrice : item.deductPrice;
+  return Math.abs(normalizePrice(preferred) || normalizePrice(fallback));
 }
 
 function quantityFromMark(mark) {
@@ -559,6 +604,26 @@ async function savePdf(filename, content) {
       if (!canvas.width || !canvas.height) {
         throw new Error("PDF page rendering returned an empty canvas.");
       }
+      if (source.classList.contains("fit-page")) {
+        const scale = Math.min(contentWidth / canvas.width, contentHeight / canvas.height);
+        const renderedWidth = canvas.width * scale;
+        const renderedHeight = canvas.height * scale;
+        const offsetX = margin + (contentWidth - renderedWidth) / 2;
+        const offsetY = margin + (contentHeight - renderedHeight) / 2;
+        if (pageIndex > 0) pdf.addPage();
+        pdf.addImage(
+          canvas.toDataURL("image/jpeg", 0.98),
+          "JPEG",
+          offsetX,
+          offsetY,
+          renderedWidth,
+          renderedHeight,
+          undefined,
+          "FAST",
+        );
+        pageIndex += 1;
+        continue;
+      }
       const pixelsPerPage = Math.max(1, Math.floor((canvas.width * contentHeight) / contentWidth));
       for (let offsetY = 0; offsetY < canvas.height; offsetY += pixelsPerPage) {
         const sliceHeight = Math.min(pixelsPerPage, canvas.height - offsetY);
@@ -584,19 +649,19 @@ async function savePdf(filename, content) {
 function pdfStyles() {
   return `
     <style>
-      .pdf-page{font-family:Arial,"Microsoft YaHei","Noto Sans CJK SC",sans-serif;color:#111;font-size:10px;line-height:1.35;background:#fff}
+      .pdf-page{font-family:Arial,"Microsoft YaHei","Noto Sans CJK SC",sans-serif;color:#111;font-size:9px;line-height:1.22;background:#fff}
       .pdf-page table{width:100%;border-collapse:collapse;table-layout:fixed}
-      .pdf-page th,.pdf-page td{border:1px solid #111;padding:4px 5px;vertical-align:middle;word-break:break-word}
+      .pdf-page th,.pdf-page td{border:1px solid #111;padding:2px 4px;vertical-align:middle;word-break:break-word}
       .pdf-page th{background:${BRAND};font-weight:700;text-align:center}
-      .pdf-page .pdf-header td{height:38px}
-      .pdf-page .pdf-logo{width:108px;height:31px;object-fit:contain}
-      .pdf-page .pdf-address{font-size:11px;line-height:1.45;text-align:center}
-      .pdf-page .pdf-title{font-size:20px;font-weight:700;text-align:center;background:${BRAND};padding:7px}
-      .pdf-page .pdf-date{text-align:center;font-weight:700}
-      .pdf-page .section-title{background:${BRAND};font-weight:700;font-size:12px;text-align:left}
+      .pdf-page .pdf-header td{height:34px}
+      .pdf-page .pdf-logo{width:132px;height:40px;object-fit:contain}
+      .pdf-page .pdf-address{font-size:10px;line-height:1.35;text-align:center}
+      .pdf-page .pdf-title{font-size:18px;font-weight:700;text-align:center;background:${BRAND};padding:5px}
+      .pdf-page .pdf-date{text-align:left;font-weight:700}
+      .pdf-page .section-title{background:${BRAND};font-weight:700;font-size:10px;text-align:left}
       .pdf-page .center{text-align:center}
       .pdf-page .left{text-align:left}
-      .pdf-page .small{font-size:9px}
+      .pdf-page .small{font-size:8px}
       .pdf-page .space{height:5px;border:0}
       .pdf-page h1{text-align:center;font-size:22px;margin:0 0 12px}
       .pdf-page .ltc-meta{display:flex;justify-content:space-between;gap:18px;margin:0 0 10px;font-size:11px}
@@ -687,7 +752,10 @@ function App() {
     setSelected({});
   }, [modelName, formName, form?.machinePrice]);
 
-  const optionRows = form?.optionRows || [];
+  const configOptionRows = form?.optionRows || [];
+  const priceOptionRows = (product?.priceOptions || []).map(priceOptionRow).filter(Boolean);
+  const optionRows = configOptionRows.length ? configOptionRows : priceOptionRows;
+  const optionSourceLabel = configOptionRows.length ? L.configWorkbookSource : L.priceTableSource;
   const selectedOptions = useMemo(
     () =>
       optionRows
@@ -699,7 +767,7 @@ function App() {
     () =>
       selectedOptions.reduce((sum, item) => {
         const quantity = Number(item.selection?.qty || 1);
-        const price = Math.abs(normalizePrice(item.price));
+        const price = optionPrice(item, item.selection?.type);
         return sum + (item.selection?.type === "deduction" ? -price : price) * quantity;
       }, 0),
     [selectedOptions],
@@ -732,9 +800,10 @@ function App() {
   }
 
   function updateSelected(index, patch) {
+    const defaultType = optionRows[index]?.defaultType || "addition";
     setSelected(current => ({
       ...current,
-      [index]: { checked: false, qty: 1, type: "addition", ...(current[index] || {}), ...patch },
+      [index]: { checked: false, qty: 1, type: defaultType, ...(current[index] || {}), ...patch },
     }));
   }
 
@@ -758,39 +827,32 @@ function App() {
   }
 
   function exportConfigurationWorkbook() {
-    const exportData = form?.exportData;
-    if (!product.published || !exportData?.headers?.length) {
+    const workbookBase64 =
+      product.combinedWorkbooks?.[language] ||
+      product.combinedWorkbooks?.zh ||
+      product.combinedWorkbookBase64;
+    if (!product.published || !workbookBase64) {
       alert(L.excelUnavailable);
       return;
     }
     const metadata = product.listMetadata || {};
-    const basicData = { headers: exportData.headers, merges: exportData.basic_merges || [] };
-    const optionData = { headers: exportData.headers, merges: exportData.option_merges || [] };
-    const workbook = XLSX.utils.book_new();
-    const basicTitle = tr(metadata.basicTitle || `${product.model}${L.configSheet}`);
-    const basicVersion = tr(metadata.basicVersion || "");
-    const optionTitle = tr(metadata.optionTitle || `${product.model}${L.optionSheet}`);
-    const optionVersion = tr(metadata.optionVersion || metadata.basicVersion || "");
-    const basicSheet = buildExportSheet(
-      basicData,
-      exportData.basic_rows || [],
-      basicTitle,
-      basicVersion,
-      language,
-      dictionary,
-    );
-    const optionSheet = buildExportSheet(
-      optionData,
-      exportData.option_rows || [],
-      optionTitle,
-      optionVersion,
-      language,
-      dictionary,
-    );
-    XLSX.utils.book_append_sheet(workbook, basicSheet, safeFilename(`${product.model}${L.configSheet}`).slice(0, 31));
-    XLSX.utils.book_append_sheet(workbook, optionSheet, safeFilename(`${product.model}${L.optionSheet}`).slice(0, 31));
+    const binary = window.atob(workbookBase64);
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index += 1) {
+      bytes[index] = binary.charCodeAt(index);
+    }
+    const blob = new Blob([bytes], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    const href = URL.createObjectURL(blob);
+    const link = document.createElement("a");
     const suffix = safeFilename(metadata.basicVersion || "");
-    XLSX.writeFile(workbook, `${safeFilename(product.model)}配置及增减配清单${suffix ? `_${suffix}` : ""}.xlsx`);
+    link.href = href;
+    link.download = `${safeFilename(product.model)}${L.exportList}${suffix ? `_${suffix}` : ""}.xlsx`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(href);
   }
 
   function quotationHtml() {
@@ -818,7 +880,7 @@ function App() {
     return `
       ${pdfStyles()}
       <div class="pdf-page">
-        <div class="pdf-sheet">
+        <div class="pdf-sheet fit-page">
         <table class="pdf-header">
           <tr>
             <td style="width:25%;text-align:center"><img class="pdf-logo" src="${BASE_URL}assets/zoomlion.png" /></td>
@@ -844,8 +906,6 @@ function App() {
           <thead><tr><td colspan="4" class="section-title">${escapeHtml(L.mainComponents)}</td></tr><tr><th style="width:8%">${escapeHtml(L.seq)}</th><th>${escapeHtml(L.component)}</th><th style="width:29%">${escapeHtml(L.designation)}</th><th style="width:10%">${escapeHtml(L.qty)}</th></tr></thead>
           <tbody>${componentRows}</tbody>
         </table>
-        </div>
-        <div class="pdf-sheet">
         <table>
           <thead><tr><td colspan="5" class="section-title">${escapeHtml(L.additions)}</td></tr><tr><th style="width:8%">${escapeHtml(L.seq)}</th><th style="width:14%">${escapeHtml(L.changeType)}</th><th style="width:24%">${escapeHtml(L.designation)}</th><th>${escapeHtml(L.item)}</th><th style="width:10%">${escapeHtml(L.qty)}</th></tr></thead>
           <tbody>${optionRowsHtml}</tbody>
@@ -1054,10 +1114,11 @@ function App() {
           </div>
 
           <div className="panel">
-            <SectionTitle title={L.options} note={`${optionRows.length} ${L.items}`} />
-            {!product.published ? (
-              <div className="empty-state">{L.noConfig}</div>
-            ) : !optionRows.length ? (
+            <SectionTitle title={L.options} note={`${optionRows.length} ${L.items} · ${optionSourceLabel}`} />
+            {!configOptionRows.length && priceOptionRows.length ? (
+              <div className="data-note">{L.priceFallback}</div>
+            ) : null}
+            {!optionRows.length ? (
               <div className="empty-state">{L.noOptions}</div>
             ) : (
               <div className="table-wrap">
@@ -1065,14 +1126,18 @@ function App() {
                   <thead><tr><th>{L.select}</th><th>{L.qty}</th><th>{L.changeType}</th><th>{L.item}</th><th>{L.itemPrice}</th><th>{L.package}</th></tr></thead>
                   <tbody>
                     {optionRows.map((item, index) => {
-                      const selection = selected[index] || { checked: false, qty: 1, type: "addition" };
+                      const selection = selected[index] || {
+                        checked: false,
+                        qty: 1,
+                        type: item.defaultType || "addition",
+                      };
                       return (
                         <tr key={`${item.itemDisplay}-${index}`}>
                           <td className="center-cell"><input type="checkbox" checked={selection.checked} onChange={event => updateSelected(index, { checked: event.target.checked })} /></td>
                           <td><input className="small-input" type="number" min="1" value={selection.qty} onChange={event => updateSelected(index, { qty: event.target.value })} /></td>
                           <td><select className="mini-select" value={selection.type} onChange={event => updateSelected(index, { type: event.target.value })}><option value="addition">{L.add}</option><option value="deduction">{L.deduct}</option></select></td>
                           <td className="item-name">{tr(item.itemDisplay || item.name)}</td>
-                          <td>{formatMoney(normalizePrice(item.price), currency)}</td>
+                          <td>{formatMoney(optionPrice(item, selection.type), currency)}</td>
                           <td>{item.children?.length ? <button className="inline-btn" onClick={() => setModalItem(item)}>{L.view}</button> : <span className="muted">/</span>}</td>
                         </tr>
                       );
