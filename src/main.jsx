@@ -34,7 +34,6 @@ const UI = {
     machinePrice: "整机价格",
     optionPrice: "选配价格",
     totalPrice: "当前总价",
-    machinePriceInput: "整机价格",
     standardInfo: "标准配置信息",
     productCode: "产品编码",
     towerType: "塔机类型",
@@ -122,7 +121,6 @@ const UI = {
     machinePrice: "Machine Price",
     optionPrice: "Option Price",
     totalPrice: "Current Total",
-    machinePriceInput: "Machine Price",
     standardInfo: "Standard Configuration Information",
     productCode: "Product Code",
     towerType: "Tower Crane Type",
@@ -210,7 +208,6 @@ const UI = {
     machinePrice: "Prix de la machine",
     optionPrice: "Prix des options",
     totalPrice: "Total actuel",
-    machinePriceInput: "Prix de la machine",
     standardInfo: "Informations de configuration standard",
     productCode: "Code produit",
     towerType: "Type de grue",
@@ -298,7 +295,6 @@ const UI = {
     machinePrice: "Maschinenpreis",
     optionPrice: "Optionspreis",
     totalPrice: "Aktuelle Summe",
-    machinePriceInput: "Maschinenpreis",
     standardInfo: "Informationen zur Standardkonfiguration",
     productCode: "Produktcode",
     towerType: "Turmdrehkrantyp",
@@ -679,7 +675,6 @@ function App() {
   const [tradeTerm, setTradeTerm] = useState("FOB");
   const [tradePlace, setTradePlace] = useState("上海港");
   const [customerName, setCustomerName] = useState("");
-  const [machinePrice, setMachinePrice] = useState(0);
   const [selected, setSelected] = useState({});
   const [modalItem, setModalItem] = useState(null);
   const [generating, setGenerating] = useState(false);
@@ -746,11 +741,11 @@ function App() {
   const form = product?.forms.find(item => item.installForm === formName) || product?.forms?.[0] || null;
   const dictionary = appData?.translations || {};
   const tr = value => translatedText(value, language, dictionary);
+  const machinePrice = normalizePrice(form?.machinePrice || 0);
 
   useEffect(() => {
-    setMachinePrice(normalizePrice(form?.machinePrice || 0));
     setSelected({});
-  }, [modelName, formName, form?.machinePrice]);
+  }, [modelName, formName]);
 
   const configOptionRows = form?.optionRows || [];
   const priceOptionRows = (product?.priceOptions || []).map(priceOptionRow).filter(Boolean);
@@ -1084,7 +1079,6 @@ function App() {
             <div className="price-item"><span>{L.machinePrice}</span><strong>{formatMoney(machinePrice, currency)}</strong></div>
             <div className="price-item"><span>{L.optionPrice}</span><strong>{formatMoney(optionTotal, currency)}</strong></div>
             <div className="price-item total"><span>{L.totalPrice}</span><strong>{formatMoney(totalPrice, currency)}</strong></div>
-            <Field label={L.machinePriceInput}><input type="number" value={machinePrice} onChange={event => setMachinePrice(event.target.value)} /></Field>
           </div>
         </section>
 
