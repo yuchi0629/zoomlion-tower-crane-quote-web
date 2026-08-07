@@ -1,0 +1,3768 @@
+[
+  {
+    "model": "R220-10RA(CE)",
+    "productCode": "P017337",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L315-20RB(AU)",
+    "productCode": "P017290",
+    "configDescription": "类型:中塔,臂长(M):60,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R600-25R(AU)",
+    "productCode": "P017346",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "L500A-32U",
+    "productCode": "P001794",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "WA6515-8F(TR)",
+    "productCode": "P017365",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA5610-6F(TW)",
+    "productCode": "P017333",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA5610-6F",
+    "productCode": "P001755",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA7025-10E(PH)",
+    "productCode": "P017334",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6013-6A(ABROAD)",
+    "productCode": "P017309",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA5610-6A(ABROAD)",
+    "productCode": "P017938",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA7527-16D(IN)",
+    "productCode": "P016227",
+    "configDescription": "类型:大塔,臂长(M):75,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "大塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "WA7527-16D(ABROAD)",
+    "productCode": "P017373",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "WA6015-8A(ABROAD)",
+    "productCode": "P017302",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA90-6G(IN)",
+    "productCode": "P009075",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA350-20T(ABROAD)",
+    "productCode": "P017316",
+    "configDescription": "类型:中塔,臂长(M):80,吨数(T):20,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R500-25HC",
+    "productCode": "P009470",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "LW2800A-200NA",
+    "productCode": "P016477",
+    "configDescription": "类型:,臂长(M):,吨数(T):,塔身种类:",
+    "towerSize": "",
+    "defaultJibLength": "",
+    "ratedTonnage": "",
+    "mastType": "",
+    "towerType": {
+      "zh": "风电塔机",
+      "en": "Wind power tower crane"
+    },
+    "maxLoad": "200t"
+  },
+  {
+    "model": "R1880-64(SG)",
+    "productCode": "P009542",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "L900-50W",
+    "productCode": "P001799",
+    "configDescription": "类型:动臂,臂长(M):66,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "66",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "L1600-96HY(AU)",
+    "productCode": "P018064",
+    "configDescription": "类型:大塔,臂长(M):70,吨数(T):100,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "100",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "96t"
+  },
+  {
+    "model": "WA7015-10E(ABROAD)",
+    "productCode": "P017233",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L275-16HQ",
+    "productCode": "P016263",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):16,塔身种类:方榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "16",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "L250-20",
+    "productCode": "P001790",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "WA7527-20D(ABROAD)",
+    "productCode": "P017374",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):20,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "20",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "WA7025-10E(ABROAD)",
+    "productCode": "P017310",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L235-12E",
+    "productCode": "P016575",
+    "configDescription": "类型:,臂长(M):,吨数(T):,塔身种类:",
+    "towerSize": "",
+    "defaultJibLength": "",
+    "ratedTonnage": "",
+    "mastType": "",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "R90A-5RE(CE)",
+    "productCode": "P017919",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):5,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "5",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "R70-3G(PH)",
+    "productCode": "P017348",
+    "configDescription": "类型:小塔,臂长(M):46,吨数(T):3,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "46",
+    "ratedTonnage": "3",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "3t"
+  },
+  {
+    "model": "R70-3G(ABROAD)",
+    "productCode": "P016183",
+    "configDescription": "类型:,臂长(M):,吨数(T):,塔身种类:",
+    "towerSize": "",
+    "defaultJibLength": "",
+    "ratedTonnage": "",
+    "mastType": "",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "3t"
+  },
+  {
+    "model": "WA7025-12E(ABROAD)",
+    "productCode": "P017312",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):12,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "WA5610-6F(PH)",
+    "productCode": "P017301",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA7015-10E(TR)",
+    "productCode": "P017362",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R125A-6RA(CE)",
+    "productCode": "P017913",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):6,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "6",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA6013-6A",
+    "productCode": "P001756",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA6013-8A",
+    "productCode": "P001758",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "RL165-10RA(AU)",
+    "productCode": "P017314",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6017-10E",
+    "productCode": "P001761",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L200-12E",
+    "productCode": "P001783",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):12,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "12",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "WA6017-10E(EAC)",
+    "productCode": "P000113",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L140-10FQ",
+    "productCode": "P001782",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R800-32U",
+    "productCode": "P016207",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "WA6515-10E(ABROAD)",
+    "productCode": "P017326",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6013-8A(ABROAD)",
+    "productCode": "P017315",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA5610-6A",
+    "productCode": "P001754",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA7015-10E",
+    "productCode": "P001769",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R90-6RC",
+    "productCode": "P015753",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):6,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "6",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA6017-10F",
+    "productCode": "P001762",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L125-10FQ",
+    "productCode": "P001780",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L125-8F",
+    "productCode": "P000020",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "RL125-8F",
+    "productCode": "P009313",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "RL165-10RA(AUS)",
+    "productCode": "P015516",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L315-20",
+    "productCode": "P006470",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "WA6515-10F(ABROAD)",
+    "productCode": "P017320",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA7025-12E(TR)",
+    "productCode": "P017363",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):12,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "WA350-20T",
+    "productCode": "P001776",
+    "configDescription": "类型:中塔,臂长(M):80,吨数(T):20,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R135-8RA(CE)",
+    "productCode": "P000143",
+    "configDescription": "类型:中塔,臂长(M):60,吨数(T):8,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6515-8F(ABROAD)",
+    "productCode": "P017313",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "T7020-10H(ISR)",
+    "productCode": "P000132",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:方榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R70-3RE",
+    "productCode": "P011007",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):3,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "3",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "3t"
+  },
+  {
+    "model": "R220-10RA",
+    "productCode": "P001807",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R500-25U",
+    "productCode": "P009219",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "L315-20H(SG)",
+    "productCode": "P017384",
+    "configDescription": "类型:中塔,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "RL250-16RB(AU)",
+    "productCode": "P017451",
+    "configDescription": "类型:动臂,臂长(M):,吨数(T):,塔身种类:",
+    "towerSize": "动臂",
+    "defaultJibLength": "",
+    "ratedTonnage": "",
+    "mastType": "",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "WA6010-6A(IN)",
+    "productCode": "P000108",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "R2300-80Q",
+    "productCode": "P006740",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):80,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "80",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "80t"
+  },
+  {
+    "model": "R600-32U",
+    "productCode": "P009285",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "T7020-12H(ISR)",
+    "productCode": "P005976",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):12,塔身种类:方榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "WA5610-6F(ABROAD)",
+    "productCode": "P017297",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA6017-10F(ABROAD)",
+    "productCode": "P017341",
+    "configDescription": "类型:大塔,臂长(M):60,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "大塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6017-10E(ABROAD)",
+    "productCode": "P017342",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R275-12RB(CE)",
+    "productCode": "P000137",
+    "configDescription": "类型:大塔,臂长(M):70,吨数(T):12,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "RL165-10E",
+    "productCode": "P009216",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L500A-36U",
+    "productCode": "P006773",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "36t"
+  },
+  {
+    "model": "L500A-36",
+    "productCode": "P005548",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):36,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "36",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "36t"
+  },
+  {
+    "model": "WA6015-8A(IN)",
+    "productCode": "P006169",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "RL165-10FQ",
+    "productCode": "P009314",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA350-20HA",
+    "productCode": "P006154",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "WA7025-12E(EAC)",
+    "productCode": "P000120",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):12,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "L315-20T(IN)",
+    "productCode": "P015292",
+    "configDescription": "类型:大塔,臂长(M):60,吨数(T):20,塔身种类:鱼尾节",
+    "towerSize": "大塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R800-40U",
+    "productCode": "P006484",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):40,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "40",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "40t"
+  },
+  {
+    "model": "R335-20RB(AUS)",
+    "productCode": "P015564",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "RL250-16RB(CA)",
+    "productCode": "P016092",
+    "configDescription": "类型:中塔,臂长(M):60,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "RL250-16RB",
+    "productCode": "P016490",
+    "configDescription": "类型:,臂长(M):,吨数(T):,塔身种类:",
+    "towerSize": "",
+    "defaultJibLength": "",
+    "ratedTonnage": "",
+    "mastType": "",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "RL165-10RA",
+    "productCode": "P009033",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R275-12RB",
+    "productCode": "P001811",
+    "configDescription": "类型:大塔,臂长(M):70,吨数(T):12,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "WA6515-8F",
+    "productCode": "P001764",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA5610-6G(IN)",
+    "productCode": "P017030",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA5610-6A(IN)",
+    "productCode": "P017031",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "L500A-32R(AU)",
+    "productCode": "P016290",
+    "configDescription": "类型:动臂,臂长(M):65,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "65",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "R1660-80Q",
+    "productCode": "P009696",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):80,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "80",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "80t"
+  },
+  {
+    "model": "L125-8E(PE)",
+    "productCode": "P016839",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA7015-10E(IN)",
+    "productCode": "P016223",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA7025-10E",
+    "productCode": "P001771",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA90-6A(IN)",
+    "productCode": "P006613",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "W5013-5G(IN)",
+    "productCode": "P009073",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "RL165-10FQ(AU)",
+    "productCode": "P017285",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6013-8F",
+    "productCode": "P001759",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6013-6F",
+    "productCode": "P001757",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "L400-25",
+    "productCode": "P001792",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "WA7025-12E",
+    "productCode": "P001772",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):12,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "WA7015-10E(EAC)",
+    "productCode": "P000117",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA7025-10E(EAC)",
+    "productCode": "P000119",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6017-10F(EAC)",
+    "productCode": "P005861",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R370-20RB(CE)",
+    "productCode": "P000133",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R335-16RB(CE)",
+    "productCode": "P000136",
+    "configDescription": "类型:大塔,臂长(M):75,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "R90-5RE",
+    "productCode": "P001804",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "L80-6F",
+    "productCode": "P005665",
+    "configDescription": "类型:动臂,臂长(M):40,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "40",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "R600-25R",
+    "productCode": "P010027",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "WA7527-16D",
+    "productCode": "P001773",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "R1000-50QA",
+    "productCode": "P011029",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "WA6515-10F",
+    "productCode": "P001767",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R800-40W",
+    "productCode": "P009080",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):40,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "40",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "40t"
+  },
+  {
+    "model": "R1300-64Q",
+    "productCode": "P006437",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "R135-8RA",
+    "productCode": "P001805",
+    "configDescription": "类型:中塔,臂长(M):60,吨数(T):8,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "R165-8RA",
+    "productCode": "P001806",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):8,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "L250-20RB(KR)",
+    "productCode": "P016361",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R335-16RB",
+    "productCode": "P001812",
+    "configDescription": "类型:大塔,臂长(M):75,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "WA350-16T",
+    "productCode": "P001775",
+    "configDescription": "类型:中塔,臂长(M):80,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "L315-20RB",
+    "productCode": "P010025",
+    "configDescription": "类型:大塔,臂长(M):60,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "L125-8RA",
+    "productCode": "P001778",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):8,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "8",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6010-6A",
+    "productCode": "P015224",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA7015-10M",
+    "productCode": "P001770",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6015-8A",
+    "productCode": "P005523",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "RL165-10FQ(AUS)",
+    "productCode": "P013647",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L80-5F",
+    "productCode": "P009145",
+    "configDescription": "类型:动臂,臂长(M):40,吨数(T):5,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "40",
+    "ratedTonnage": "5",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "WA6515-10E",
+    "productCode": "P001766",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6013-8F(EAC)",
+    "productCode": "P000110",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6017-8F(EAC)",
+    "productCode": "P000112",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6017-8F",
+    "productCode": "P001760",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6515-8E",
+    "productCode": "P001763",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6013-8A(EAC)",
+    "productCode": "P000109",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "R2300-80V",
+    "productCode": "P006739",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):80,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "80",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "80t"
+  },
+  {
+    "model": "R700-32",
+    "productCode": "P006471",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "R700-32R",
+    "productCode": "P010156",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "L250-16T",
+    "productCode": "P015629",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "R370-20RB",
+    "productCode": "P001815",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R600-25",
+    "productCode": "P009523",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "R275-12RB(CA)",
+    "productCode": "P015097",
+    "configDescription": "类型:,臂长(M):,吨数(T):,塔身种类:",
+    "towerSize": "",
+    "defaultJibLength": "",
+    "ratedTonnage": "",
+    "mastType": "",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "W450-25HC",
+    "productCode": "P005365",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "R800-40",
+    "productCode": "P005998",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):40,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "40",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "40t"
+  },
+  {
+    "model": "R800-40U(HK)",
+    "productCode": "P006588",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):40,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "40",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "40t"
+  },
+  {
+    "model": "R245-10RB(EAC)",
+    "productCode": "P013990",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "T1200-64Q",
+    "productCode": "P006130",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "WA5015-5G",
+    "productCode": "P009803",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "W5013-5A(IN)",
+    "productCode": "P006625",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "L200-16E",
+    "productCode": "P001785",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "LR125-10",
+    "productCode": "P013633",
+    "configDescription": "类型:屋面吊,臂长(M):30,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "屋面吊",
+    "defaultJibLength": "30",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "桅杆吊塔机",
+      "en": "Derrick tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L140-10S",
+    "productCode": "P005676",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA7025-10M",
+    "productCode": "P011019",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:螺栓节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L760-50",
+    "productCode": "P001798",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "R1000-40W",
+    "productCode": "P009312",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):40,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "40",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "40t"
+  },
+  {
+    "model": "R800-40VD",
+    "productCode": "P010123",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):40,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "40",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "40t"
+  },
+  {
+    "model": "L500A-36HY",
+    "productCode": "P010097",
+    "configDescription": "类型:超大塔,臂长(M):60,吨数(T):36,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "36",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "36t"
+  },
+  {
+    "model": "L900-64HY",
+    "productCode": "P010095",
+    "configDescription": "类型:超大塔,臂长(M):66,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "66",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "L400-25R",
+    "productCode": "P010024",
+    "configDescription": "类型:大塔,臂长(M):60,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "L140-10RA",
+    "productCode": "P009742",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R630-20",
+    "productCode": "P009338",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "L315-20U",
+    "productCode": "P010020",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "L650-50X",
+    "productCode": "P006917",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "L125-8FQ",
+    "productCode": "P001777",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "LR120-18",
+    "productCode": "P009773",
+    "configDescription": "类型:屋面吊,臂长(M):40,吨数(T):18,塔身种类:方榫节",
+    "towerSize": "屋面吊",
+    "defaultJibLength": "40",
+    "ratedTonnage": "18",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "桅杆吊塔机",
+      "en": "Derrick tower crane"
+    },
+    "maxLoad": "18t"
+  },
+  {
+    "model": "WA7527-20D",
+    "productCode": "P001774",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):20,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "20",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "L125-10F",
+    "productCode": "P001779",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6515-10F(EAC)",
+    "productCode": "P009026",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6515-8E(EAC)",
+    "productCode": "P005929",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6017-8E(EAC)",
+    "productCode": "P000111",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6515-10E(EAC)",
+    "productCode": "P000116",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6515-8B",
+    "productCode": "P006903",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA90-5G(IN)",
+    "productCode": "P005439",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):5,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "5",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "TC5610-6",
+    "productCode": "P005567",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "WA6017-8E",
+    "productCode": "P000018",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "T7530-16H(ISR)",
+    "productCode": "P000131",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):16,塔身种类:方榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "RL205-10E",
+    "productCode": "P009220",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平头动臂塔机",
+      "en": "Flat-top luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R600-25U",
+    "productCode": "P009064",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "WA7527-20D(EAC)",
+    "productCode": "P000122",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):20,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "20",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "WA7527-16D(EAC)",
+    "productCode": "P000121",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "WA7015-10M(EAC)",
+    "productCode": "P000118",
+    "configDescription": "类型:小塔,臂长(M):70,吨数(T):10,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L400-25P",
+    "productCode": "P009979",
+    "configDescription": "类型:中塔,臂长(M):60,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "WA350-16HA",
+    "productCode": "P007519",
+    "configDescription": "类型:中塔,臂长(M):80,吨数(T):16,塔身种类:方榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "16",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "W1000-50VD(SG)",
+    "productCode": "P000129",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "R1300-64W(HM)",
+    "productCode": "P009705",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "R1000-50W(HM)",
+    "productCode": "P009715",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "R370-16RB(KR)",
+    "productCode": "P009610",
+    "configDescription": "类型:大塔,臂长(M):75,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "L160-10S",
+    "productCode": "P009506",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):10,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "10",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "LW2800-200NA",
+    "productCode": "P009452",
+    "configDescription": "类型:风电塔机,臂长(M):70,吨数(T):200,塔身种类:圆榫节",
+    "towerSize": "风电塔机",
+    "defaultJibLength": "70",
+    "ratedTonnage": "200",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "风电塔机",
+      "en": "Wind power tower crane"
+    },
+    "maxLoad": "200t"
+  },
+  {
+    "model": "WA350-20T(EAC)",
+    "productCode": "P009407",
+    "configDescription": "类型:中塔,臂长(M):80,吨数(T):20,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "WA6015-8F",
+    "productCode": "P009402",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "WA6015-8F(EAC)",
+    "productCode": "P009396",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "L1600-64(LK)",
+    "productCode": "P007511",
+    "configDescription": "类型:动臂,臂长(M):65,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "65",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "R165-10RA",
+    "productCode": "P006771",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "L900-50Q",
+    "productCode": "P006741",
+    "configDescription": "类型:动臂,臂长(M):66,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "66",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "R165-8RA(CE)",
+    "productCode": "P000142",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):8,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "L250-20P(HK)",
+    "productCode": "P006360",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R630-32U(HK)",
+    "productCode": "P006200",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "LR160-25",
+    "productCode": "P006199",
+    "configDescription": "类型:屋面吊,臂长(M):45,吨数(T):25,塔身种类:",
+    "towerSize": "屋面吊",
+    "defaultJibLength": "45",
+    "ratedTonnage": "25",
+    "mastType": "",
+    "towerType": {
+      "zh": "桅杆吊塔机",
+      "en": "Derrick tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "T1200-64W(SG)",
+    "productCode": "P003521",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "ZT320K",
+    "productCode": "P000126",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "塔式起重机",
+      "en": "Tower crane"
+    },
+    "maxLoad": ""
+  },
+  {
+    "model": "W750-40W",
+    "productCode": "P006141",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):40,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "40",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "40t"
+  },
+  {
+    "model": "T2200-80Q",
+    "productCode": "P006016",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):80,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "80",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "80t"
+  },
+  {
+    "model": "W350-20HA",
+    "productCode": "P006115",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "L630-50VD",
+    "productCode": "P001797",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "WA6515-8M",
+    "productCode": "P001765",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "R600-25P(HK)",
+    "productCode": "P005436",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "TC5013A-5G",
+    "productCode": "P003524",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "TWL320-20",
+    "productCode": "P005834",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "WA350-16T(EAC)",
+    "productCode": "P000123",
+    "configDescription": "类型:中塔,臂长(M):80,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "L140-10S(HK)",
+    "productCode": "P005675",
+    "configDescription": "类型:动臂,臂长(M):45,吨数(T):10,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "45",
+    "ratedTonnage": "10",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "W600-32U",
+    "productCode": "P005386",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "L200-16HA(IL)",
+    "productCode": "P005595",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):16,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "16",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "R1000-50Q",
+    "productCode": "P005568",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "R4300-100",
+    "productCode": "P005532",
+    "configDescription": "类型:超大塔,臂长(M):90,吨数(T):100,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "90",
+    "ratedTonnage": "100",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "100t"
+  },
+  {
+    "model": "TC5013A-5A(IN)",
+    "productCode": "P003523",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "TC5013A-5G(IN)",
+    "productCode": "P003525",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "WA90-5A(IN)",
+    "productCode": "P000105",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "WA5610-5A(IN)",
+    "productCode": "P000106",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):5,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "5",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "WA6010-5A(IN)",
+    "productCode": "P000107",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):5,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "5",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "R630-32R",
+    "productCode": "P005512",
+    "configDescription": "类型:大塔,臂长(M):85,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "85",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "L250-16",
+    "productCode": "P001787",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):16,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "16",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "L250-18H",
+    "productCode": "P001789",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):18,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "18",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "18t"
+  },
+  {
+    "model": "L500A-50U",
+    "productCode": "P001795",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "L630-50",
+    "productCode": "P001796",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "L315-20P",
+    "productCode": "P009931",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R600-32HC",
+    "productCode": "P009771",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "L250-16RB",
+    "productCode": "P001788",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "T6515-8KC(IL)",
+    "productCode": "P005978",
+    "configDescription": "类型:中塔,臂长(M):65,吨数(T):8,塔身种类:方榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "T7525-16D",
+    "productCode": "P009087",
+    "configDescription": "类型:中塔,臂长(M):75,吨数(T):16,塔身种类:鱼尾节",
+    "towerSize": "中塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "16",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "R1300-64W",
+    "productCode": "P009694",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "L200-10S",
+    "productCode": "P009537",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):10,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "10",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "LR50-3",
+    "productCode": "P009217",
+    "configDescription": "类型:屋面吊,臂长(M):20,吨数(T):3,塔身种类:无",
+    "towerSize": "屋面吊",
+    "defaultJibLength": "20",
+    "ratedTonnage": "3",
+    "mastType": "无",
+    "towerType": {
+      "zh": "桅杆吊塔机",
+      "en": "Derrick tower crane"
+    },
+    "maxLoad": "3t"
+  },
+  {
+    "model": "WA5610-6G",
+    "productCode": "P009468",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "W600-25U(EAC)",
+    "productCode": "P006768",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "LW2800-200",
+    "productCode": "P009201",
+    "configDescription": "类型:风电塔机,臂长(M):70,吨数(T):200,塔身种类:方榫节",
+    "towerSize": "风电塔机",
+    "defaultJibLength": "70",
+    "ratedTonnage": "200",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "风电塔机",
+      "en": "Wind power tower crane"
+    },
+    "maxLoad": "200t"
+  },
+  {
+    "model": "L315-20HQ",
+    "productCode": "P006770",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "D1100-63",
+    "productCode": "P006608",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):63,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "63",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "塔式起重机",
+      "en": "Tower crane"
+    },
+    "maxLoad": "63t"
+  },
+  {
+    "model": "L160-12E",
+    "productCode": "P005301",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):12,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "12",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "L160-10D",
+    "productCode": "P005300",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "TC6517B-10",
+    "productCode": "P005295",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "TC5610A-6A",
+    "productCode": "P005294",
+    "configDescription": "类型:小塔,臂长(M):56,吨数(T):6,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "56",
+    "ratedTonnage": "6",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "6t"
+  },
+  {
+    "model": "TC6016A-8",
+    "productCode": "P005285",
+    "configDescription": "类型:小塔,臂长(M):,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "TC6016A-8B",
+    "productCode": "P005284",
+    "configDescription": "类型:小塔,臂长(M):60,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "60",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "R90-5RE(CE)",
+    "productCode": "P000144",
+    "configDescription": "类型:小塔,臂长(M):50,吨数(T):5,塔身种类:圆榫节",
+    "towerSize": "小塔",
+    "defaultJibLength": "50",
+    "ratedTonnage": "5",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "5t"
+  },
+  {
+    "model": "R245-10RB(CE)",
+    "productCode": "P000140",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R245-12RB(CE)",
+    "productCode": "P000139",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):12,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "R275-10RB(CE)",
+    "productCode": "P000138",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R335-20RB(CE)",
+    "productCode": "P000135",
+    "configDescription": "类型:大塔,臂长(M):75,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R370-16RB(CE)",
+    "productCode": "P000134",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "R1660-64W",
+    "productCode": "P000130",
+    "configDescription": "类型:超大塔,臂长(M):80,吨数(T):64,塔身种类:方榫节",
+    "towerSize": "超大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "64",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "64t"
+  },
+  {
+    "model": "T600-32R(SG)",
+    "productCode": "P000128",
+    "configDescription": "类型:大塔,臂长(M):85,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "85",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "T600-32R(HK)",
+    "productCode": "P000127",
+    "configDescription": "类型:大塔,臂长(M):85,吨数(T):32,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "85",
+    "ratedTonnage": "32",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "32t"
+  },
+  {
+    "model": "T6520-10E",
+    "productCode": "P000125",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:鱼尾节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "鱼尾节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA350-16HA(EAC)",
+    "productCode": "P000124",
+    "configDescription": "类型:中塔,臂长(M):80,吨数(T):16,塔身种类:方榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "16",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "WA6515-10M(EAC)",
+    "productCode": "P000115",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6515-8M(EAC)",
+    "productCode": "P000114",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):8,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "8",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "8t"
+  },
+  {
+    "model": "W600-25U(HK)",
+    "productCode": "P003522",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "R370-16RB",
+    "productCode": "P001814",
+    "configDescription": "类型:大塔,臂长(M):80,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "80",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "R335-20RB",
+    "productCode": "P001813",
+    "configDescription": "类型:大塔,臂长(M):75,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "大塔",
+    "defaultJibLength": "75",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "R275-10RB",
+    "productCode": "P001810",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "R245-12RB",
+    "productCode": "P001809",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):12,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "12",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "R245-10RB",
+    "productCode": "P001808",
+    "configDescription": "类型:中塔,臂长(M):70,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "中塔",
+    "defaultJibLength": "70",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "LH3350-120",
+    "productCode": "P001803",
+    "configDescription": "类型:动臂,臂长(M):70,吨数(T):120,塔身种类:螺栓节",
+    "towerSize": "动臂",
+    "defaultJibLength": "70",
+    "ratedTonnage": "120",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "120t"
+  },
+  {
+    "model": "LH800-63",
+    "productCode": "P001802",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):63,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "63",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "63t"
+  },
+  {
+    "model": "LH650-50X",
+    "productCode": "P001801",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "LH630-50X",
+    "productCode": "P001800",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):50,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "50",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "50t"
+  },
+  {
+    "model": "L400-25KR",
+    "productCode": "P001793",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):25,塔身种类:方榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "25",
+    "mastType": "方榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "25t"
+  },
+  {
+    "model": "L250-20RB",
+    "productCode": "P001791",
+    "configDescription": "类型:动臂,臂长(M):60,吨数(T):20,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "60",
+    "ratedTonnage": "20",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "20t"
+  },
+  {
+    "model": "L200-16RB",
+    "productCode": "P001786",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):16,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "16",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "16t"
+  },
+  {
+    "model": "L200-12RB",
+    "productCode": "P001784",
+    "configDescription": "类型:动臂,臂长(M):55,吨数(T):12,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "55",
+    "ratedTonnage": "12",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "12t"
+  },
+  {
+    "model": "L125-10RA",
+    "productCode": "P001781",
+    "configDescription": "类型:动臂,臂长(M):50,吨数(T):10,塔身种类:圆榫节",
+    "towerSize": "动臂",
+    "defaultJibLength": "50",
+    "ratedTonnage": "10",
+    "mastType": "圆榫节",
+    "towerType": {
+      "zh": "动臂塔机",
+      "en": "Luffing tower crane"
+    },
+    "maxLoad": "10t"
+  },
+  {
+    "model": "WA6515-10M",
+    "productCode": "P001768",
+    "configDescription": "类型:小塔,臂长(M):65,吨数(T):10,塔身种类:螺栓节",
+    "towerSize": "小塔",
+    "defaultJibLength": "65",
+    "ratedTonnage": "10",
+    "mastType": "螺栓节",
+    "towerType": {
+      "zh": "平臂塔机",
+      "en": "Hammerhead tower crane"
+    },
+    "maxLoad": "10t"
+  }
+]
