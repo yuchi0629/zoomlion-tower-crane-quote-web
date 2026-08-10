@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import * as XLSX from "xlsx-js-style";
 import "./styles.css";
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -19,9 +18,7 @@ const UI = {
     appTitle: "中联塔机配置确认及报价单生成软件 V1.1 Web版",
     subTitle: "塔机配置确认、选配核价与报价文件生成",
     quoteInfo: "报价单信息",
-    generateQuote: "生成报价PDF",
-    generateLtc: "生成LTC选配指导文件",
-    exportList: "配置及增减配清单",
+    generateQuote: "生成报价单及选配指导",
     productSelect: "产品型号选择",
     model: "产品型号",
     form: "安装形式",
@@ -71,6 +68,7 @@ const UI = {
     transportation: "运输方案",
     warranty: "质保期",
     others: "其他",
+    remark: "备注",
     tradeTerms: "交易条款及其他信息",
     noConfig: "该机型尚未录入并发布详细配置表。",
     noForms: "该机型暂无安装参数。",
@@ -106,9 +104,7 @@ const UI = {
     appTitle: "ZOOMLION Tower Crane Configuration Confirmation and Quotation Generator V1.1 Web",
     subTitle: "Configuration confirmation, option pricing and quotation document generation",
     quoteInfo: "Quotation Information",
-    generateQuote: "Generate Quotation PDF",
-    generateLtc: "Generate LTC Options Guide",
-    exportList: "Configuration & Options List",
+    generateQuote: "Generate Quotation & Options Guide",
     productSelect: "Product Model Selection",
     model: "Model",
     form: "Installation Form",
@@ -158,6 +154,7 @@ const UI = {
     transportation: "Transportation",
     warranty: "Warranty",
     others: "Others",
+    remark: "Remarks",
     tradeTerms: "Trade Clause & Other Information",
     noConfig: "No detailed configuration workbook has been published for this model.",
     noForms: "No installation parameters are available for this model.",
@@ -193,9 +190,7 @@ const UI = {
     appTitle: "Generateur ZOOMLION de configuration et devis de grue a tour V1.1 Web",
     subTitle: "Confirmation de configuration, chiffrage des options et generation des documents",
     quoteInfo: "Informations du devis",
-    generateQuote: "Generer le devis PDF",
-    generateLtc: "Generer le guide des options LTC",
-    exportList: "Configuration et options",
+    generateQuote: "Generer le devis et le guide des options",
     productSelect: "Selection du modele",
     model: "Modele",
     form: "Type d'installation",
@@ -245,6 +240,7 @@ const UI = {
     transportation: "Transport",
     warranty: "Garantie",
     others: "Autres",
+    remark: "Remarques",
     tradeTerms: "Conditions commerciales et autres informations",
     noConfig: "Aucun classeur de configuration detaillee n'est publie pour ce modele.",
     noForms: "Aucun parametre d'installation n'est disponible pour ce modele.",
@@ -280,9 +276,7 @@ const UI = {
     appTitle: "ZOOMLION Turmdrehkran-Konfigurations- und Angebotsgenerator V1.1 Web",
     subTitle: "Konfigurationsbestaetigung, Optionspreise und Dokumenterstellung",
     quoteInfo: "Angebotsinformationen",
-    generateQuote: "Angebots-PDF erstellen",
-    generateLtc: "LTC-Optionsleitfaden erstellen",
-    exportList: "Konfiguration und Optionen",
+    generateQuote: "Angebot und Optionsleitfaden erstellen",
     productSelect: "Modellauswahl",
     model: "Modell",
     form: "Aufstellungsart",
@@ -332,6 +326,7 @@ const UI = {
     transportation: "Transport",
     warranty: "Garantie",
     others: "Sonstiges",
+    remark: "Bemerkungen",
     tradeTerms: "Handelsbedingungen und weitere Informationen",
     noConfig: "Fuer dieses Modell ist keine detaillierte Konfigurationsdatei veroeffentlicht.",
     noForms: "Fuer dieses Modell sind keine Aufstellungsparameter verfuegbar.",
@@ -691,6 +686,7 @@ function App() {
     transportation: "以最终发运方案为准。",
     warranty: "自提单之日起保修期：钢结构12个月；机构12个月；电气部件12个月。易损件除外。",
     others: "报价含首次安装指导服务费用。",
+    remark: "",
   });
 
   useEffect(() => {
@@ -821,35 +817,6 @@ function App() {
     }));
   }
 
-  function exportConfigurationWorkbook() {
-    const workbookBase64 =
-      product.combinedWorkbooks?.[language] ||
-      product.combinedWorkbooks?.zh ||
-      product.combinedWorkbookBase64;
-    if (!product.published || !workbookBase64) {
-      alert(L.excelUnavailable);
-      return;
-    }
-    const metadata = product.listMetadata || {};
-    const binary = window.atob(workbookBase64);
-    const bytes = new Uint8Array(binary.length);
-    for (let index = 0; index < binary.length; index += 1) {
-      bytes[index] = binary.charCodeAt(index);
-    }
-    const blob = new Blob([bytes], {
-      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    });
-    const href = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    const suffix = safeFilename(metadata.basicVersion || "");
-    link.href = href;
-    link.download = `${safeFilename(product.model)}${L.exportList}${suffix ? `_${suffix}` : ""}.xlsx`;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(href);
-  }
-
   function quotationHtml() {
     const components = form?.mainComponents || [];
     const componentRows = components.length
@@ -913,6 +880,7 @@ function App() {
           <tr><td class="center">${escapeHtml(L.transportation)}</td><td>${escapeHtml(tr(quoteInfo.transportation))}</td></tr>
           <tr><td class="center">${escapeHtml(L.warranty)}</td><td class="small">${escapeHtml(tr(quoteInfo.warranty))}</td></tr>
           <tr><td class="center">${escapeHtml(L.others)}</td><td>${escapeHtml(tr(quoteInfo.others))}</td></tr>
+          <tr><td class="center">${escapeHtml(L.remark)}</td><td>${escapeHtml(quoteInfo.remark || "/")}</td></tr>
         </table>
         </div>
       </div>
@@ -973,22 +941,6 @@ function App() {
     }
   }
 
-  async function generateLtc() {
-    if (!selectedOptions.length) {
-      alert(L.ltcEmpty);
-      return;
-    }
-    if (generating) return;
-    setGenerating(true);
-    try {
-      await savePdf(`LTC选配指导文件_${safeFilename(product.model)}_${timestampToMinute()}.pdf`, ltcHtml());
-    } catch (error) {
-      alert(`${L.loadError}: ${error.message}`);
-    } finally {
-      setGenerating(false);
-    }
-  }
-
   return (
     <div className="app">
       <header className="topbar">
@@ -998,10 +950,7 @@ function App() {
           <div className="subtitle">{L.subTitle}</div>
         </div>
         <div className="top-actions">
-          <button className="btn secondary" onClick={() => document.getElementById("quote-panel")?.scrollIntoView({ behavior: "smooth" })}>{L.quoteInfo}</button>
           <button className="btn" disabled={generating} onClick={generateQuotation}>{generating ? L.generating : L.generateQuote}</button>
-          <button className="btn secondary" disabled={generating || !selectedOptions.length} onClick={generateLtc}>{L.generateLtc}</button>
-          <button className="btn ghost" onClick={exportConfigurationWorkbook}>{L.exportList}</button>
         </div>
       </header>
 
@@ -1037,21 +986,10 @@ function App() {
                   {Object.entries(LANGUAGES).map(([code, label]) => <option value={code} key={code}>{label}</option>)}
                 </select>
               </Field>
-              <Field label={L.tradeTerm}>
-                <select value={tradeTerm} onChange={event => setTradeTerm(event.target.value)}>
-                  {appData.ui.tradeTerms.map(item => <option value={item} key={item}>{item}</option>)}
-                </select>
-              </Field>
               <Field label={L.currency}>
                 <select value={currency} onChange={event => setCurrency(event.target.value)}>
                   {appData.ui.currencies.map(item => <option value={item} key={item}>{item}</option>)}
                 </select>
-              </Field>
-              <Field label={L.tradePlace}>
-                <input value={tradePlace} onChange={event => setTradePlace(event.target.value)} />
-              </Field>
-              <Field label={L.customer}>
-                <input value={customerName} onChange={event => setCustomerName(event.target.value)} />
               </Field>
             </div>
             <div className={`publish-state ${product.published ? "ok" : "pending"}`}>
@@ -1147,6 +1085,13 @@ function App() {
           <SectionTitle title={L.quoteInfo} />
           <div className="quote-grid">
             <Field label={L.quoteDate}><input type="date" value={quoteInfo.quoteDate} onChange={event => updateQuoteInfo("quoteDate", event.target.value)} /></Field>
+            <Field label={L.tradeTerm}>
+              <select value={tradeTerm} onChange={event => setTradeTerm(event.target.value)}>
+                {appData.ui.tradeTerms.map(item => <option value={item} key={item}>{item}</option>)}
+              </select>
+            </Field>
+            <Field label={L.tradePlace}><input value={tradePlace} onChange={event => setTradePlace(event.target.value)} /></Field>
+            <Field label={L.customer}><input value={customerName} onChange={event => setCustomerName(event.target.value)} /></Field>
             <Field label={L.quoteCompany} className="span-2"><input value={quoteInfo.quoteCompany} onChange={event => updateQuoteInfo("quoteCompany", event.target.value)} /></Field>
             <Field label={L.quotePerson}><input value={quoteInfo.quotePerson} onChange={event => updateQuoteInfo("quotePerson", event.target.value)} /></Field>
             <Field label={L.phone}><input value={quoteInfo.phone} onChange={event => updateQuoteInfo("phone", event.target.value)} /></Field>
@@ -1161,6 +1106,7 @@ function App() {
             <Field label={L.transportation}><textarea value={quoteInfo.transportation} onChange={event => updateQuoteInfo("transportation", event.target.value)} /></Field>
             <Field label={L.warranty} className="span-2"><textarea value={quoteInfo.warranty} onChange={event => updateQuoteInfo("warranty", event.target.value)} /></Field>
             <Field label={L.others} className="span-2"><textarea value={quoteInfo.others} onChange={event => updateQuoteInfo("others", event.target.value)} /></Field>
+            <Field label={L.remark} className="span-3"><textarea value={quoteInfo.remark} onChange={event => updateQuoteInfo("remark", event.target.value)} /></Field>
           </div>
         </section>
       </main>
@@ -1175,13 +1121,12 @@ function App() {
             <p className="muted">{L.packageNote}</p>
             <div className="table-wrap package-table">
               <table>
-                <thead><tr><th>{L.component}</th><th>{L.name}</th><th>{L.itemNo}</th><th>{L.designation}</th><th>{L.qty}</th></tr></thead>
+                <thead><tr><th>{L.component}</th><th>{L.name}</th><th>{L.designation}</th><th>{L.qty}</th></tr></thead>
                 <tbody>
                   {modalItem.children.map((row, index) => (
                     <tr key={`${row.code}-${index}`}>
                       <td>{tr(row.component) || "/"}</td>
                       <td>{tr(row.name) || "/"}</td>
-                      <td>{tr(row.code) || "/"}</td>
                       <td>{tr(row.modelCode) || "/"}</td>
                       <td>{quantityFromMark(row.mark)}</td>
                     </tr>
