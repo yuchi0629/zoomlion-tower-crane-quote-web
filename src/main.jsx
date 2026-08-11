@@ -8,6 +8,7 @@ import {
   premiumRateOptions,
   priceWithPremium,
 } from "./pricing.js";
+import { buildOrderWorkbook, downloadOrderWorkbook } from "./order-workbook.js";
 import "./styles.css";
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -1164,7 +1165,6 @@ function App() {
     }
     setOrderGenerating(true);
     try {
-      const { buildOrderWorkbook, downloadOrderWorkbook } = await import("./order-workbook.js");
       const workbook = buildOrderWorkbook({
         workbookBase64,
         formName: tr(formName),

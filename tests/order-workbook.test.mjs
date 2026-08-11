@@ -12,31 +12,33 @@ import {
 
 function sourceWorkbookBase64() {
   const basic = XLSX.utils.aoa_to_sheet([
-    ["R220标准配置清单", "", "", "", ""],
-    ["版本号：V1.0 发布日期：2026-6-27", "", "", "", ""],
-    ["序号", "组成", "名称", "代号", "“●”标配 “○”选配 “-”不配"],
-    ["", "", "", "", "支腿固定式"],
-    [1, "上装总成", "起重臂", "BJ", "●"],
+    ["R220标准配置清单", "", "", "", "", ""],
+    ["版本号：V1.0 发布日期：2026-6-27", "", "", "", "", ""],
+    ["序号", "组成", "名称", "代号", "“●”标配 “○”选配 “-”不配", ""],
+    ["", "", "", "", "支腿固定式", "底架固定式"],
+    [1, "上装总成", "起重臂", "BJ", "●", "●"],
   ]);
   basic["!merges"] = [
-    XLSX.utils.decode_range("A1:E1"),
-    XLSX.utils.decode_range("A2:E2"),
+    XLSX.utils.decode_range("A1:F1"),
+    XLSX.utils.decode_range("A2:F2"),
     XLSX.utils.decode_range("A3:A4"),
+    XLSX.utils.decode_range("E3:F3"),
   ];
   basic.A1.s = { fill: { patternType: "solid", fgColor: { rgb: "AADB1E" } } };
 
   const options = XLSX.utils.aoa_to_sheet([
-    ["R220增减配清单", "", "", "", ""],
-    ["版本号：V1.0 发布日期：2026-6-27", "", "", "", ""],
-    ["序号", "组成", "名称", "代号", "“●”标配 “○”选配 “-”不配"],
-    ["", "", "", "", "支腿固定式"],
-    [1, "爬升部件包", "爬升架", "PA", "○"],
-    ["", "", "泵站", "PB", "○"],
-    [2, "选配", "防碰撞系统", "PC", "○"],
+    ["R220增减配清单", "", "", "", "", ""],
+    ["版本号：V1.0 发布日期：2026-6-27", "", "", "", "", ""],
+    ["序号", "组成", "名称", "代号", "“●”标配 “○”选配 “-”不配", ""],
+    ["", "", "", "", "支腿固定式", "底架固定式"],
+    [1, "爬升部件包", "爬升架", "PA", "○", "○"],
+    ["", "", "泵站", "PB", "○", "○"],
+    [2, "选配", "防碰撞系统", "PC", "○", "○"],
   ]);
   options["!merges"] = [
-    XLSX.utils.decode_range("A1:E1"),
-    XLSX.utils.decode_range("A2:E2"),
+    XLSX.utils.decode_range("A1:F1"),
+    XLSX.utils.decode_range("A2:F2"),
+    XLSX.utils.decode_range("E3:F3"),
     XLSX.utils.decode_range("A5:A6"),
     XLSX.utils.decode_range("B5:B6"),
   ];
@@ -73,6 +75,9 @@ test("combines standard and option sheets while retaining merges and applying pa
   assert.equal(sheet.E10.v, "●×3");
   assert.equal(sheet.E11.v, "●×3");
   assert.equal(sheet.E12.v, "○");
+  assert.equal(sheet.E4.v, "支腿固定式");
+  assert.equal(sheet.F4, undefined);
+  assert.equal(sheet["!ref"], "A1:E12");
   assert.ok(sheet["!merges"].some(range => XLSX.utils.encode_range(range) === "A1:E1"));
   assert.ok(sheet["!merges"].some(range => XLSX.utils.encode_range(range) === "A7:E7"));
   assert.equal(sheet.A9.s.fill.fgColor.rgb, "AADB1E");
@@ -85,4 +90,29 @@ test("combines standard and option sheets while retaining merges and applying pa
   assert.equal(download.filename, "R220订单配置表.xlsx");
   assert.match(download.url, /^blob:/);
   URL.revokeObjectURL(download.url);
+});
+
+test("keeps only the selected base-frame installation column", () => {
+  const result = buildOrderWorkbook({
+    workbookBase64: sourceWorkbookBase64(),
+    formName: "底架固定式",
+    optionRows: [
+      { children: [{ name: "爬升架" }, { name: "泵站" }] },
+      { name: "防碰撞系统" },
+    ],
+    selected: {
+      0: { checked: true, qty: 2, type: "addition" },
+      1: { checked: false, qty: 1, type: "addition" },
+    },
+    sheetName: "订单配置表",
+  });
+
+  const sheet = result.Sheets["订单配置表"];
+  assert.equal(sheet.E4.v, "底架固定式");
+  assert.equal(sheet.E10.v, "●×2");
+  assert.equal(sheet.E11.v, "●×2");
+  assert.equal(sheet.F4, undefined);
+  assert.equal(sheet["!ref"], "A1:E12");
+  assert.ok(sheet["!merges"].some(range => XLSX.utils.encode_range(range) === "A1:E1"));
+  assert.ok(sheet["!merges"].some(range => XLSX.utils.encode_range(range) === "A7:E7"));
 });

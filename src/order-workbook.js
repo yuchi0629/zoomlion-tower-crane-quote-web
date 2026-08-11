@@ -72,6 +72,71 @@ function findFormColumn(sheet, formName, maxColumn) {
   return Math.min(4, maxColumn);
 }
 
+function deleteSheetColumn(sheet, columnIndex) {
+  const range = XLSX.utils.decode_range(sheet["!ref"] || "A1:A1");
+  if (columnIndex < range.s.c || columnIndex > range.e.c) return;
+
+  const carriedMergeCells = (sheet["!merges"] || [])
+    .filter(merge => merge.s.c === columnIndex && merge.e.c > columnIndex)
+    .map(merge => ({
+      address: XLSX.utils.encode_cell({ r: merge.s.r, c: columnIndex }),
+      cell: clone(sheet[XLSX.utils.encode_cell(merge.s)]),
+    }))
+    .filter(item => item.cell);
+
+  for (let row = range.s.r; row <= range.e.r; row += 1) {
+    for (let column = columnIndex; column < range.e.c; column += 1) {
+      const targetAddress = XLSX.utils.encode_cell({ r: row, c: column });
+      const sourceAddress = XLSX.utils.encode_cell({ r: row, c: column + 1 });
+      if (sheet[sourceAddress]) sheet[targetAddress] = clone(sheet[sourceAddress]);
+      else delete sheet[targetAddress];
+    }
+    delete sheet[XLSX.utils.encode_cell({ r: row, c: range.e.c })];
+  }
+
+  carriedMergeCells.forEach(item => {
+    sheet[item.address] = item.cell;
+  });
+
+  sheet["!merges"] = (sheet["!merges"] || []).flatMap(merge => {
+    const adjusted = clone(merge);
+    if (merge.e.c < columnIndex) return [adjusted];
+    if (merge.s.c > columnIndex) {
+      adjusted.s.c -= 1;
+      adjusted.e.c -= 1;
+      return [adjusted];
+    }
+    if (merge.s.c === columnIndex && merge.e.c === columnIndex) return [];
+    adjusted.e.c -= 1;
+    if (adjusted.s.c === adjusted.e.c && adjusted.s.r === adjusted.e.r) return [];
+    return [adjusted];
+  });
+
+  if (sheet["!cols"]) sheet["!cols"].splice(columnIndex, 1);
+  range.e.c -= 1;
+  sheet["!ref"] = XLSX.utils.encode_range(range);
+}
+
+function keepSelectedFormColumn(sheet, formName) {
+  const range = XLSX.utils.decode_range(sheet["!ref"] || "A1:A1");
+  const target = normalized(formName);
+  const formColumns = [];
+  for (let column = 4; column <= range.e.c; column += 1) {
+    const value = normalized(sheet[XLSX.utils.encode_cell({ r: 3, c: column })]?.v);
+    if (value) formColumns.push({ column, value });
+  }
+
+  const active = formColumns.find(item => (
+    item.value === target || item.value.includes(target) || target.includes(item.value)
+  ));
+  if (!active || formColumns.length < 2) return;
+
+  formColumns
+    .filter(item => item.column !== active.column)
+    .sort((left, right) => right.column - left.column)
+    .forEach(item => deleteSheetColumn(sheet, item.column));
+}
+
 function flattenedOptions(optionRows, selected) {
   return optionRows.flatMap((item, index) => {
     const rows = item.children?.length ? item.children : [item];
@@ -103,6 +168,9 @@ export function buildOrderWorkbook({ workbookBase64, formName, optionRows, selec
     const previous = optionSheet[address] || { t: "s", v: "" };
     optionSheet[address] = { ...clone(previous), t: "s", v: selectionMark(item.selection) };
   });
+
+  keepSelectedFormColumn(standardSheet, formName);
+  keepSelectedFormColumn(optionSheet, formName);
 
   const combined = {};
   const standardCopiedRange = copySheetCells(standardSheet, combined, 0);
