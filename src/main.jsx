@@ -9,6 +9,7 @@ import {
   priceWithPremium,
 } from "./pricing.js";
 import { buildOrderWorkbook, downloadOrderWorkbook } from "./order-workbook.js";
+import TowerCraneSelector from "./TowerCraneSelector.jsx";
 import "./styles.css";
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -746,6 +747,8 @@ function pdfStyles() {
 
 function App() {
   const [appData, setAppData] = useState(null);
+  const [liftingData, setLiftingData] = useState(null);
+  const [liftingError, setLiftingError] = useState("");
   const [loadError, setLoadError] = useState("");
   const [modelName, setModelName] = useState("");
   const [formName, setFormName] = useState("");
@@ -873,6 +876,16 @@ function App() {
         }
       })
       .catch(error => setLoadError(error.message));
+  }, []);
+
+  useEffect(() => {
+    fetch(`${BASE_URL}data/lifting-performance.json`)
+      .then(response => {
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        return response.json();
+      })
+      .then(setLiftingData)
+      .catch(error => setLiftingError(error.message));
   }, []);
 
   useEffect(() => {
@@ -1200,6 +1213,13 @@ function App() {
       </header>
 
       <main className="main">
+        <TowerCraneSelector
+          data={liftingData}
+          language={language}
+          loading={!liftingData && !liftingError}
+          error={liftingError}
+        />
+
         <section className="top-grid">
           <div className="panel">
             <SectionTitle
