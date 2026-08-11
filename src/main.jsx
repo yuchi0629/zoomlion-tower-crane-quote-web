@@ -12,10 +12,10 @@ import "./styles.css";
 
 const BASE_URL = import.meta.env.BASE_URL;
 const BRAND = "#AADB1E";
-const RATE_API_URL = "https://open.er-api.com/v6/latest/CNY";
-const RATE_CACHE_KEY = "ztc_exchange_rates_cny_v1";
+const RATE_API_URL = "https://api.frankfurter.dev/v2/rates?base=CNY&quotes=USD,EUR";
+const RATE_CACHE_KEY = "ztc_exchange_rates_cny_v2";
 const RATE_CACHE_MAX_AGE = 24 * 60 * 60 * 1000;
-const FALLBACK_RATES = { CNY: 1, USD: 0.148031, EUR: 0.128276 };
+const FALLBACK_RATES = { CNY: 1, USD: 0.14834, EUR: 0.12833 };
 const FALLBACK_RATE_DATE = "2026-08-11";
 const LANGUAGES = {
   zh: "中文",
@@ -30,6 +30,9 @@ const UI = {
     subTitle: "塔机配置确认、选配核价与报价文件生成",
     quoteInfo: "报价单信息",
     generateQuote: "生成报价单及选配指导",
+    generateOrderWorkbookLabel: "生成订单配置表",
+    orderWorkbookSheet: "订单配置表",
+    orderWorkbookDone: "订单配置表已生成，并保存到浏览器下载目录。",
     productSelect: "产品型号选择",
     model: "产品型号",
     form: "安装形式",
@@ -130,6 +133,9 @@ const UI = {
     subTitle: "Configuration confirmation, option pricing and quotation document generation",
     quoteInfo: "Quotation Information",
     generateQuote: "Generate Quotation & Options Guide",
+    generateOrderWorkbookLabel: "Generate Order Configuration",
+    orderWorkbookSheet: "Order Configuration",
+    orderWorkbookDone: "The order configuration workbook has been saved to the browser download folder.",
     productSelect: "Product Model Selection",
     model: "Model",
     form: "Installation Form",
@@ -230,6 +236,9 @@ const UI = {
     subTitle: "Confirmation de configuration, chiffrage des options et generation des documents",
     quoteInfo: "Informations du devis",
     generateQuote: "Generer le devis et le guide des options",
+    generateOrderWorkbookLabel: "Generer la configuration de commande",
+    orderWorkbookSheet: "Configuration de commande",
+    orderWorkbookDone: "Le fichier de configuration de commande a ete enregistre dans le dossier de telechargement.",
     productSelect: "Selection du modele",
     model: "Modele",
     form: "Type d'installation",
@@ -330,6 +339,9 @@ const UI = {
     subTitle: "Konfigurationsbestaetigung, Optionspreise und Dokumenterstellung",
     quoteInfo: "Angebotsinformationen",
     generateQuote: "Angebot und Optionsleitfaden erstellen",
+    generateOrderWorkbookLabel: "Auftragskonfiguration erstellen",
+    orderWorkbookSheet: "Auftragskonfiguration",
+    orderWorkbookDone: "Die Auftragskonfiguration wurde im Download-Ordner gespeichert.",
     productSelect: "Modellauswahl",
     model: "Modell",
     form: "Aufstellungsart",
@@ -749,6 +761,7 @@ function App() {
   const [selected, setSelected] = useState({});
   const [modalItem, setModalItem] = useState(null);
   const [generating, setGenerating] = useState(false);
+  const [orderGenerating, setOrderGenerating] = useState(false);
   const [quoteInfo, setQuoteInfo] = useState({
     quoteDate: localDateString(),
     quoteCompany: "中联重科建筑起重机械有限公司",
@@ -786,12 +799,15 @@ function App() {
         return response.json();
       })
       .then(data => {
-        if (data.result !== "success" || !data.rates?.USD || !data.rates?.EUR) {
+        const rows = Array.isArray(data) ? data : data?.value;
+        const usd = rows?.find(item => item.quote === "USD");
+        const eur = rows?.find(item => item.quote === "EUR");
+        if (!usd?.rate || !eur?.rate) {
           throw new Error("Invalid exchange-rate response");
         }
         const next = {
-          rates: { CNY: 1, USD: Number(data.rates.USD), EUR: Number(data.rates.EUR) },
-          date: new Date(data.time_last_update_utc).toISOString().slice(0, 10),
+          rates: { CNY: 1, USD: Number(usd.rate), EUR: Number(eur.rate) },
+          date: usd.date || eur.date || localDateString(),
           savedAt: Date.now(),
         };
         if (cancelled) return;
@@ -1126,6 +1142,33 @@ function App() {
     }
   }
 
+  async function generateOrderWorkbook() {
+    if (orderGenerating) return;
+    const workbookBase64 = product.combinedWorkbooks?.[language] || product.combinedWorkbooks?.zh;
+    if (!workbookBase64 || !configOptionRows.length) {
+      alert(L.excelUnavailable);
+      return;
+    }
+    setOrderGenerating(true);
+    try {
+      const { buildOrderWorkbook, downloadOrderWorkbook } = await import("./order-workbook.js");
+      const workbook = buildOrderWorkbook({
+        workbookBase64,
+        formName: tr(formName),
+        optionRows: configOptionRows,
+        selected,
+        sheetName: L.orderWorkbookSheet,
+      });
+      const filename = `${safeFilename(product.model)}_${safeFilename(L.orderWorkbookSheet)}_${timestampToMinute()}.xlsx`;
+      downloadOrderWorkbook(workbook, filename);
+      alert(L.orderWorkbookDone);
+    } catch (error) {
+      alert(`${L.loadError}: ${error.message}`);
+    } finally {
+      setOrderGenerating(false);
+    }
+  }
+
   return (
     <div className="app">
       <header className="topbar">
@@ -1138,6 +1181,7 @@ function App() {
         </div>
         <div className="top-actions">
           <button className="btn" disabled={generating} onClick={generateQuotation}>{generating ? L.generating : L.generateQuote}</button>
+          <button className="btn secondary" disabled={orderGenerating} onClick={generateOrderWorkbook}>{orderGenerating ? L.generating : L.generateOrderWorkbookLabel}</button>
         </div>
       </header>
 
@@ -1197,7 +1241,7 @@ function App() {
           <div className="panel-head price-panel-head">
             <h2>{L.currentPrice}</h2>
             <div className="price-head-controls">
-              <span className="badge">{tradeTerm} {tr(tradePlace)}</span>
+              <span className="badge">FOB</span>
               <label className="currency-control">
                 <span>{L.currency}</span>
                 <select aria-label={L.currency} value={currency} onChange={event => setCurrency(event.target.value)}>
@@ -1213,7 +1257,6 @@ function App() {
           </div>
           <div className="exchange-note">
             <span>{L.exchangeRate}: 1 CNY = {Number(exchangeRates[currency] || 0).toLocaleString("en-US", { maximumFractionDigits: 6 })} {currency} · {exchangeRateDate}</span>
-            <a href="https://www.exchangerate-api.com" target="_blank" rel="noreferrer">Rates by Exchange Rate API</a>
             {usingFallbackRate ? <span className="rate-warning">{L.rateFallback}</span> : null}
           </div>
         </section>
@@ -1253,7 +1296,7 @@ function App() {
             ) : (
               <div className="table-wrap">
                 <table>
-                  <thead><tr><th>{L.select}</th><th>{L.qty}</th><th>{L.changeType}</th><th>{L.item}</th><th>{L.itemPrice}</th><th>{L.package}</th></tr></thead>
+                  <thead><tr><th>{L.select}</th><th>{L.qty}</th><th>{L.changeType}</th><th>{L.item}</th><th>{L.package}</th></tr></thead>
                   <tbody>
                     {optionRows.map((item, index) => {
                       const selection = selected[index] || {
@@ -1267,7 +1310,6 @@ function App() {
                           <td><input className="small-input" type="number" min="1" value={selection.qty} onChange={event => updateSelected(index, { qty: event.target.value })} /></td>
                           <td><select className="mini-select" value={selection.type} onChange={event => updateSelected(index, { type: event.target.value })}><option value="addition">{L.add}</option><option value="deduction">{L.deduct}</option></select></td>
                           <td className="item-name">{tr(item.itemDisplay || item.name)}</td>
-                          <td>{formatMoney(priceWithPremium(optionPrice(item, selection.type), externalPremiumRate, currency, exchangeRates), currency)}</td>
                           <td>{item.children?.length ? <button className="inline-btn" onClick={() => setModalItem(item)}>{L.view}</button> : <span className="muted">/</span>}</td>
                         </tr>
                       );

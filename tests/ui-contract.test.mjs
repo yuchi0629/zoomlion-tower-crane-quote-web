@@ -11,6 +11,12 @@ test("top bar exposes one combined document generation action", () => {
   assert.doesNotMatch(source, /scrollIntoView/);
 });
 
+test("top bar exposes an order configuration workbook action", () => {
+  assert.match(source, /generateOrderWorkbook/);
+  assert.match(source, /onClick=\{generateOrderWorkbook\}/);
+  assert.match(source, /generateOrderWorkbookLabel/);
+});
+
 test("quotation remarks are editable and included in the quotation PDF", () => {
   assert.match(source, /remark:\s*"备注"/);
   assert.match(source, /remark:\s*""/);
@@ -48,6 +54,8 @@ test("currency is placed in the FOB price panel and language uses the short labe
   const priceEnd = source.indexOf("</section>", priceStart);
   assert.doesNotMatch(source.slice(productStart, priceStart), /label=\{L\.currency\}/);
   assert.match(source.slice(priceStart, priceEnd), /aria-label=\{L\.currency\}/);
+  assert.match(source.slice(priceStart, priceEnd), /<span className="badge">FOB<\/span>/);
+  assert.doesNotMatch(source.slice(priceStart, priceEnd), /<span className="badge">\{tradeTerm\}/);
 });
 
 test("clicking the header crane opens protected price settings", () => {
@@ -56,4 +64,20 @@ test("clicking the header crane opens protected price settings", () => {
   assert.match(source, /adminPassword\s*!==\s*"123\."/);
   assert.match(source, /externalPremiumRate/);
   assert.match(source, /actualSalesPrice/);
+});
+
+test("exchange-rate provider branding is not displayed", () => {
+  assert.match(source, /api\.frankfurter\.dev/);
+  assert.doesNotMatch(source, /exchangerate-api\.com/);
+  assert.doesNotMatch(source, /Rates by Exchange Rate API/);
+});
+
+test("option rows hide reference prices but keep option total pricing", () => {
+  const optionsStart = source.indexOf('<SectionTitle title={L.options}');
+  const optionsEnd = source.indexOf("</section>", optionsStart);
+  const optionsArea = source.slice(optionsStart, optionsEnd);
+  assert.doesNotMatch(optionsArea, /L\.itemPrice/);
+  assert.doesNotMatch(optionsArea, /formatMoney\(priceWithPremium\(optionPrice/);
+  assert.match(source, /const displayedOptionTotal = priceWithPremium\(optionTotal/);
+  assert.match(source, /<span>\{L\.optionPrice\}<\/span><strong>\{formatMoney\(displayedOptionTotal/);
 });
