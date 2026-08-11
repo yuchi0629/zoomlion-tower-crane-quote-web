@@ -913,6 +913,13 @@ function App() {
     setOrderDownload(null);
   }, [modelName, formName]);
 
+  useEffect(
+    () => () => {
+      if (orderDownload?.url) URL.revokeObjectURL(orderDownload.url);
+    },
+    [orderDownload],
+  );
+
   const configOptionRows = form?.optionRows || [];
   const priceOptionRows = (product?.priceOptions || []).map(priceOptionRow).filter(Boolean);
   const optionRows = configOptionRows.length ? configOptionRows : priceOptionRows;

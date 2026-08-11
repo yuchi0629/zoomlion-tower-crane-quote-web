@@ -4,7 +4,7 @@ import XLSX from "xlsx-js-style";
 
 import {
   buildOrderWorkbook,
-  createOrderWorkbookDataUrl,
+  createOrderWorkbookUrl,
   downloadOrderWorkbook,
   selectionMark,
   serializeOrderWorkbook,
@@ -78,8 +78,11 @@ test("combines standard and option sheets while retaining merges and applying pa
   assert.equal(sheet.A9.s.fill.fgColor.rgb, "AADB1E");
   const bytes = serializeOrderWorkbook(result);
   assert.ok(bytes.byteLength > 1000);
-  assert.match(createOrderWorkbookDataUrl(result), /^data:application\/vnd\.openxmlformats-officedocument\.spreadsheetml\.sheet;base64,/);
+  const workbookUrl = createOrderWorkbookUrl(result);
+  assert.match(workbookUrl, /^blob:/);
+  URL.revokeObjectURL(workbookUrl);
   const download = downloadOrderWorkbook(result, "R220订单配置表.xlsx");
   assert.equal(download.filename, "R220订单配置表.xlsx");
-  assert.match(download.url, /^data:application\/vnd\.openxmlformats-officedocument\.spreadsheetml\.sheet;base64,/);
+  assert.match(download.url, /^blob:/);
+  URL.revokeObjectURL(download.url);
 });
