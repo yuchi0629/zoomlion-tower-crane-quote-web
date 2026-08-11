@@ -5,6 +5,7 @@ import XLSX from "xlsx-js-style";
 import {
   buildOrderWorkbook,
   createOrderWorkbookDataUrl,
+  downloadOrderWorkbook,
   selectionMark,
   serializeOrderWorkbook,
 } from "../src/order-workbook.js";
@@ -78,4 +79,7 @@ test("combines standard and option sheets while retaining merges and applying pa
   const bytes = serializeOrderWorkbook(result);
   assert.ok(bytes.byteLength > 1000);
   assert.match(createOrderWorkbookDataUrl(result), /^data:application\/vnd\.openxmlformats-officedocument\.spreadsheetml\.sheet;base64,/);
+  const download = downloadOrderWorkbook(result, "R220订单配置表.xlsx");
+  assert.equal(download.filename, "R220订单配置表.xlsx");
+  assert.match(download.url, /^data:application\/vnd\.openxmlformats-officedocument\.spreadsheetml\.sheet;base64,/);
 });

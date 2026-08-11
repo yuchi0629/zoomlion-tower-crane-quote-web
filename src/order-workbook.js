@@ -141,11 +141,5 @@ export function createOrderWorkbookDataUrl(workbook) {
 
 export function downloadOrderWorkbook(workbook, filename) {
   const url = createOrderWorkbookDataUrl(workbook);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = filename;
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
   return { url, filename };
 }
