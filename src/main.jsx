@@ -2,10 +2,21 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+import {
+  calculateSalesPremium,
+  convertFromCny,
+  premiumRateOptions,
+  priceWithPremium,
+} from "./pricing.js";
 import "./styles.css";
 
 const BASE_URL = import.meta.env.BASE_URL;
 const BRAND = "#AADB1E";
+const RATE_API_URL = "https://open.er-api.com/v6/latest/CNY";
+const RATE_CACHE_KEY = "ztc_exchange_rates_cny_v1";
+const RATE_CACHE_MAX_AGE = 24 * 60 * 60 * 1000;
+const FALLBACK_RATES = { CNY: 1, USD: 0.148031, EUR: 0.128276 };
+const FALLBACK_RATE_DATE = "2026-08-11";
 const LANGUAGES = {
   zh: "中文",
   en: "English",
@@ -22,7 +33,7 @@ const UI = {
     productSelect: "产品型号选择",
     model: "产品型号",
     form: "安装形式",
-    language: "报价单语言",
+    language: "语言",
     tradeTerm: "贸易术语",
     currency: "价格单位",
     tradePlace: "交易地点",
@@ -31,6 +42,20 @@ const UI = {
     machinePrice: "整机价格",
     optionPrice: "选配价格",
     totalPrice: "当前总价",
+    adminAccess: "价格管理",
+    employeeId: "工号",
+    password: "密码",
+    login: "进入",
+    cancel: "取消",
+    loginError: "请输入工号，并检查密码是否正确。",
+    priceSettings: "价格显示设置",
+    externalPremiumRate: "外部显示溢价率",
+    actualSalesPrice: "实际销售价格",
+    truePrice: "真实价格",
+    actualPremiumRate: "真实溢价率",
+    externalDisplayPrice: "当前外部显示价格",
+    exchangeRate: "当前汇率",
+    rateFallback: "汇率服务暂不可用，正在使用最近汇率。",
     standardInfo: "标准配置信息",
     productCode: "产品编码",
     towerType: "塔机类型",
@@ -108,7 +133,7 @@ const UI = {
     productSelect: "Product Model Selection",
     model: "Model",
     form: "Installation Form",
-    language: "Quotation Language",
+    language: "Language",
     tradeTerm: "Trade Term",
     currency: "Currency",
     tradePlace: "Trade Location",
@@ -117,6 +142,20 @@ const UI = {
     machinePrice: "Machine Price",
     optionPrice: "Option Price",
     totalPrice: "Current Total",
+    adminAccess: "Price Management",
+    employeeId: "Employee ID",
+    password: "Password",
+    login: "Enter",
+    cancel: "Cancel",
+    loginError: "Enter an employee ID and check the password.",
+    priceSettings: "Price Display Settings",
+    externalPremiumRate: "External Display Premium",
+    actualSalesPrice: "Actual Sales Price",
+    truePrice: "True Price",
+    actualPremiumRate: "Actual Premium Rate",
+    externalDisplayPrice: "Current External Display Price",
+    exchangeRate: "Current Exchange Rate",
+    rateFallback: "The rate service is unavailable. The latest saved rates are being used.",
     standardInfo: "Standard Configuration Information",
     productCode: "Product Code",
     towerType: "Tower Crane Type",
@@ -194,7 +233,7 @@ const UI = {
     productSelect: "Selection du modele",
     model: "Modele",
     form: "Type d'installation",
-    language: "Langue du devis",
+    language: "Langue",
     tradeTerm: "Incoterm",
     currency: "Devise",
     tradePlace: "Lieu de transaction",
@@ -203,6 +242,20 @@ const UI = {
     machinePrice: "Prix de la machine",
     optionPrice: "Prix des options",
     totalPrice: "Total actuel",
+    adminAccess: "Gestion des prix",
+    employeeId: "Matricule",
+    password: "Mot de passe",
+    login: "Entrer",
+    cancel: "Annuler",
+    loginError: "Saisissez un matricule et verifiez le mot de passe.",
+    priceSettings: "Parametres d'affichage des prix",
+    externalPremiumRate: "Majoration d'affichage externe",
+    actualSalesPrice: "Prix de vente reel",
+    truePrice: "Prix reel",
+    actualPremiumRate: "Taux de majoration reel",
+    externalDisplayPrice: "Prix externe affiche",
+    exchangeRate: "Taux de change actuel",
+    rateFallback: "Le service de change est indisponible. Les derniers taux enregistres sont utilises.",
     standardInfo: "Informations de configuration standard",
     productCode: "Code produit",
     towerType: "Type de grue",
@@ -280,7 +333,7 @@ const UI = {
     productSelect: "Modellauswahl",
     model: "Modell",
     form: "Aufstellungsart",
-    language: "Angebotssprache",
+    language: "Sprache",
     tradeTerm: "Lieferbedingung",
     currency: "Waehrung",
     tradePlace: "Handelsort",
@@ -289,6 +342,20 @@ const UI = {
     machinePrice: "Maschinenpreis",
     optionPrice: "Optionspreis",
     totalPrice: "Aktuelle Summe",
+    adminAccess: "Preisverwaltung",
+    employeeId: "Personalnummer",
+    password: "Passwort",
+    login: "Oeffnen",
+    cancel: "Abbrechen",
+    loginError: "Personalnummer eingeben und Passwort pruefen.",
+    priceSettings: "Einstellungen der Preisanzeige",
+    externalPremiumRate: "Externer Anzeigeaufschlag",
+    actualSalesPrice: "Tatsaechlicher Verkaufspreis",
+    truePrice: "Tatsaechlicher Preis",
+    actualPremiumRate: "Tatsaechlicher Aufschlag",
+    externalDisplayPrice: "Aktueller externer Anzeigepreis",
+    exchangeRate: "Aktueller Wechselkurs",
+    rateFallback: "Der Wechselkursdienst ist nicht erreichbar. Die zuletzt gespeicherten Kurse werden verwendet.",
     standardInfo: "Informationen zur Standardkonfiguration",
     productCode: "Produktcode",
     towerType: "Turmdrehkrantyp",
@@ -667,6 +734,15 @@ function App() {
   const [formName, setFormName] = useState("");
   const [language, setLanguage] = useState("zh");
   const [currency, setCurrency] = useState("CNY");
+  const [exchangeRates, setExchangeRates] = useState(FALLBACK_RATES);
+  const [exchangeRateDate, setExchangeRateDate] = useState(FALLBACK_RATE_DATE);
+  const [usingFallbackRate, setUsingFallbackRate] = useState(true);
+  const [externalPremiumRate, setExternalPremiumRate] = useState(2);
+  const [actualSalesPriceCny, setActualSalesPriceCny] = useState("");
+  const [adminModal, setAdminModal] = useState("");
+  const [employeeId, setEmployeeId] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
+  const [adminError, setAdminError] = useState("");
   const [tradeTerm, setTradeTerm] = useState("FOB");
   const [tradePlace, setTradePlace] = useState("上海港");
   const [customerName, setCustomerName] = useState("");
@@ -688,6 +764,50 @@ function App() {
     others: "报价含首次安装指导服务费用。",
     remark: "",
   });
+
+  useEffect(() => {
+    let cancelled = false;
+    let cached = null;
+    try {
+      cached = JSON.parse(localStorage.getItem(RATE_CACHE_KEY) || "null");
+    } catch {
+      cached = null;
+    }
+    if (cached?.rates?.USD && cached?.rates?.EUR) {
+      setExchangeRates({ CNY: 1, USD: Number(cached.rates.USD), EUR: Number(cached.rates.EUR) });
+      setExchangeRateDate(cached.date || FALLBACK_RATE_DATE);
+      setUsingFallbackRate(false);
+    }
+    if (cached?.savedAt && Date.now() - Number(cached.savedAt) < RATE_CACHE_MAX_AGE) return undefined;
+
+    fetch(RATE_API_URL)
+      .then(response => {
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        return response.json();
+      })
+      .then(data => {
+        if (data.result !== "success" || !data.rates?.USD || !data.rates?.EUR) {
+          throw new Error("Invalid exchange-rate response");
+        }
+        const next = {
+          rates: { CNY: 1, USD: Number(data.rates.USD), EUR: Number(data.rates.EUR) },
+          date: new Date(data.time_last_update_utc).toISOString().slice(0, 10),
+          savedAt: Date.now(),
+        };
+        if (cancelled) return;
+        setExchangeRates(next.rates);
+        setExchangeRateDate(next.date);
+        setUsingFallbackRate(false);
+        localStorage.setItem(RATE_CACHE_KEY, JSON.stringify(next));
+      })
+      .catch(() => {
+        if (!cancelled && !cached?.rates?.USD) setUsingFallbackRate(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     fetch(`${BASE_URL}data/app-data.json`)
@@ -719,6 +839,15 @@ function App() {
           setTradeTerm(saved.tradeTerm || "FOB");
           setTradePlace(saved.tradePlace || data.ui.defaultTradePlace || "上海港");
           setCustomerName(saved.customerName || "");
+          const savedPremiumRate = Number(saved.externalPremiumRate);
+          setExternalPremiumRate(
+            premiumRateOptions().includes(savedPremiumRate) ? savedPremiumRate : 2,
+          );
+          setActualSalesPriceCny(
+            saved.actualSalesPriceCny === "" || saved.actualSalesPriceCny == null
+              ? ""
+              : Number(saved.actualSalesPriceCny),
+          );
         }
       })
       .catch(error => setLoadError(error.message));
@@ -728,9 +857,28 @@ function App() {
     if (!appData) return;
     localStorage.setItem(
       "ztc_quote_settings_v2",
-      JSON.stringify({ language, currency, tradeTerm, tradePlace, customerName, quoteInfo }),
+      JSON.stringify({
+        language,
+        currency,
+        tradeTerm,
+        tradePlace,
+        customerName,
+        quoteInfo,
+        externalPremiumRate,
+        actualSalesPriceCny,
+      }),
     );
-  }, [appData, language, currency, tradeTerm, tradePlace, customerName, quoteInfo]);
+  }, [
+    appData,
+    language,
+    currency,
+    tradeTerm,
+    tradePlace,
+    customerName,
+    quoteInfo,
+    externalPremiumRate,
+    actualSalesPriceCny,
+  ]);
 
   const L = UI[language] || UI.zh;
   const product = appData?.products.find(item => item.model === modelName);
@@ -764,6 +912,16 @@ function App() {
     [selectedOptions],
   );
   const totalPrice = Number(machinePrice || 0) + optionTotal;
+  const displayedMachinePrice = priceWithPremium(machinePrice, externalPremiumRate, currency, exchangeRates);
+  const displayedOptionTotal = priceWithPremium(optionTotal, externalPremiumRate, currency, exchangeRates);
+  const displayedTotalPrice = priceWithPremium(totalPrice, externalPremiumRate, currency, exchangeRates);
+  const truePrice = convertFromCny(totalPrice, currency, exchangeRates);
+  const actualSalesPrice = actualSalesPriceCny === ""
+    ? ""
+    : convertFromCny(actualSalesPriceCny, currency, exchangeRates);
+  const actualPremiumRate = actualSalesPrice === ""
+    ? null
+    : calculateSalesPremium(actualSalesPrice, truePrice);
 
   if (loadError) {
     return <div className="loading error">{UI.zh.loadError}: {loadError}</div>;
@@ -802,6 +960,33 @@ function App() {
     setQuoteInfo(current => ({ ...current, [key]: value }));
   }
 
+  function openAdminLogin() {
+    setEmployeeId("");
+    setAdminPassword("");
+    setAdminError("");
+    setAdminModal("login");
+  }
+
+  function submitAdminLogin(event) {
+    event.preventDefault();
+    if (!employeeId.trim() || adminPassword !== "123.") {
+      setAdminError(L.loginError);
+      return;
+    }
+    setAdminPassword("");
+    setAdminError("");
+    setAdminModal("settings");
+  }
+
+  function updateActualSalesPrice(value) {
+    if (value === "") {
+      setActualSalesPriceCny("");
+      return;
+    }
+    const rate = Number(exchangeRates[currency] || 0);
+    if (rate > 0) setActualSalesPriceCny(Number(value) / rate);
+  }
+
   function changeLanguage(nextLanguage) {
     setLanguage(nextLanguage);
     setTradePlace(current => translatedEditableText(current, nextLanguage, dictionary));
@@ -837,7 +1022,7 @@ function App() {
           })
           .join("")
       : `<tr><td></td><td colspan="4">${escapeHtml(L.noneSelected)}</td></tr>`;
-    const unitPrice = `${tradeTerm} ${tr(tradePlace)} (${tr("价格") || "Price"}: ${currency} ${formatNumber(totalPrice)})`;
+    const unitPrice = `${tradeTerm} ${tr(tradePlace)} (${tr("价格") || "Price"}: ${currency} ${formatNumber(displayedTotalPrice)})`;
     const quoteCompany = tr(quoteInfo.quoteCompany);
     return `
       ${pdfStyles()}
@@ -944,7 +1129,9 @@ function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <img className="header-crane" src={`${BASE_URL}assets/crane.png`} alt="" />
+        <button className="logo-button" type="button" onClick={openAdminLogin} aria-label={L.adminAccess} title={L.adminAccess}>
+          <img className="header-crane" src={`${BASE_URL}assets/crane.png`} alt="" />
+        </button>
         <div className="title-block">
           <h1>{L.appTitle}</h1>
           <div className="subtitle">{L.subTitle}</div>
@@ -986,11 +1173,6 @@ function App() {
                   {Object.entries(LANGUAGES).map(([code, label]) => <option value={code} key={code}>{label}</option>)}
                 </select>
               </Field>
-              <Field label={L.currency}>
-                <select value={currency} onChange={event => setCurrency(event.target.value)}>
-                  {appData.ui.currencies.map(item => <option value={item} key={item}>{item}</option>)}
-                </select>
-              </Field>
             </div>
             <div className={`publish-state ${product.published ? "ok" : "pending"}`}>
               <span>{product.published ? L.published : L.notPublished}</span>
@@ -1012,11 +1194,27 @@ function App() {
         </section>
 
         <section className="price-panel panel">
-          <SectionTitle title={L.currentPrice} note={`${tradeTerm} ${tr(tradePlace)}`} />
+          <div className="panel-head price-panel-head">
+            <h2>{L.currentPrice}</h2>
+            <div className="price-head-controls">
+              <span className="badge">{tradeTerm} {tr(tradePlace)}</span>
+              <label className="currency-control">
+                <span>{L.currency}</span>
+                <select aria-label={L.currency} value={currency} onChange={event => setCurrency(event.target.value)}>
+                  {appData.ui.currencies.map(item => <option value={item} key={item}>{item}</option>)}
+                </select>
+              </label>
+            </div>
+          </div>
           <div className="price-grid">
-            <div className="price-item"><span>{L.machinePrice}</span><strong>{formatMoney(machinePrice, currency)}</strong></div>
-            <div className="price-item"><span>{L.optionPrice}</span><strong>{formatMoney(optionTotal, currency)}</strong></div>
-            <div className="price-item total"><span>{L.totalPrice}</span><strong>{formatMoney(totalPrice, currency)}</strong></div>
+            <div className="price-item"><span>{L.machinePrice}</span><strong>{formatMoney(displayedMachinePrice, currency)}</strong></div>
+            <div className="price-item"><span>{L.optionPrice}</span><strong>{formatMoney(displayedOptionTotal, currency)}</strong></div>
+            <div className="price-item total"><span>{L.totalPrice}</span><strong>{formatMoney(displayedTotalPrice, currency)}</strong></div>
+          </div>
+          <div className="exchange-note">
+            <span>{L.exchangeRate}: 1 CNY = {Number(exchangeRates[currency] || 0).toLocaleString("en-US", { maximumFractionDigits: 6 })} {currency} · {exchangeRateDate}</span>
+            <a href="https://www.exchangerate-api.com" target="_blank" rel="noreferrer">Rates by Exchange Rate API</a>
+            {usingFallbackRate ? <span className="rate-warning">{L.rateFallback}</span> : null}
           </div>
         </section>
 
@@ -1069,7 +1267,7 @@ function App() {
                           <td><input className="small-input" type="number" min="1" value={selection.qty} onChange={event => updateSelected(index, { qty: event.target.value })} /></td>
                           <td><select className="mini-select" value={selection.type} onChange={event => updateSelected(index, { type: event.target.value })}><option value="addition">{L.add}</option><option value="deduction">{L.deduct}</option></select></td>
                           <td className="item-name">{tr(item.itemDisplay || item.name)}</td>
-                          <td>{formatMoney(optionPrice(item, selection.type), currency)}</td>
+                          <td>{formatMoney(priceWithPremium(optionPrice(item, selection.type), externalPremiumRate, currency, exchangeRates), currency)}</td>
                           <td>{item.children?.length ? <button className="inline-btn" onClick={() => setModalItem(item)}>{L.view}</button> : <span className="muted">/</span>}</td>
                         </tr>
                       );
@@ -1110,6 +1308,64 @@ function App() {
           </div>
         </section>
       </main>
+
+      {adminModal === "login" ? (
+        <div className="modal-backdrop" onClick={() => setAdminModal("")}>
+          <form className="modal admin-modal" onSubmit={submitAdminLogin} onClick={event => event.stopPropagation()}>
+            <div className="modal-title">
+              <h2>{L.adminAccess}</h2>
+              <button className="btn secondary" type="button" onClick={() => setAdminModal("")}>{L.close}</button>
+            </div>
+            <div className="admin-login-fields">
+              <Field label={L.employeeId}><input autoFocus value={employeeId} onChange={event => setEmployeeId(event.target.value)} /></Field>
+              <Field label={L.password}><input type="password" value={adminPassword} onChange={event => setAdminPassword(event.target.value)} /></Field>
+            </div>
+            {adminError ? <div className="admin-error">{adminError}</div> : null}
+            <div className="admin-actions">
+              <button className="btn secondary" type="button" onClick={() => setAdminModal("")}>{L.cancel}</button>
+              <button className="btn" type="submit">{L.login}</button>
+            </div>
+          </form>
+        </div>
+      ) : null}
+
+      {adminModal === "settings" ? (
+        <div className="modal-backdrop" onClick={() => setAdminModal("")}>
+          <div className="modal admin-modal" onClick={event => event.stopPropagation()}>
+            <div className="modal-title">
+              <h2>{L.priceSettings}</h2>
+              <button className="btn secondary" type="button" onClick={() => setAdminModal("")}>{L.close}</button>
+            </div>
+            <div className="admin-settings-grid">
+              <Field label={L.externalPremiumRate}>
+                <select value={externalPremiumRate} onChange={event => setExternalPremiumRate(Number(event.target.value))}>
+                  {premiumRateOptions().map(rate => <option value={rate} key={rate}>{rate}%</option>)}
+                </select>
+              </Field>
+              <Field label={L.actualSalesPrice}>
+                <div className="input-with-suffix">
+                  <input type="number" min="0" step="0.01" value={actualSalesPrice} onChange={event => updateActualSalesPrice(event.target.value)} />
+                  <span>{currency}</span>
+                </div>
+              </Field>
+            </div>
+            <div className="admin-price-summary">
+              <div className="admin-price-card">
+                <span>{L.truePrice}</span>
+                <strong>{formatMoney(truePrice, currency)}</strong>
+              </div>
+              <div className="admin-price-card">
+                <span>{L.externalDisplayPrice}</span>
+                <strong>{formatMoney(displayedTotalPrice, currency)}</strong>
+              </div>
+              <div className="admin-price-card emphasis">
+                <span>{L.actualPremiumRate}</span>
+                <strong>{actualPremiumRate == null ? "/" : `${actualPremiumRate >= 0 ? "+" : ""}${actualPremiumRate.toFixed(2)}%`}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       {modalItem ? (
         <div className="modal-backdrop" onClick={() => setModalItem(null)}>

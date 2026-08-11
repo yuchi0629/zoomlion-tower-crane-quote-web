@@ -40,3 +40,20 @@ test("trade term, trade location and customer are part of quotation information"
   assert.match(quoteArea, /label=\{L\.tradePlace\}/);
   assert.match(quoteArea, /label=\{L\.customer\}/);
 });
+
+test("currency is placed in the FOB price panel and language uses the short label", () => {
+  assert.match(source, /language:\s*"语言"/);
+  const productStart = source.indexOf('<section className="top-grid">');
+  const priceStart = source.indexOf('<section className="price-panel panel">');
+  const priceEnd = source.indexOf("</section>", priceStart);
+  assert.doesNotMatch(source.slice(productStart, priceStart), /label=\{L\.currency\}/);
+  assert.match(source.slice(priceStart, priceEnd), /aria-label=\{L\.currency\}/);
+});
+
+test("clicking the header crane opens protected price settings", () => {
+  assert.match(source, /className="logo-button"/);
+  assert.match(source, /setAdminModal\("login"\)/);
+  assert.match(source, /adminPassword\s*!==\s*"123\."/);
+  assert.match(source, /externalPremiumRate/);
+  assert.match(source, /actualSalesPrice/);
+});
