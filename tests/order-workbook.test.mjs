@@ -86,10 +86,32 @@ test("combines standard and option sheets while retaining merges and applying pa
   const workbookUrl = createOrderWorkbookUrl(result);
   assert.match(workbookUrl, /^blob:/);
   URL.revokeObjectURL(workbookUrl);
-  const download = downloadOrderWorkbook(result, "R220订单配置表.xlsx");
+  const events = [];
+  const anchor = {
+    click: () => events.push("click"),
+    remove: () => events.push("remove"),
+  };
+  const runtime = {
+    Blob,
+    URL: {
+      createObjectURL: () => "blob:order-workbook",
+      revokeObjectURL: url => events.push(`revoke:${url}`),
+    },
+    document: {
+      createElement: tag => {
+        assert.equal(tag, "a");
+        return anchor;
+      },
+      body: { appendChild: element => assert.equal(element, anchor) },
+    },
+    setTimeout: callback => callback(),
+  };
+  const download = downloadOrderWorkbook(result, "R220订单配置表.xlsx", runtime);
   assert.equal(download.filename, "R220订单配置表.xlsx");
-  assert.match(download.url, /^blob:/);
-  URL.revokeObjectURL(download.url);
+  assert.equal(download.url, "blob:order-workbook");
+  assert.deepEqual(events, ["click", "remove", "revoke:blob:order-workbook"]);
+  assert.equal(anchor.href, "blob:order-workbook");
+  assert.equal(anchor.download, "R220订单配置表.xlsx");
 });
 
 test("keeps only the selected base-frame installation column", () => {

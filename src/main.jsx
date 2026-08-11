@@ -33,7 +33,6 @@ const UI = {
     quoteInfo: "报价单信息",
     generateQuote: "生成报价单及选配指导",
     generateOrderWorkbookLabel: "生成订单配置表",
-    downloadOrderWorkbookLabel: "下载订单配置表",
     orderWorkbookSheet: "订单配置表",
     orderWorkbookDone: "订单配置表已生成，并保存到浏览器下载目录。",
     productSelect: "产品型号选择",
@@ -137,7 +136,6 @@ const UI = {
     quoteInfo: "Quotation Information",
     generateQuote: "Generate Quotation & Options Guide",
     generateOrderWorkbookLabel: "Generate Order Configuration",
-    downloadOrderWorkbookLabel: "Download Order Configuration",
     orderWorkbookSheet: "Order Configuration",
     orderWorkbookDone: "The order configuration workbook has been saved to the browser download folder.",
     productSelect: "Product Model Selection",
@@ -241,7 +239,6 @@ const UI = {
     quoteInfo: "Informations du devis",
     generateQuote: "Generer le devis et le guide des options",
     generateOrderWorkbookLabel: "Generer la configuration de commande",
-    downloadOrderWorkbookLabel: "Telecharger la configuration de commande",
     orderWorkbookSheet: "Configuration de commande",
     orderWorkbookDone: "Le fichier de configuration de commande a ete enregistre dans le dossier de telechargement.",
     productSelect: "Selection du modele",
@@ -345,7 +342,6 @@ const UI = {
     quoteInfo: "Angebotsinformationen",
     generateQuote: "Angebot und Optionsleitfaden erstellen",
     generateOrderWorkbookLabel: "Auftragskonfiguration erstellen",
-    downloadOrderWorkbookLabel: "Auftragskonfiguration herunterladen",
     orderWorkbookSheet: "Auftragskonfiguration",
     orderWorkbookDone: "Die Auftragskonfiguration wurde im Download-Ordner gespeichert.",
     productSelect: "Modellauswahl",
@@ -770,7 +766,6 @@ function App() {
   const [modalItem, setModalItem] = useState(null);
   const [generating, setGenerating] = useState(false);
   const [orderGenerating, setOrderGenerating] = useState(false);
-  const [orderDownload, setOrderDownload] = useState(null);
   const [quoteInfo, setQuoteInfo] = useState({
     quoteDate: localDateString(),
     quoteCompany: "中联重科建筑起重机械有限公司",
@@ -924,15 +919,7 @@ function App() {
 
   useEffect(() => {
     setSelected({});
-    setOrderDownload(null);
   }, [modelName, formName]);
-
-  useEffect(
-    () => () => {
-      if (orderDownload?.url) URL.revokeObjectURL(orderDownload.url);
-    },
-    [orderDownload],
-  );
 
   const configOptionRows = form?.optionRows || [];
   const priceOptionRows = (product?.priceOptions || []).map(priceOptionRow).filter(Boolean);
@@ -1186,8 +1173,8 @@ function App() {
         sheetName: L.orderWorkbookSheet,
       });
       const filename = `${safeFilename(product.model)}_${safeFilename(L.orderWorkbookSheet)}_${timestampToMinute()}.xlsx`;
-      const nextDownload = downloadOrderWorkbook(workbook, filename);
-      setOrderDownload(nextDownload);
+      downloadOrderWorkbook(workbook, filename);
+      alert(L.orderWorkbookDone);
     } catch (error) {
       alert(`${L.loadError}: ${error.message}`);
     } finally {
@@ -1208,7 +1195,6 @@ function App() {
         <div className="top-actions">
           <button className="btn" disabled={generating} onClick={generateQuotation}>{generating ? L.generating : L.generateQuote}</button>
           <button className="btn secondary" disabled={orderGenerating} onClick={generateOrderWorkbook}>{orderGenerating ? L.generating : L.generateOrderWorkbookLabel}</button>
-          {orderDownload ? <a className="btn ghost order-download-link" href={orderDownload.url} download={orderDownload.filename}>{L.downloadOrderWorkbookLabel}</a> : null}
         </div>
       </header>
 

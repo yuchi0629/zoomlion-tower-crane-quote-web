@@ -202,13 +202,20 @@ export function serializeOrderWorkbook(workbook) {
   return XLSX.write(workbook, { type: "array", bookType: "xlsx", compression: true, cellStyles: true });
 }
 
-export function createOrderWorkbookUrl(workbook) {
+export function createOrderWorkbookUrl(workbook, runtime = globalThis) {
   const bytes = serializeOrderWorkbook(workbook);
-  const blob = new Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-  return URL.createObjectURL(blob);
+  const blob = new runtime.Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+  return runtime.URL.createObjectURL(blob);
 }
 
-export function downloadOrderWorkbook(workbook, filename) {
-  const url = createOrderWorkbookUrl(workbook);
+export function downloadOrderWorkbook(workbook, filename, runtime = globalThis) {
+  const url = createOrderWorkbookUrl(workbook, runtime);
+  const anchor = runtime.document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  runtime.document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  runtime.setTimeout(() => runtime.URL.revokeObjectURL(url), 0);
   return { url, filename };
 }
