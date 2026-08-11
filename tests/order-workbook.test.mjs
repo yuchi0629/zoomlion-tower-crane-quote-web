@@ -2,7 +2,12 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import XLSX from "xlsx-js-style";
 
-import { buildOrderWorkbook, selectionMark, serializeOrderWorkbook } from "../src/order-workbook.js";
+import {
+  buildOrderWorkbook,
+  createOrderWorkbookDataUrl,
+  selectionMark,
+  serializeOrderWorkbook,
+} from "../src/order-workbook.js";
 
 function sourceWorkbookBase64() {
   const basic = XLSX.utils.aoa_to_sheet([
@@ -72,4 +77,5 @@ test("combines standard and option sheets while retaining merges and applying pa
   assert.equal(sheet.A9.s.fill.fgColor.rgb, "AADB1E");
   const bytes = serializeOrderWorkbook(result);
   assert.ok(bytes.byteLength > 1000);
+  assert.match(createOrderWorkbookDataUrl(result), /^data:application\/vnd\.openxmlformats-officedocument\.spreadsheetml\.sheet;base64,/);
 });

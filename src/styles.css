@@ -131,6 +131,13 @@ h1 {
   padding: 8px 12px;
 }
 
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .btn.secondary {
   background: #fff;
   color: #4e6500;

@@ -134,15 +134,18 @@ export function serializeOrderWorkbook(workbook) {
   return XLSX.write(workbook, { type: "array", bookType: "xlsx", compression: true, cellStyles: true });
 }
 
+export function createOrderWorkbookDataUrl(workbook) {
+  const base64 = XLSX.write(workbook, { type: "base64", bookType: "xlsx", compression: true, cellStyles: true });
+  return `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${base64}`;
+}
+
 export function downloadOrderWorkbook(workbook, filename) {
-  const bytes = serializeOrderWorkbook(workbook);
-  const blob = new Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-  const url = URL.createObjectURL(blob);
+  const url = createOrderWorkbookDataUrl(workbook);
   const anchor = document.createElement("a");
   anchor.href = url;
   anchor.download = filename;
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 0);
+  return { url, filename };
 }

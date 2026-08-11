@@ -15,6 +15,9 @@ test("top bar exposes an order configuration workbook action", () => {
   assert.match(source, /generateOrderWorkbook/);
   assert.match(source, /onClick=\{generateOrderWorkbook\}/);
   assert.match(source, /generateOrderWorkbookLabel/);
+  assert.match(source, /orderDownload/);
+  assert.match(source, /href=\{orderDownload\.url\}/);
+  assert.match(source, /download=\{orderDownload\.filename\}/);
 });
 
 test("quotation remarks are editable and included in the quotation PDF", () => {
