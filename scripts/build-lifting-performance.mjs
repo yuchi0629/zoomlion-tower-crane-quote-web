@@ -23,6 +23,20 @@ const modelDefinitions = [
   { code: "R335-16", type: "flat", superlift: true },
   { code: "R370-20", type: "flat", superlift: true },
   { code: "L235-12", type: "luffing", superlift: false },
+  { code: "WA5610-6", type: "flat", superlift: false },
+  { code: "WA6013-6", type: "flat", superlift: false },
+  { code: "WA6013-8", type: "flat", superlift: false },
+  { code: "WA6017-8", type: "flat", superlift: false },
+  { code: "WA6017-10", type: "flat", superlift: false },
+  { code: "WA6515-8", type: "flat", superlift: false },
+  { code: "WA6515-10", type: "flat", superlift: false },
+  { code: "WA7015-10", type: "flat", superlift: false },
+  { code: "WA7025-10", type: "flat", superlift: false },
+  { code: "WA7025-12", type: "flat", superlift: false },
+  { code: "WA7527-16", type: "flat", superlift: false },
+  { code: "WA7527-20", type: "flat", superlift: false },
+  { code: "WA350-16", type: "flat", superlift: false },
+  { code: "WA350-20", type: "flat", superlift: false },
 ];
 
 function number(value) {
