@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const source = readFileSync(new URL("../src/main.jsx", import.meta.url), "utf8");
+const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
 test("top bar exposes one combined document generation action", () => {
   assert.match(source, /generateQuote:\s*"生成报价单及选配指导"/);
@@ -85,4 +86,27 @@ test("option rows hide reference prices but keep option total pricing", () => {
   assert.doesNotMatch(optionsArea, /formatMoney\(priceWithPremium\(optionPrice/);
   assert.match(source, /const displayedOptionTotal = priceWithPremium\(optionTotal/);
   assert.match(source, /<span>\{L\.optionPrice\}<\/span><strong>\{formatMoney\(displayedOptionTotal/);
+});
+
+test("places language first and keeps product selection free of form and count controls", () => {
+  const languageStart = source.indexOf('className="top-language-control"');
+  const selectorStart = source.indexOf("<TowerCraneSelector");
+  const productStart = source.indexOf('<section className="top-grid">');
+  const productEnd = source.indexOf("</section>", productStart);
+  const productArea = source.slice(productStart, productEnd);
+
+  assert.ok(languageStart > -1 && languageStart < selectorStart);
+  assert.doesNotMatch(productArea, /L\.modelCount|L\.formCount/);
+  assert.doesNotMatch(productArea, /label=\{L\.form\}/);
+  assert.doesNotMatch(productArea, /label=\{L\.language\}/);
+});
+
+test("uses equal product columns and places price after configuration and options", () => {
+  const productStart = source.indexOf('<section className="top-grid">');
+  const tablesStart = source.indexOf('<section className="tables">');
+  const priceStart = source.indexOf('<section className="price-panel panel">');
+  const quoteStart = source.indexOf('<section className="panel" id="quote-panel">');
+
+  assert.ok(productStart < tablesStart && tablesStart < priceStart && priceStart < quoteStart);
+  assert.match(styles, /\.top-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
 });

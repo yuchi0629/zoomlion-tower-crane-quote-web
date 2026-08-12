@@ -1193,6 +1193,12 @@ function App() {
           <div className="subtitle">{L.subTitle}</div>
         </div>
         <div className="top-actions">
+          <label className="top-language-control">
+            <span>{L.language}</span>
+            <select value={language} onChange={event => changeLanguage(event.target.value)}>
+              {Object.entries(LANGUAGES).map(([code, label]) => <option value={code} key={code}>{label}</option>)}
+            </select>
+          </label>
           <button className="btn" disabled={generating} onClick={generateQuotation}>{generating ? L.generating : L.generateQuote}</button>
           <button className="btn secondary" disabled={orderGenerating} onClick={generateOrderWorkbook}>{orderGenerating ? L.generating : L.generateOrderWorkbookLabel}</button>
         </div>
@@ -1208,39 +1214,16 @@ function App() {
 
         <section className="top-grid">
           <div className="panel">
-            <SectionTitle
-              title={L.productSelect}
-              note={`${L.modelCount} ${appData.products.length}`}
-            />
-            <div className="form-grid">
-              <Field label={L.model} className="span-2">
+            <SectionTitle title={L.productSelect} />
+            <div className="form-grid product-model-grid">
+              <Field label={L.model}>
                 <select value={modelName} onChange={event => selectModel(event.target.value)}>
                   {appData.products.map(item => <option value={item.model} key={item.model}>{item.model}</option>)}
-                </select>
-              </Field>
-              <Field label={L.form}>
-                <select
-                  value={form?.installForm || ""}
-                  disabled={!product.forms.length}
-                  onChange={event => {
-                    setFormName(event.target.value);
-                    setSelected({});
-                  }}
-                >
-                  {product.forms.length
-                    ? product.forms.map(item => <option value={item.installForm} key={item.installForm}>{tr(item.installForm)}</option>)
-                    : <option value="">{L.noForms}</option>}
-                </select>
-              </Field>
-              <Field label={L.language}>
-                <select value={language} onChange={event => changeLanguage(event.target.value)}>
-                  {Object.entries(LANGUAGES).map(([code, label]) => <option value={code} key={code}>{label}</option>)}
                 </select>
               </Field>
             </div>
             <div className={`publish-state ${product.published ? "ok" : "pending"}`}>
               <span>{product.published ? L.published : L.notPublished}</span>
-              <span>{L.formCount}: {product.forms.length}</span>
             </div>
           </div>
 
@@ -1254,30 +1237,6 @@ function App() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="price-panel panel">
-          <div className="panel-head price-panel-head">
-            <h2>{L.currentPrice}</h2>
-            <div className="price-head-controls">
-              <span className="badge">FOB</span>
-              <label className="currency-control">
-                <span>{L.currency}</span>
-                <select aria-label={L.currency} value={currency} onChange={event => setCurrency(event.target.value)}>
-                  {appData.ui.currencies.map(item => <option value={item} key={item}>{item}</option>)}
-                </select>
-              </label>
-            </div>
-          </div>
-          <div className="price-grid">
-            <div className="price-item"><span>{L.machinePrice}</span><strong>{formatMoney(displayedMachinePrice, currency)}</strong></div>
-            <div className="price-item"><span>{L.optionPrice}</span><strong>{formatMoney(displayedOptionTotal, currency)}</strong></div>
-            <div className="price-item total"><span>{L.totalPrice}</span><strong>{formatMoney(displayedTotalPrice, currency)}</strong></div>
-          </div>
-          <div className="exchange-note">
-            <span>{L.exchangeRate}: 1 CNY = {Number(exchangeRates[currency] || 0).toLocaleString("en-US", { maximumFractionDigits: 6 })} {currency} · {exchangeRateDate}</span>
-            {usingFallbackRate ? <span className="rate-warning">{L.rateFallback}</span> : null}
           </div>
         </section>
 
@@ -1338,6 +1297,30 @@ function App() {
                 </table>
               </div>
             )}
+          </div>
+        </section>
+
+        <section className="price-panel panel">
+          <div className="panel-head price-panel-head">
+            <h2>{L.currentPrice}</h2>
+            <div className="price-head-controls">
+              <span className="badge">FOB</span>
+              <label className="currency-control">
+                <span>{L.currency}</span>
+                <select aria-label={L.currency} value={currency} onChange={event => setCurrency(event.target.value)}>
+                  {appData.ui.currencies.map(item => <option value={item} key={item}>{item}</option>)}
+                </select>
+              </label>
+            </div>
+          </div>
+          <div className="price-grid">
+            <div className="price-item"><span>{L.machinePrice}</span><strong>{formatMoney(displayedMachinePrice, currency)}</strong></div>
+            <div className="price-item"><span>{L.optionPrice}</span><strong>{formatMoney(displayedOptionTotal, currency)}</strong></div>
+            <div className="price-item total"><span>{L.totalPrice}</span><strong>{formatMoney(displayedTotalPrice, currency)}</strong></div>
+          </div>
+          <div className="exchange-note">
+            <span>{L.exchangeRate}: 1 CNY = {Number(exchangeRates[currency] || 0).toLocaleString("en-US", { maximumFractionDigits: 6 })} {currency} · {exchangeRateDate}</span>
+            {usingFallbackRate ? <span className="rate-warning">{L.rateFallback}</span> : null}
           </div>
         </section>
 

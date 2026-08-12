@@ -6,13 +6,9 @@ const TEXT = {
   zh: {
     title: "塔机选型",
     intro: "输入全部吊点要求，匹配可满足性能的机型。",
-    loaded: "已录入性能",
-    models: "款",
-    flatShort: "平臂",
-    luffingShort: "动臂",
     flat: "平臂塔机",
     luffing: "动臂塔机",
-    requirements: "吊重要求",
+    requirements: "幅度性能需求",
     point: "吊点",
     radius: "幅度",
     load: "吊重",
@@ -49,13 +45,9 @@ const TEXT = {
   en: {
     title: "Tower Crane Selection",
     intro: "Enter all lifting-point requirements to match cranes that meet the required performance.",
-    loaded: "Performance models",
-    models: "models",
-    flatShort: "Flat-top",
-    luffingShort: "Luffing-jib",
     flat: "Flat-top Crane",
     luffing: "Luffing-jib Crane",
-    requirements: "Lifting Requirements",
+    requirements: "Radius Performance Requirements",
     point: "Point",
     radius: "Radius",
     load: "Load",
@@ -92,13 +84,9 @@ const TEXT = {
   fr: {
     title: "Selection de grue a tour",
     intro: "Saisissez toutes les exigences de levage pour identifier les grues dont les performances conviennent.",
-    loaded: "Modeles de performance",
-    models: "modeles",
-    flatShort: "Fleche horizontale",
-    luffingShort: "Fleche relevable",
     flat: "Grue a fleche horizontale",
     luffing: "Grue a fleche relevable",
-    requirements: "Exigences de levage",
+    requirements: "Exigences de performance en portee",
     point: "Point",
     radius: "Portee",
     load: "Charge",
@@ -135,13 +123,9 @@ const TEXT = {
   de: {
     title: "Turmdrehkran-Auswahl",
     intro: "Alle Lastpunktanforderungen eingeben, um Krane mit ausreichender Leistung zu ermitteln.",
-    loaded: "Leistungsmodelle",
-    models: "Modelle",
-    flatShort: "Laufkatze",
-    luffingShort: "Wippausleger",
     flat: "Obendreher mit Laufkatze",
     luffing: "Wippauslegerkran",
-    requirements: "Lastanforderungen",
+    requirements: "Ausladungs- und Leistungsanforderungen",
     point: "Lastpunkt",
     radius: "Ausladung",
     load: "Last",
@@ -244,11 +228,6 @@ export default function TowerCraneSelector({ data, language = "zh", loading = fa
   );
   const { matches, nearest } = selection;
   const visibleMatches = expanded ? matches : matches.slice(0, 3);
-  const totalCount = data?.models?.length || 0;
-  const flatCount = data?.models?.filter(model => model.type === "flat").length || 0;
-  const luffingCount = data?.models?.filter(model => model.type === "luffing").length || 0;
-  const availableCount = type === "flat" ? flatCount : luffingCount;
-
   useEffect(() => setExpanded(false), [type, requirements]);
 
   function updateRequirement(id, field, value) {
@@ -274,9 +253,6 @@ export default function TowerCraneSelector({ data, language = "zh", loading = fa
           <p>{labels.intro}</p>
         </div>
         <div className="selector-header-actions">
-          <span className="selector-data-count">
-            {labels.loaded} {totalCount} {labels.models} · {labels.flatShort} {flatCount} {labels.models} · {labels.luffingShort} {luffingCount} {labels.models}
-          </span>
           <div className="selector-type-toggle" role="group" aria-label={labels.title}>
             <button type="button" className={type === "flat" ? "active" : ""} onClick={() => setType("flat")}>{labels.flat}</button>
             <button type="button" className={type === "luffing" ? "active" : ""} onClick={() => setType("luffing")}>{labels.luffing}</button>
@@ -319,7 +295,7 @@ export default function TowerCraneSelector({ data, language = "zh", loading = fa
         <div className="selector-results">
           <div className="selector-section-head">
             <strong>{labels.result}</strong>
-            <span>{ready ? `${matches.length} ${labels.resultCount}` : `${availableCount} ${labels.models}`}</span>
+            {ready ? <span>{matches.length} {labels.resultCount}</span> : null}
           </div>
           {loading ? <div className="selector-empty">{labels.loading}</div> : null}
           {error ? <div className="selector-empty error">{labels.loadError}: {error}</div> : null}
