@@ -1214,8 +1214,7 @@ function App() {
         </div>
         <div className="top-actions">
           <label className="top-language-control">
-            <span>{L.language}</span>
-            <select value={language} onChange={event => changeLanguage(event.target.value)}>
+            <select aria-label={L.language} value={language} onChange={event => changeLanguage(event.target.value)}>
               {Object.entries(LANGUAGES).map(([code, label]) => <option value={code} key={code}>{label}</option>)}
             </select>
           </label>

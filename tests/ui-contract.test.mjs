@@ -101,6 +101,19 @@ test("places language first and keeps product selection free of form and count c
   assert.doesNotMatch(productArea, /label=\{L\.language\}/);
 });
 
+test("keeps the three mobile header controls side by side with equal height and no language caption", () => {
+  const languageStart = source.indexOf('className="top-language-control"');
+  const languageEnd = source.indexOf("</label>", languageStart);
+  const languageControl = source.slice(languageStart, languageEnd);
+
+  assert.doesNotMatch(languageControl, /<span>\{L\.language\}<\/span>/);
+  assert.match(languageControl, /aria-label=\{L\.language\}/);
+  assert.match(styles, /@media \(max-width:\s*760px\)[\s\S]*?\.top-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(styles, /--mobile-action-height:\s*72px/);
+  assert.match(styles, /\.top-actions \.btn\s*\{[\s\S]*?height:\s*var\(--mobile-action-height\)/);
+  assert.match(styles, /\.top-language-control select\s*\{[\s\S]*?height:\s*var\(--mobile-action-height\)/);
+});
+
 test("uses equal product columns and places price after configuration and options", () => {
   const productStart = source.indexOf('<section className="top-grid">');
   const tablesStart = source.indexOf('<section className="tables">');
