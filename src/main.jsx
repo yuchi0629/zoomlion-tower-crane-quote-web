@@ -31,6 +31,9 @@ const UI = {
     appTitle: "中联塔机配置确认及报价单生成软件 V1.1 Web版",
     subTitle: "塔机配置确认、选配核价与报价文件生成",
     quoteInfo: "报价单信息",
+    quotationDetails: "报价信息",
+    contactDetails: "联系信息",
+    quotationPrice: "报价",
     generateQuote: "生成报价单及选配指导",
     generateOrderWorkbookLabel: "生成订单配置表",
     orderWorkbookSheet: "订单配置表",
@@ -134,6 +137,9 @@ const UI = {
     appTitle: "ZOOMLION Tower Crane Configuration Confirmation and Quotation Generator V1.1 Web",
     subTitle: "Configuration confirmation, option pricing and quotation document generation",
     quoteInfo: "Quotation Information",
+    quotationDetails: "Quotation Details",
+    contactDetails: "Contact Details",
+    quotationPrice: "Quotation",
     generateQuote: "Generate Quotation & Options Guide",
     generateOrderWorkbookLabel: "Generate Order Configuration",
     orderWorkbookSheet: "Order Configuration",
@@ -237,6 +243,9 @@ const UI = {
     appTitle: "Generateur ZOOMLION de configuration et devis de grue a tour V1.1 Web",
     subTitle: "Confirmation de configuration, chiffrage des options et generation des documents",
     quoteInfo: "Informations du devis",
+    quotationDetails: "Informations tarifaires",
+    contactDetails: "Coordonnees",
+    quotationPrice: "Prix propose",
     generateQuote: "Generer le devis et le guide des options",
     generateOrderWorkbookLabel: "Generer la configuration de commande",
     orderWorkbookSheet: "Configuration de commande",
@@ -340,6 +349,9 @@ const UI = {
     appTitle: "ZOOMLION Turmdrehkran-Konfigurations- und Angebotsgenerator V1.1 Web",
     subTitle: "Konfigurationsbestaetigung, Optionspreise und Dokumenterstellung",
     quoteInfo: "Angebotsinformationen",
+    quotationDetails: "Angebotsdaten",
+    contactDetails: "Kontaktdaten",
+    quotationPrice: "Angebotspreis",
     generateQuote: "Angebot und Optionsleitfaden erstellen",
     generateOrderWorkbookLabel: "Auftragskonfiguration erstellen",
     orderWorkbookSheet: "Auftragskonfiguration",
@@ -753,7 +765,8 @@ function App() {
   const [exchangeRates, setExchangeRates] = useState(FALLBACK_RATES);
   const [exchangeRateDate, setExchangeRateDate] = useState(FALLBACK_RATE_DATE);
   const [usingFallbackRate, setUsingFallbackRate] = useState(true);
-  const [externalPremiumRate, setExternalPremiumRate] = useState(2);
+  const [externalPremiumRate, setExternalPremiumRate] = useState(10);
+  const [quotationPriceCny, setQuotationPriceCny] = useState("");
   const [actualSalesPriceCny, setActualSalesPriceCny] = useState("");
   const [adminModal, setAdminModal] = useState("");
   const [employeeId, setEmployeeId] = useState("");
@@ -859,10 +872,6 @@ function App() {
           setTradeTerm(saved.tradeTerm || "FOB");
           setTradePlace(saved.tradePlace || data.ui.defaultTradePlace || "上海港");
           setCustomerName(saved.customerName || "");
-          const savedPremiumRate = Number(saved.externalPremiumRate);
-          setExternalPremiumRate(
-            premiumRateOptions().includes(savedPremiumRate) ? savedPremiumRate : 0,
-          );
           setActualSalesPriceCny(
             saved.actualSalesPriceCny === "" || saved.actualSalesPriceCny == null
               ? ""
@@ -894,7 +903,6 @@ function App() {
         tradePlace,
         customerName,
         quoteInfo,
-        externalPremiumRate,
         actualSalesPriceCny,
       }),
     );
@@ -906,7 +914,6 @@ function App() {
     tradePlace,
     customerName,
     quoteInfo,
-    externalPremiumRate,
     actualSalesPriceCny,
   ]);
 
@@ -945,6 +952,10 @@ function App() {
   const displayedMachinePrice = priceWithPremium(machinePrice, externalPremiumRate, currency, exchangeRates);
   const displayedOptionTotal = priceWithPremium(optionTotal, externalPremiumRate, currency, exchangeRates);
   const displayedTotalPrice = priceWithPremium(totalPrice, externalPremiumRate, currency, exchangeRates);
+  const quotationPrice = quotationPriceCny === ""
+    ? displayedTotalPrice
+    : convertFromCny(quotationPriceCny, currency, exchangeRates);
+  const quotationPriceInput = Number(quotationPrice.toFixed(2));
   const truePrice = convertFromCny(totalPrice, currency, exchangeRates);
   const actualSalesPrice = actualSalesPriceCny === ""
     ? ""
@@ -1017,6 +1028,15 @@ function App() {
     if (rate > 0) setActualSalesPriceCny(Number(value) / rate);
   }
 
+  function updateQuotationPrice(value) {
+    if (value === "") {
+      setQuotationPriceCny("");
+      return;
+    }
+    const rate = Number(exchangeRates[currency] || 0);
+    if (rate > 0) setQuotationPriceCny(Number(value) / rate);
+  }
+
   function changeLanguage(nextLanguage) {
     setLanguage(nextLanguage);
     setTradePlace(current => translatedEditableText(current, nextLanguage, dictionary));
@@ -1052,7 +1072,7 @@ function App() {
           })
           .join("")
       : `<tr><td></td><td colspan="4">${escapeHtml(L.noneSelected)}</td></tr>`;
-    const unitPrice = `${tradeTerm} ${tr(tradePlace)} (${tr("价格") || "Price"}: ${currency} ${formatNumber(displayedTotalPrice)})`;
+    const unitPrice = `${tradeTerm} ${tr(tradePlace)} (${tr("价格") || "Price"}: ${currency} ${formatNumber(quotationPrice)})`;
     const quoteCompany = tr(quoteInfo.quoteCompany);
     return `
       ${pdfStyles()}
@@ -1326,30 +1346,46 @@ function App() {
 
         <section className="panel" id="quote-panel">
           <SectionTitle title={L.quoteInfo} />
-          <div className="quote-grid">
-            <Field label={L.quoteDate}><input type="date" value={quoteInfo.quoteDate} onChange={event => updateQuoteInfo("quoteDate", event.target.value)} /></Field>
-            <Field label={L.tradeTerm}>
-              <select value={tradeTerm} onChange={event => setTradeTerm(event.target.value)}>
-                {appData.ui.tradeTerms.map(item => <option value={item} key={item}>{item}</option>)}
-              </select>
-            </Field>
-            <Field label={L.tradePlace}><input value={tradePlace} onChange={event => setTradePlace(event.target.value)} /></Field>
-            <Field label={L.customer}><input value={customerName} onChange={event => setCustomerName(event.target.value)} /></Field>
-            <Field label={L.quoteCompany} className="span-2"><input value={quoteInfo.quoteCompany} onChange={event => updateQuoteInfo("quoteCompany", event.target.value)} /></Field>
-            <Field label={L.quotePerson}><input value={quoteInfo.quotePerson} onChange={event => updateQuoteInfo("quotePerson", event.target.value)} /></Field>
-            <Field label={L.phone}><input value={quoteInfo.phone} onChange={event => updateQuoteInfo("phone", event.target.value)} /></Field>
-            <Field label={L.email}><input value={quoteInfo.email} onChange={event => updateQuoteInfo("email", event.target.value)} /></Field>
-            <Field label={L.address} className="span-3"><input value={quoteInfo.address} onChange={event => updateQuoteInfo("address", event.target.value)} /></Field>
+          <div className="quote-subsection">
+            <h3>{L.quotationDetails}</h3>
+            <div className="quote-grid">
+              <Field label={L.quoteDate}><input type="date" value={quoteInfo.quoteDate} onChange={event => updateQuoteInfo("quoteDate", event.target.value)} /></Field>
+              <Field label={L.tradeTerm}>
+                <select value={tradeTerm} onChange={event => setTradeTerm(event.target.value)}>
+                  {appData.ui.tradeTerms.map(item => <option value={item} key={item}>{item}</option>)}
+                </select>
+              </Field>
+              <Field label={L.tradePlace}><input value={tradePlace} onChange={event => setTradePlace(event.target.value)} /></Field>
+              <Field label={L.customer}><input value={customerName} onChange={event => setCustomerName(event.target.value)} /></Field>
+              <Field label={L.quotationPrice} className="quote-price-field span-2">
+                <div className="input-with-suffix">
+                  <input type="number" min="0" step="0.01" value={quotationPriceInput} onChange={event => updateQuotationPrice(event.target.value)} />
+                  <span>{currency}</span>
+                </div>
+              </Field>
+            </div>
           </div>
-          <h3>{L.tradeTerms}</h3>
-          <div className="terms-grid">
-            <Field label={L.payment}><textarea value={quoteInfo.payment} onChange={event => updateQuoteInfo("payment", event.target.value)} /></Field>
-            <Field label={L.delivery}><textarea value={quoteInfo.delivery} onChange={event => updateQuoteInfo("delivery", event.target.value)} /></Field>
-            <Field label={L.validity}><textarea value={quoteInfo.validity} onChange={event => updateQuoteInfo("validity", event.target.value)} /></Field>
-            <Field label={L.transportation}><textarea value={quoteInfo.transportation} onChange={event => updateQuoteInfo("transportation", event.target.value)} /></Field>
-            <Field label={L.warranty} className="span-2"><textarea value={quoteInfo.warranty} onChange={event => updateQuoteInfo("warranty", event.target.value)} /></Field>
-            <Field label={L.others} className="span-2"><textarea value={quoteInfo.others} onChange={event => updateQuoteInfo("others", event.target.value)} /></Field>
-            <Field label={L.remark} className="span-3"><textarea value={quoteInfo.remark} onChange={event => updateQuoteInfo("remark", event.target.value)} /></Field>
+          <div className="quote-subsection">
+            <h3>{L.contactDetails}</h3>
+            <div className="quote-grid">
+              <Field label={L.quoteCompany} className="span-2"><input value={quoteInfo.quoteCompany} onChange={event => updateQuoteInfo("quoteCompany", event.target.value)} /></Field>
+              <Field label={L.quotePerson}><input value={quoteInfo.quotePerson} onChange={event => updateQuoteInfo("quotePerson", event.target.value)} /></Field>
+              <Field label={L.phone}><input value={quoteInfo.phone} onChange={event => updateQuoteInfo("phone", event.target.value)} /></Field>
+              <Field label={L.email}><input value={quoteInfo.email} onChange={event => updateQuoteInfo("email", event.target.value)} /></Field>
+              <Field label={L.address} className="span-3"><input value={quoteInfo.address} onChange={event => updateQuoteInfo("address", event.target.value)} /></Field>
+            </div>
+          </div>
+          <div className="quote-subsection">
+            <h3>{L.tradeTerms}</h3>
+            <div className="terms-grid">
+              <Field label={L.payment}><textarea value={quoteInfo.payment} onChange={event => updateQuoteInfo("payment", event.target.value)} /></Field>
+              <Field label={L.delivery}><textarea value={quoteInfo.delivery} onChange={event => updateQuoteInfo("delivery", event.target.value)} /></Field>
+              <Field label={L.validity}><textarea value={quoteInfo.validity} onChange={event => updateQuoteInfo("validity", event.target.value)} /></Field>
+              <Field label={L.transportation}><textarea value={quoteInfo.transportation} onChange={event => updateQuoteInfo("transportation", event.target.value)} /></Field>
+              <Field label={L.warranty} className="span-2"><textarea value={quoteInfo.warranty} onChange={event => updateQuoteInfo("warranty", event.target.value)} /></Field>
+              <Field label={L.others} className="span-2"><textarea value={quoteInfo.others} onChange={event => updateQuoteInfo("others", event.target.value)} /></Field>
+              <Field label={L.remark} className="span-3"><textarea value={quoteInfo.remark} onChange={event => updateQuoteInfo("remark", event.target.value)} /></Field>
+            </div>
           </div>
         </section>
       </main>

@@ -110,3 +110,25 @@ test("uses equal product columns and places price after configuration and option
   assert.ok(productStart < tablesStart && tablesStart < priceStart && priceStart < quoteStart);
   assert.match(styles, /\.top-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
 });
+
+test("groups quotation information into three modules inside one outer panel", () => {
+  const quoteStart = source.indexOf('<section className="panel" id="quote-panel">');
+  const quoteEnd = source.indexOf("</section>", quoteStart);
+  const quoteArea = source.slice(quoteStart, quoteEnd);
+
+  assert.match(quoteArea, /className="quote-subsection"[\s\S]*L\.quotationDetails/);
+  assert.match(quoteArea, /className="quote-subsection"[\s\S]*L\.contactDetails/);
+  assert.match(quoteArea, /className="quote-subsection"[\s\S]*L\.tradeTerms/);
+  assert.match(quoteArea, /label=\{L\.quotationPrice\}/);
+  assert.match(styles, /\.quote-subsection\s*\{/);
+});
+
+test("uses the editable quotation price in the PDF and starts each page load at ten percent premium", () => {
+  assert.match(source, /quotationPrice:\s*"报价"/);
+  assert.match(source, /useState\(10\)/);
+  assert.doesNotMatch(source, /savedPremiumRate/);
+  assert.match(source, /const quotationPrice = quotationPriceCny === ""[\s\S]*displayedTotalPrice/);
+  assert.match(source, /function updateQuotationPrice/);
+  assert.match(source, /const unitPrice = `[\s\S]*formatNumber\(quotationPrice\)/);
+  assert.doesNotMatch(source, /const unitPrice = `[\s\S]*formatNumber\(displayedTotalPrice\)/);
+});
