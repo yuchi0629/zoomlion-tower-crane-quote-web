@@ -126,3 +126,21 @@ test("filters flat and luffing cranes independently", () => {
 
   assert.deepEqual(result.matches.map(item => item.code), ["L-LUFF"]);
 });
+
+test("keeps special operating modes separate across multiple lifting points", () => {
+  const cranes = [model({
+    code: "RL-MODES",
+    type: "luffing",
+    normal: [
+      { length: 50, mode: "mode-a", rows: [row({ points: [[30, 5], [50, 2]] })] },
+      { length: 50, mode: "mode-b", rows: [row({ points: [[30, 2], [50, 5]] })] },
+    ],
+  })];
+
+  const result = selectTowerCranes(cranes, {
+    type: "luffing",
+    requirements: [{ radius: 30, load: 4 }, { radius: 50, load: 4 }],
+  });
+
+  assert.equal(result.matches.length, 0);
+});

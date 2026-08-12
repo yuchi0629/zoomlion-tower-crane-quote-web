@@ -52,7 +52,14 @@ function evaluateJib(jib, requirements) {
     1,
   );
   const worstSurplusRate = Math.min(...points.map(point => point.surplusRate));
-  return { jibLength: Number(jib.length), points, satisfies, averageSurplusRate, worstSurplusRate };
+  return {
+    jibLength: Number(jib.length),
+    ...(jib.mode ? { mode: jib.mode } : {}),
+    points,
+    satisfies,
+    averageSurplusRate,
+    worstSurplusRate,
+  };
 }
 
 function shortestSatisfyingJib(condition, requirements) {
