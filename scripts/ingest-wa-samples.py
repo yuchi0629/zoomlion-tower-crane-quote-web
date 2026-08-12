@@ -25,6 +25,7 @@ HEADER_COLOR = "AADB1E"
 @dataclass
 class PerformanceRow:
     jib: float
+    trolley: str
     reeving: int
     min_radius: float
     max_load_radius: float
@@ -150,6 +151,7 @@ def parse_performance(page: pdfplumber.page.Page) -> tuple[list[float], list[Per
             rows.append(
                 PerformanceRow(
                     jib=jib,
+                    trolley="单小车" if item["max_load"] == lower_load else "双小车",
                     reeving=reeving,
                     min_radius=item["min_radius"],
                     max_load_radius=item["max_load_radius"],
@@ -218,7 +220,7 @@ def write_csv(data: ModelData, destination: Path) -> None:
         for row in sorted(data.rows, key=lambda item: (-item.jib, item.reeving)):
             writer.writerow([
                 number_text(row.jib),
-                "单小车",
+                row.trolley,
                 row.reeving,
                 number_text(row.min_radius),
                 number_text(row.max_load_radius),
@@ -263,7 +265,7 @@ def model_card(data: ModelData) -> str:
 - 普通工况：`起重性能-普通.csv`，{len(data.rows)}行。
 - 性能来源：样本第{data.performance_page}页Load diagrams表。
 - 幅度档位：{number_text(min(data.radii))}～{number_text(max(data.radii))} m，按样本离散档位保存。
-- 每个臂长保存2倍率和4倍率两行；小车形式按样本图示归入单小车。
+- 每个臂长保存2倍率单小车和4倍率双小车两行，按样本图示归类。
 - 样本未列出独立的超起性能表，不为该型号假定超起工况。
 
 ## 数据边界

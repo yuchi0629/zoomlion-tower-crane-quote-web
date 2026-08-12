@@ -29,6 +29,12 @@ test("WA series is available only in the independent selector with sample-backed
     assert.ok(model.conditions.normal);
     assert.equal(model.conditions.superlift, undefined);
     assert.match(model.conditions.normal.sourceCsv, new RegExp(`/${model.code}/`));
+    model.conditions.normal.jibs.forEach(jib => {
+      assert.deepEqual(jib.rows.map(row => [row.reeving, row.trolley]), [
+        [2, "单小车"],
+        [4, "双小车"],
+      ]);
+    });
   });
 });
 
