@@ -5,9 +5,11 @@ import "./selector.css";
 const TEXT = {
   zh: {
     title: "塔机选型",
-    intro: "输入全部吊点要求，按已录入厂家样本性能匹配可满足机型。",
+    intro: "输入全部吊点要求，匹配可满足性能的机型。",
     loaded: "已录入性能",
     models: "款",
+    flatShort: "平臂",
+    luffingShort: "动臂",
     flat: "平臂塔机",
     luffing: "动臂塔机",
     requirements: "吊重要求",
@@ -28,7 +30,8 @@ const TEXT = {
     recommended: "推荐",
     normal: "普通工况",
     superlift: "超起工况",
-    shortestJib: "最小臂长",
+    basedOnJib: "基于",
+    jibLengthSuffix: "m 臂长",
     required: "需求",
     capacity: "允许吊重",
     surplus: "富余量",
@@ -39,15 +42,17 @@ const TEXT = {
     collapse: "收起可满足机型名单",
     more: "更多",
     topThree: "默认显示推荐前三种",
-    disclaimer: "选型结果基于已录入厂家样本性能；正式工程应按具体样本、配置和项目条件复核。",
+    disclaimer: "正式工程应按具体样本、配置和项目条件复核。",
     loadError: "起重性能数据加载失败",
     loading: "正在加载起重性能数据...",
   },
   en: {
     title: "Tower Crane Selection",
-    intro: "Enter every lifting point to match cranes against the stored manufacturer load charts.",
-    loaded: "Load charts stored",
+    intro: "Enter all lifting-point requirements to match cranes that meet the required performance.",
+    loaded: "Performance models",
     models: "models",
+    flatShort: "Flat-top",
+    luffingShort: "Luffing-jib",
     flat: "Flat-top Crane",
     luffing: "Luffing-jib Crane",
     requirements: "Lifting Requirements",
@@ -68,7 +73,8 @@ const TEXT = {
     recommended: "Recommended",
     normal: "Normal Condition",
     superlift: "Superlift Condition",
-    shortestJib: "Shortest Jib",
+    basedOnJib: "Based on",
+    jibLengthSuffix: "m jib",
     required: "Required",
     capacity: "Rated Load",
     surplus: "Surplus",
@@ -79,15 +85,17 @@ const TEXT = {
     collapse: "Collapse Model List",
     more: "more",
     topThree: "The top three recommendations are shown by default",
-    disclaimer: "Results use the stored manufacturer load charts. Verify the specific catalog, configuration and project conditions for engineering use.",
+    disclaimer: "For formal engineering use, verify the specific catalog, configuration and project conditions.",
     loadError: "Failed to load lifting-performance data",
     loading: "Loading lifting-performance data...",
   },
   fr: {
     title: "Selection de grue a tour",
-    intro: "Saisissez tous les points de levage pour comparer les courbes de charge constructeur enregistrees.",
-    loaded: "Courbes enregistrees",
+    intro: "Saisissez toutes les exigences de levage pour identifier les grues dont les performances conviennent.",
+    loaded: "Modeles de performance",
     models: "modeles",
+    flatShort: "Fleche horizontale",
+    luffingShort: "Fleche relevable",
     flat: "Grue a fleche horizontale",
     luffing: "Grue a fleche relevable",
     requirements: "Exigences de levage",
@@ -108,7 +116,8 @@ const TEXT = {
     recommended: "Recommande",
     normal: "Configuration normale",
     superlift: "Configuration Superlift",
-    shortestJib: "Fleche minimale",
+    basedOnJib: "Base sur une fleche de",
+    jibLengthSuffix: "m",
     required: "Besoin",
     capacity: "Charge admissible",
     surplus: "Marge",
@@ -119,15 +128,17 @@ const TEXT = {
     collapse: "Reduire la liste",
     more: "autres",
     topThree: "Les trois premieres recommandations sont affichees par defaut",
-    disclaimer: "Les resultats utilisent les courbes constructeur enregistrees. Verifier le catalogue, la configuration et les conditions du projet avant utilisation technique.",
+    disclaimer: "Pour une utilisation technique formelle, verifier le catalogue, la configuration et les conditions du projet.",
     loadError: "Echec du chargement des performances de levage",
     loading: "Chargement des performances de levage...",
   },
   de: {
     title: "Turmdrehkran-Auswahl",
-    intro: "Alle Lastpunkte eingeben und mit den gespeicherten Hersteller-Lasttabellen vergleichen.",
-    loaded: "Gespeicherte Lasttabellen",
+    intro: "Alle Lastpunktanforderungen eingeben, um Krane mit ausreichender Leistung zu ermitteln.",
+    loaded: "Leistungsmodelle",
     models: "Modelle",
+    flatShort: "Laufkatze",
+    luffingShort: "Wippausleger",
     flat: "Obendreher mit Laufkatze",
     luffing: "Wippauslegerkran",
     requirements: "Lastanforderungen",
@@ -148,7 +159,8 @@ const TEXT = {
     recommended: "Empfohlen",
     normal: "Normalbetrieb",
     superlift: "Superlift-Betrieb",
-    shortestJib: "Kurzester Ausleger",
+    basedOnJib: "Basierend auf",
+    jibLengthSuffix: "m Ausleger",
     required: "Anforderung",
     capacity: "Zulassige Last",
     surplus: "Reserve",
@@ -159,7 +171,7 @@ const TEXT = {
     collapse: "Modellliste einklappen",
     more: "weitere",
     topThree: "Standardmassig werden die drei besten Empfehlungen angezeigt",
-    disclaimer: "Die Ergebnisse basieren auf gespeicherten Hersteller-Lasttabellen. Katalog, Konfiguration und Projektbedingungen sind fur die technische Anwendung zu prufen.",
+    disclaimer: "Fur die formelle technische Anwendung sind Katalog, Konfiguration und Projektbedingungen zu prufen.",
     loadError: "Lastdaten konnten nicht geladen werden",
     loading: "Lastdaten werden geladen...",
   },
@@ -180,7 +192,7 @@ function ResultCard({ result, rank, labels, nearest = false }) {
         </div>
         <div className="selector-result-tags">
           {rank === 1 && !nearest ? <span className="selector-recommended">{labels.recommended}</span> : null}
-          <span className="selector-jib">{labels.shortestJib} {formatNumber(result.jibLength)} m</span>
+          <span className="selector-jib">{labels.basedOnJib} {formatNumber(result.jibLength)} {labels.jibLengthSuffix}</span>
         </div>
       </div>
       <div className="selector-point-table-wrap">
@@ -232,7 +244,10 @@ export default function TowerCraneSelector({ data, language = "zh", loading = fa
   );
   const { matches, nearest } = selection;
   const visibleMatches = expanded ? matches : matches.slice(0, 3);
-  const availableCount = data?.models?.filter(model => model.type === type).length || 0;
+  const totalCount = data?.models?.length || 0;
+  const flatCount = data?.models?.filter(model => model.type === "flat").length || 0;
+  const luffingCount = data?.models?.filter(model => model.type === "luffing").length || 0;
+  const availableCount = type === "flat" ? flatCount : luffingCount;
 
   useEffect(() => setExpanded(false), [type, requirements]);
 
@@ -259,7 +274,9 @@ export default function TowerCraneSelector({ data, language = "zh", loading = fa
           <p>{labels.intro}</p>
         </div>
         <div className="selector-header-actions">
-          <span className="selector-data-count">{labels.loaded} {data?.models?.length || 0} {labels.models}</span>
+          <span className="selector-data-count">
+            {labels.loaded} {totalCount} {labels.models} · {labels.flatShort} {flatCount} {labels.models} · {labels.luffingShort} {luffingCount} {labels.models}
+          </span>
           <div className="selector-type-toggle" role="group" aria-label={labels.title}>
             <button type="button" className={type === "flat" ? "active" : ""} onClick={() => setType("flat")}>{labels.flat}</button>
             <button type="button" className={type === "luffing" ? "active" : ""} onClick={() => setType("luffing")}>{labels.luffing}</button>

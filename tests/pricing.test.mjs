@@ -27,10 +27,10 @@ test("calculates the actual sales premium against the true price", () => {
   assert.equal(calculateSalesPremium(100, 0), null);
 });
 
-test("offers premium percentages from 2 to 100 in increments of 2", () => {
+test("offers premium percentages from 0 to 100 in increments of 2", () => {
   const options = premiumRateOptions();
-  assert.equal(options.length, 50);
-  assert.equal(options[0], 2);
+  assert.equal(options.length, 51);
+  assert.equal(options[0], 0);
   assert.equal(options.at(-1), 100);
-  assert.ok(options.every((value, index) => value === (index + 1) * 2));
+  assert.ok(options.every((value, index) => value === index * 2));
 });

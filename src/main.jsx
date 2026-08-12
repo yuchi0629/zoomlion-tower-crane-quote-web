@@ -861,7 +861,7 @@ function App() {
           setCustomerName(saved.customerName || "");
           const savedPremiumRate = Number(saved.externalPremiumRate);
           setExternalPremiumRate(
-            premiumRateOptions().includes(savedPremiumRate) ? savedPremiumRate : 2,
+            premiumRateOptions().includes(savedPremiumRate) ? savedPremiumRate : 0,
           );
           setActualSalesPriceCny(
             saved.actualSalesPriceCny === "" || saved.actualSalesPriceCny == null

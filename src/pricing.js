@@ -20,5 +20,5 @@ export function calculateSalesPremium(actualSalesPrice, truePrice) {
 }
 
 export function premiumRateOptions() {
-  return Array.from({ length: 50 }, (_, index) => (index + 1) * 2);
+  return Array.from({ length: 51 }, (_, index) => index * 2);
 }
