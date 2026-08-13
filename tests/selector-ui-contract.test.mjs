@@ -25,13 +25,14 @@ test("shows only the top three matches until the full list is expanded", () => {
   assert.match(selectorSource, /expanded \? matches/);
 });
 
-test("provides flat and luffing selection with four-language labels", () => {
+test("provides flat and luffing selection with five-language labels", () => {
   assert.match(selectorSource, /flat/);
   assert.match(selectorSource, /luffing/);
   assert.match(selectorSource, /zh:/);
   assert.match(selectorSource, /en:/);
   assert.match(selectorSource, /fr:/);
   assert.match(selectorSource, /de:/);
+  assert.match(selectorSource, /tr:/);
 });
 
 test("describes performance matching without performance inventory totals", () => {

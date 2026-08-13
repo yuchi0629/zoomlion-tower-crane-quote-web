@@ -5,8 +5,11 @@ import test from "node:test";
 const source = readFileSync(new URL("../src/main.jsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
-test("top bar exposes one combined document generation action", () => {
-  assert.match(source, /generateQuote:\s*"生成报价单及选配指导"/);
+test("top bar generates only the quotation PDF", () => {
+  assert.match(source, /generateQuote:\s*"生成报价单"/);
+  assert.match(source, /generateQuoteShort:\s*"报价单"/);
+  assert.doesNotMatch(source, /LTC选配指导文件_\$\{/);
+  assert.doesNotMatch(source, /function ltcHtml/);
   assert.doesNotMatch(source, /onClick=\{generateLtc\}/);
   assert.doesNotMatch(source, /onClick=\{exportConfigurationWorkbook\}/);
   assert.doesNotMatch(source, /scrollIntoView/);
@@ -108,10 +111,24 @@ test("keeps the three mobile header controls side by side with equal height and 
 
   assert.doesNotMatch(languageControl, /<span>\{L\.language\}<\/span>/);
   assert.match(languageControl, /aria-label=\{L\.language\}/);
-  assert.match(styles, /@media \(max-width:\s*760px\)[\s\S]*?\.top-actions\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
-  assert.match(styles, /--mobile-action-height:\s*72px/);
+  assert.match(styles, /@media \(max-width:\s*760px\)[\s\S]*?\.top-actions\s*\{/);
+  assert.match(styles, /--mobile-action-height:\s*44px/);
+  assert.match(styles, /--mobile-action-font-size:\s*clamp\(/);
+  assert.match(styles, /grid-template-columns:\s*clamp\(76px,\s*23vw,\s*88px\)\s+minmax\(0,\s*1\.35fr\)\s+minmax\(0,\s*1fr\)/);
+  assert.match(styles, /\.title-block h1\s*\{[\s\S]*?overflow-wrap:\s*anywhere/);
+  assert.match(styles, /\.top-actions\s*\{[\s\S]*?max-width:\s*calc\(100vw\s*-\s*24px\)/);
   assert.match(styles, /\.top-actions \.btn\s*\{[\s\S]*?height:\s*var\(--mobile-action-height\)/);
+  assert.match(styles, /\.top-actions \.btn\s*\{[\s\S]*?font-size:\s*var\(--mobile-action-font-size\)/);
+  assert.match(styles, /\.top-actions \.btn\s*\{[\s\S]*?white-space:\s*nowrap/);
   assert.match(styles, /\.top-language-control select\s*\{[\s\S]*?height:\s*var\(--mobile-action-height\)/);
+  assert.match(styles, /\.top-language-control select\s*\{[\s\S]*?font-size:\s*var\(--mobile-action-font-size\)/);
+  assert.match(source, /className="mobile-action-label"/);
+});
+
+test("offers Turkish with complete runtime data translations", () => {
+  assert.match(source, /tr:\s*"Türkçe"/);
+  assert.match(source, /tr:\s*\{/);
+  assert.match(source, /translations\?\.tr/);
 });
 
 test("uses equal product columns and places price after configuration and options", () => {

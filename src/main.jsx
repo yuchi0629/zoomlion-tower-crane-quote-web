@@ -10,6 +10,7 @@ import {
 } from "./pricing.js";
 import { buildOrderWorkbook, downloadOrderWorkbook } from "./order-workbook.js";
 import TowerCraneSelector from "./TowerCraneSelector.jsx";
+import { TURKISH_DATA_TRANSLATIONS } from "./turkish-data-translations.js";
 import "./styles.css";
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -24,6 +25,7 @@ const LANGUAGES = {
   en: "English",
   fr: "Français",
   de: "Deutsch",
+  tr: "Türkçe",
 };
 
 const UI = {
@@ -34,8 +36,10 @@ const UI = {
     quotationDetails: "报价信息",
     contactDetails: "联系信息",
     quotationPrice: "报价",
-    generateQuote: "生成报价单及选配指导",
+    generateQuote: "生成报价单",
+    generateQuoteShort: "报价单",
     generateOrderWorkbookLabel: "生成订单配置表",
+    generateOrderWorkbookShort: "订单配置",
     orderWorkbookSheet: "订单配置表",
     orderWorkbookDone: "订单配置表已生成，并保存到浏览器下载目录。",
     productSelect: "产品型号选择",
@@ -118,7 +122,7 @@ const UI = {
     close: "关闭",
     packageNote: "包内明细不显示拆分价格，整包按一条价格核算。",
     generating: "正在生成...",
-    quoteDone: "报价文件已生成。浏览器会把文件保存到下载目录。",
+    quoteDone: "报价单已生成，并保存到浏览器下载目录。",
     ltcEmpty: "请先选择至少一项增减配置。",
     excelUnavailable: "当前机型没有已发布的配置清单，无法导出。",
     loadError: "配置数据加载失败",
@@ -140,8 +144,10 @@ const UI = {
     quotationDetails: "Quotation Details",
     contactDetails: "Contact Details",
     quotationPrice: "Quotation",
-    generateQuote: "Generate Quotation & Options Guide",
+    generateQuote: "Generate Quotation",
+    generateQuoteShort: "Quotation",
     generateOrderWorkbookLabel: "Generate Order Configuration",
+    generateOrderWorkbookShort: "Order",
     orderWorkbookSheet: "Order Configuration",
     orderWorkbookDone: "The order configuration workbook has been saved to the browser download folder.",
     productSelect: "Product Model Selection",
@@ -224,7 +230,7 @@ const UI = {
     close: "Close",
     packageNote: "Package details do not show split prices. The package is priced as one item.",
     generating: "Generating...",
-    quoteDone: "The quotation files have been generated and saved by the browser.",
+    quoteDone: "The quotation has been generated and saved by the browser.",
     ltcEmpty: "Select at least one addition or deduction first.",
     excelUnavailable: "No published configuration list is available for this model.",
     loadError: "Failed to load configuration data",
@@ -246,8 +252,10 @@ const UI = {
     quotationDetails: "Informations tarifaires",
     contactDetails: "Coordonnees",
     quotationPrice: "Prix propose",
-    generateQuote: "Generer le devis et le guide des options",
+    generateQuote: "Generer le devis",
+    generateQuoteShort: "Devis",
     generateOrderWorkbookLabel: "Generer la configuration de commande",
+    generateOrderWorkbookShort: "Commande",
     orderWorkbookSheet: "Configuration de commande",
     orderWorkbookDone: "Le fichier de configuration de commande a ete enregistre dans le dossier de telechargement.",
     productSelect: "Selection du modele",
@@ -330,7 +338,7 @@ const UI = {
     close: "Fermer",
     packageNote: "Le detail du lot n'affiche pas de prix separes. Le lot est chiffre comme un seul article.",
     generating: "Generation...",
-    quoteDone: "Les fichiers du devis ont ete generes et enregistres par le navigateur.",
+    quoteDone: "Le devis a ete genere et enregistre par le navigateur.",
     ltcEmpty: "Selectionnez d'abord au moins un ajout ou une deduction.",
     excelUnavailable: "Aucune liste de configuration publiee n'est disponible pour ce modele.",
     loadError: "Echec du chargement des donnees",
@@ -352,8 +360,10 @@ const UI = {
     quotationDetails: "Angebotsdaten",
     contactDetails: "Kontaktdaten",
     quotationPrice: "Angebotspreis",
-    generateQuote: "Angebot und Optionsleitfaden erstellen",
+    generateQuote: "Angebot erstellen",
+    generateQuoteShort: "Angebot",
     generateOrderWorkbookLabel: "Auftragskonfiguration erstellen",
+    generateOrderWorkbookShort: "Auftrag",
     orderWorkbookSheet: "Auftragskonfiguration",
     orderWorkbookDone: "Die Auftragskonfiguration wurde im Download-Ordner gespeichert.",
     productSelect: "Modellauswahl",
@@ -436,7 +446,7 @@ const UI = {
     close: "Schliessen",
     packageNote: "Paketdetails zeigen keine Einzelpreise. Das Paket wird als eine Position berechnet.",
     generating: "Wird erstellt...",
-    quoteDone: "Die Angebotsdateien wurden erstellt und vom Browser gespeichert.",
+    quoteDone: "Das Angebot wurde erstellt und vom Browser gespeichert.",
     ltcEmpty: "Waehlen Sie zuerst mindestens eine Zusatz- oder Abwahlposition.",
     excelUnavailable: "Fuer dieses Modell ist keine veroeffentlichte Konfigurationsliste verfuegbar.",
     loadError: "Konfigurationsdaten konnten nicht geladen werden",
@@ -450,6 +460,114 @@ const UI = {
     optionSheet: "Zusatz-Abwahlliste",
     ltcTitle: "LTC-Leitfaden fuer optionale Teile",
     date: "Datum",
+  },
+  tr: {
+    appTitle: "ZOOMLION Kule Vinç Konfigürasyon Onayı ve Teklif Oluşturma Yazılımı V1.1 Web",
+    subTitle: "Konfigürasyon onayı, opsiyon fiyatlandırması ve teklif belgesi oluşturma",
+    quoteInfo: "Teklif Bilgileri",
+    quotationDetails: "Teklif Detayları",
+    contactDetails: "İletişim Bilgileri",
+    quotationPrice: "Teklif",
+    generateQuote: "Teklif Oluştur",
+    generateQuoteShort: "Teklif",
+    generateOrderWorkbookLabel: "Sipariş Konfigürasyonu Oluştur",
+    generateOrderWorkbookShort: "Sipariş",
+    orderWorkbookSheet: "Sipariş Konfigürasyonu",
+    orderWorkbookDone: "Sipariş konfigürasyon dosyası tarayıcının indirme klasörüne kaydedildi.",
+    productSelect: "Ürün Modeli Seçimi",
+    model: "Model",
+    form: "Kurulum Şekli",
+    language: "Dil",
+    tradeTerm: "Teslim Şekli",
+    currency: "Para Birimi",
+    tradePlace: "Teslim Yeri",
+    customer: "Müşteri",
+    currentPrice: "Güncel FOB Referans Fiyatı",
+    machinePrice: "Makine Fiyatı",
+    optionPrice: "Opsiyon Fiyatı",
+    totalPrice: "Güncel Toplam",
+    adminAccess: "Fiyat Yönetimi",
+    employeeId: "Personel Numarası",
+    password: "Şifre",
+    login: "Giriş",
+    cancel: "İptal",
+    loginError: "Personel numarası girin ve şifreyi kontrol edin.",
+    priceSettings: "Fiyat Gösterim Ayarları",
+    externalPremiumRate: "Harici Gösterim Fiyat Artış Oranı",
+    actualSalesPrice: "Gerçek Satış Fiyatı",
+    truePrice: "Gerçek Fiyat",
+    actualPremiumRate: "Gerçek Fiyat Artış Oranı",
+    externalDisplayPrice: "Güncel Harici Gösterim Fiyatı",
+    exchangeRate: "Güncel Döviz Kuru",
+    rateFallback: "Döviz kuru servisine ulaşılamıyor. Son kaydedilen kurlar kullanılıyor.",
+    standardInfo: "Standart Konfigürasyon Bilgileri",
+    productCode: "Ürün Kodu",
+    towerType: "Kule Vinç Tipi",
+    height: "Serbest Duruş Yüksekliği (HUH)",
+    jib: "Maks. Bom Uzunluğu",
+    maxLoad: "Maks. Kaldırma Kapasitesi",
+    rope: "Halat Kapasitesi",
+    mast: "Kule Elemanı Tipi",
+    baseConfig: "Temel Konfigürasyon",
+    options: "Opsiyonel Ekleme / Çıkarma",
+    seq: "No.",
+    composition: "Modül",
+    component: "Bileşen",
+    name: "Ad",
+    designation: "Kod",
+    itemNo: "Parça No.",
+    qty: "Adet",
+    select: "Seç",
+    changeType: "Tür",
+    item: "Kalem",
+    itemPrice: "Referans Fiyat",
+    package: "Paket",
+    view: "Paket İçeriği",
+    add: "Ekleme",
+    deduct: "Çıkarma",
+    quoteDate: "Teklif Tarihi",
+    quoteCompany: "Teklif Veren Birim",
+    quotePerson: "Teklifi Hazırlayan",
+    phone: "Telefon",
+    email: "E-posta",
+    address: "Şirket Adresi",
+    payment: "Ödeme Şekli",
+    delivery: "Teslim Süresi",
+    validity: "Teklif Geçerlilik Süresi",
+    transportation: "Nakliye",
+    warranty: "Garanti",
+    others: "Diğer",
+    remark: "Notlar",
+    tradeTerms: "Ticari Koşullar ve Diğer Bilgiler",
+    noConfig: "Bu model için ayrıntılı konfigürasyon dosyası yayımlanmamıştır.",
+    noForms: "Bu model için kurulum parametresi bulunmamaktadır.",
+    noOptions: "Bu kurulum şekli için opsiyonel ekleme veya çıkarma bulunmamaktadır.",
+    noMainComponents: "Ana bileşen konfigürasyonu bulunmamaktadır.",
+    priceTableSource: "Opsiyon fiyat listesi",
+    configWorkbookSource: "Model konfigürasyon dosyası",
+    priceFallback: "Ayrıntılı konfigürasyon dosyası yoktur. Opsiyonlar fiyat listesinden yüklenmiştir.",
+    published: "Konfigürasyon Yayımlandı",
+    notPublished: "Konfigürasyon Yayımlanmadı",
+    modelCount: "Yüklenen Modeller",
+    formCount: "Kurulum Şekilleri",
+    items: "kalem",
+    close: "Kapat",
+    packageNote: "Paket ayrıntılarında ayrı fiyatlar gösterilmez. Paket tek kalem olarak fiyatlandırılır.",
+    generating: "Oluşturuluyor...",
+    quoteDone: "Teklif oluşturuldu ve tarayıcı tarafından kaydedildi.",
+    ltcEmpty: "Önce en az bir ekleme veya çıkarma seçin.",
+    excelUnavailable: "Bu model için yayımlanmış konfigürasyon listesi yoktur.",
+    loadError: "Konfigürasyon verileri yüklenemedi",
+    quotationTitle: "KULE VİNÇ TEKLİFİ",
+    basicParameter: "TEMEL PARAMETRELER",
+    unitPrice: "BİRİM FİYAT",
+    mainComponents: "ANA BİLEŞEN KONFİGÜRASYONU",
+    additions: "EKLEME / ÇIKARMA KONFİGÜRASYONU",
+    noneSelected: "Ekleme veya çıkarma seçilmedi.",
+    configSheet: "Konfigürasyon Listesi",
+    optionSheet: "Ekleme-Çıkarma Listesi",
+    ltcTitle: "LTC Opsiyon Rehberi",
+    date: "Tarih",
   },
 };
 
@@ -566,7 +684,7 @@ function translatedCell(value, language, dictionary) {
 function translatedEditableText(value, language, dictionary) {
   const text = cleanText(value);
   for (const [source, translations] of Object.entries(dictionary)) {
-    const variants = [source, translations?.en, translations?.fr, translations?.de].filter(Boolean);
+    const variants = [source, translations?.en, translations?.fr, translations?.de, translations?.tr].filter(Boolean);
     if (variants.includes(text)) {
       return language === "zh" ? source : translations?.[language] || translations?.en || source;
     }
@@ -920,7 +1038,15 @@ function App() {
   const L = UI[language] || UI.zh;
   const product = appData?.products.find(item => item.model === modelName);
   const form = product?.forms.find(item => item.installForm === formName) || product?.forms?.[0] || null;
-  const dictionary = appData?.translations || {};
+  const dictionary = useMemo(
+    () => Object.fromEntries(
+      Object.entries(appData?.translations || {}).map(([source, translations]) => [
+        source,
+        { ...translations, tr: TURKISH_DATA_TRANSLATIONS[source] },
+      ]),
+    ),
+    [appData],
+  );
   const tr = value => translatedText(value, language, dictionary);
   const machinePrice = normalizePrice(form?.machinePrice || 0);
 
@@ -1122,52 +1248,12 @@ function App() {
     `;
   }
 
-  function ltcHtml() {
-    const expanded = [];
-    selectedOptions.forEach(item => {
-      const quantity = item.selection?.qty || "1";
-      const changeType = item.selection?.type === "deduction" ? L.deduct : L.add;
-      if (item.children?.length) {
-        item.children.forEach(child => expanded.push({ ...child, quantity, changeType }));
-      } else {
-        expanded.push({ ...item, quantity, changeType });
-      }
-    });
-    const rows = expanded
-      .map(
-        (item, index) => `<tr>
-          <td class="center">${index + 1}</td>
-          <td class="center">${escapeHtml(item.changeType)}</td>
-          <td>${escapeHtml(tr(item.component || "/"))}</td>
-          <td>${escapeHtml(tr(item.name || "/"))}</td>
-          <td class="small">${escapeHtml(tr(item.code || "/"))}</td>
-          <td class="small">${escapeHtml(tr(item.modelCode || "/"))}</td>
-          <td class="center">${escapeHtml(item.quantity || "1")}</td>
-        </tr>`,
-      )
-      .join("");
-    return `
-      ${pdfStyles()}
-      <div class="pdf-page">
-        <h1>${escapeHtml(L.ltcTitle)}</h1>
-        <div class="ltc-meta"><span><strong>${escapeHtml(L.model)}:</strong> ${escapeHtml(product.model)}</span><span><strong>${escapeHtml(L.form)}:</strong> ${escapeHtml(form ? tr(form.installForm) : "/")}</span><span><strong>${escapeHtml(L.date)}:</strong> ${escapeHtml(quoteInfo.quoteDate)}</span></div>
-        <table>
-          <thead><tr><th style="width:6%">${escapeHtml(L.seq)}</th><th style="width:12%">${escapeHtml(L.changeType)}</th><th style="width:14%">${escapeHtml(L.component)}</th><th style="width:18%">${escapeHtml(L.name)}</th><th style="width:22%">${escapeHtml(L.itemNo)}</th><th style="width:20%">${escapeHtml(L.designation)}</th><th style="width:8%">${escapeHtml(L.qty)}</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>
-    `;
-  }
-
   async function generateQuotation() {
     if (generating) return;
     setGenerating(true);
     try {
       const stamp = timestampToMinute();
       await savePdf(`中联塔机报价单_${safeFilename(product.model)}_${stamp}.pdf`, quotationHtml());
-      if (selectedOptions.length) {
-        await savePdf(`LTC选配指导文件_${safeFilename(product.model)}_${stamp}.pdf`, ltcHtml());
-      }
       alert(L.quoteDone);
     } catch (error) {
       alert(`${L.loadError}: ${error.message}`);
@@ -1178,7 +1264,9 @@ function App() {
 
   async function generateOrderWorkbook() {
     if (orderGenerating) return;
-    const workbookBase64 = product.combinedWorkbooks?.[language] || product.combinedWorkbooks?.zh;
+    const workbookBase64 = product.combinedWorkbooks?.[language]
+      || (language === "zh" ? product.combinedWorkbooks?.zh : product.combinedWorkbooks?.en)
+      || product.combinedWorkbooks?.zh;
     if (!workbookBase64 || !configOptionRows.length) {
       alert(L.excelUnavailable);
       return;
@@ -1218,8 +1306,12 @@ function App() {
               {Object.entries(LANGUAGES).map(([code, label]) => <option value={code} key={code}>{label}</option>)}
             </select>
           </label>
-          <button className="btn" disabled={generating} onClick={generateQuotation}>{generating ? L.generating : L.generateQuote}</button>
-          <button className="btn secondary" disabled={orderGenerating} onClick={generateOrderWorkbook}>{orderGenerating ? L.generating : L.generateOrderWorkbookLabel}</button>
+          <button className="btn" disabled={generating} onClick={generateQuotation}>
+            {generating ? L.generating : <><span className="desktop-action-label">{L.generateQuote}</span><span className="mobile-action-label">{L.generateQuoteShort}</span></>}
+          </button>
+          <button className="btn secondary" disabled={orderGenerating} onClick={generateOrderWorkbook}>
+            {orderGenerating ? L.generating : <><span className="desktop-action-label">{L.generateOrderWorkbookLabel}</span><span className="mobile-action-label">{L.generateOrderWorkbookShort}</span></>}
+          </button>
         </div>
       </header>
 
