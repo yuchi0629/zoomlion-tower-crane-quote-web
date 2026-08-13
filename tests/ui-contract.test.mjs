@@ -8,8 +8,9 @@ const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8
 test("top bar generates only the quotation PDF", () => {
   assert.match(source, /generateQuote:\s*"生成报价单"/);
   assert.match(source, /generateQuoteShort:\s*"报价单"/);
-  assert.doesNotMatch(source, /LTC选配指导文件_\$\{/);
-  assert.doesNotMatch(source, /function ltcHtml/);
+  const quoteStart = source.indexOf("async function generateQuotation");
+  const quoteEnd = source.indexOf("async function generateOrderWorkbook", quoteStart);
+  assert.doesNotMatch(source.slice(quoteStart, quoteEnd), /ltcHtml|LTC选配指导文件/);
   assert.doesNotMatch(source, /onClick=\{generateLtc\}/);
   assert.doesNotMatch(source, /onClick=\{exportConfigurationWorkbook\}/);
   assert.doesNotMatch(source, /scrollIntoView/);
@@ -20,6 +21,9 @@ test("top bar exposes an order configuration workbook action", () => {
   assert.match(source, /onClick=\{generateOrderWorkbook\}/);
   assert.match(source, /generateOrderWorkbookLabel/);
   assert.match(source, /downloadOrderWorkbook\(workbook, filename\);[\s\S]*alert\(L\.orderWorkbookDone\)/);
+  assert.match(source, /downloadOrderWorkbook\(workbook, filename\);[\s\S]*savePdf\(`LTC选配指导文件_\$\{/);
+  assert.match(source, /function ltcHtml/);
+  assert.match(source, /L\.noneSelected/);
   assert.doesNotMatch(source, /downloadOrderWorkbookLabel/);
   assert.doesNotMatch(source, /orderDownload/);
   assert.doesNotMatch(source, /order-download-link/);

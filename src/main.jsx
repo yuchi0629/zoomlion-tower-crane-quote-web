@@ -41,7 +41,7 @@ const UI = {
     generateOrderWorkbookLabel: "生成订单配置表",
     generateOrderWorkbookShort: "订单配置",
     orderWorkbookSheet: "订单配置表",
-    orderWorkbookDone: "订单配置表已生成，并保存到浏览器下载目录。",
+    orderWorkbookDone: "订单配置表和选配指导文件已生成，并保存到浏览器下载目录。",
     productSelect: "产品型号选择",
     model: "产品型号",
     form: "安装形式",
@@ -149,7 +149,7 @@ const UI = {
     generateOrderWorkbookLabel: "Generate Order Configuration",
     generateOrderWorkbookShort: "Order",
     orderWorkbookSheet: "Order Configuration",
-    orderWorkbookDone: "The order configuration workbook has been saved to the browser download folder.",
+    orderWorkbookDone: "The order configuration workbook and options guide have been saved to the browser download folder.",
     productSelect: "Product Model Selection",
     model: "Model",
     form: "Installation Form",
@@ -257,7 +257,7 @@ const UI = {
     generateOrderWorkbookLabel: "Generer la configuration de commande",
     generateOrderWorkbookShort: "Commande",
     orderWorkbookSheet: "Configuration de commande",
-    orderWorkbookDone: "Le fichier de configuration de commande a ete enregistre dans le dossier de telechargement.",
+    orderWorkbookDone: "La configuration de commande et le guide des options ont ete enregistres dans le dossier de telechargement.",
     productSelect: "Selection du modele",
     model: "Modele",
     form: "Type d'installation",
@@ -365,7 +365,7 @@ const UI = {
     generateOrderWorkbookLabel: "Auftragskonfiguration erstellen",
     generateOrderWorkbookShort: "Auftrag",
     orderWorkbookSheet: "Auftragskonfiguration",
-    orderWorkbookDone: "Die Auftragskonfiguration wurde im Download-Ordner gespeichert.",
+    orderWorkbookDone: "Die Auftragskonfiguration und der Optionsleitfaden wurden im Download-Ordner gespeichert.",
     productSelect: "Modellauswahl",
     model: "Modell",
     form: "Aufstellungsart",
@@ -473,7 +473,7 @@ const UI = {
     generateOrderWorkbookLabel: "Sipariş Konfigürasyonu Oluştur",
     generateOrderWorkbookShort: "Sipariş",
     orderWorkbookSheet: "Sipariş Konfigürasyonu",
-    orderWorkbookDone: "Sipariş konfigürasyon dosyası tarayıcının indirme klasörüne kaydedildi.",
+    orderWorkbookDone: "Sipariş konfigürasyonu ve opsiyon rehberi tarayıcının indirme klasörüne kaydedildi.",
     productSelect: "Ürün Modeli Seçimi",
     model: "Model",
     form: "Kurulum Şekli",
@@ -1248,6 +1248,45 @@ function App() {
     `;
   }
 
+  function ltcHtml() {
+    const expanded = [];
+    selectedOptions.forEach(item => {
+      const quantity = item.selection?.qty || "1";
+      const changeType = item.selection?.type === "deduction" ? L.deduct : L.add;
+      if (item.children?.length) {
+        item.children.forEach(child => expanded.push({ ...child, quantity, changeType }));
+      } else {
+        expanded.push({ ...item, quantity, changeType });
+      }
+    });
+    const rows = expanded.length
+      ? expanded
+          .map(
+            (item, index) => `<tr>
+              <td class="center">${index + 1}</td>
+              <td class="center">${escapeHtml(item.changeType)}</td>
+              <td>${escapeHtml(tr(item.component || "/"))}</td>
+              <td>${escapeHtml(tr(item.name || "/"))}</td>
+              <td class="small">${escapeHtml(tr(item.code || "/"))}</td>
+              <td class="small">${escapeHtml(tr(item.modelCode || "/"))}</td>
+              <td class="center">${escapeHtml(item.quantity || "1")}</td>
+            </tr>`,
+          )
+          .join("")
+      : `<tr><td></td><td colspan="6">${escapeHtml(L.noneSelected)}</td></tr>`;
+    return `
+      ${pdfStyles()}
+      <div class="pdf-page">
+        <h1>${escapeHtml(L.ltcTitle)}</h1>
+        <div class="ltc-meta"><span><strong>${escapeHtml(L.model)}:</strong> ${escapeHtml(product.model)}</span><span><strong>${escapeHtml(L.form)}:</strong> ${escapeHtml(form ? tr(form.installForm) : "/")}</span><span><strong>${escapeHtml(L.date)}:</strong> ${escapeHtml(quoteInfo.quoteDate)}</span></div>
+        <table>
+          <thead><tr><th style="width:6%">${escapeHtml(L.seq)}</th><th style="width:12%">${escapeHtml(L.changeType)}</th><th style="width:14%">${escapeHtml(L.component)}</th><th style="width:18%">${escapeHtml(L.name)}</th><th style="width:22%">${escapeHtml(L.itemNo)}</th><th style="width:20%">${escapeHtml(L.designation)}</th><th style="width:8%">${escapeHtml(L.qty)}</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
   async function generateQuotation() {
     if (generating) return;
     setGenerating(true);
@@ -1282,6 +1321,8 @@ function App() {
       });
       const filename = `${safeFilename(product.model)}_${safeFilename(L.orderWorkbookSheet)}_${timestampToMinute()}.xlsx`;
       downloadOrderWorkbook(workbook, filename);
+      const stamp = timestampToMinute();
+      await savePdf(`LTC选配指导文件_${safeFilename(product.model)}_${stamp}.pdf`, ltcHtml());
       alert(L.orderWorkbookDone);
     } catch (error) {
       alert(`${L.loadError}: ${error.message}`);
