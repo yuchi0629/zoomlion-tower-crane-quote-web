@@ -36,8 +36,9 @@ test("provides flat and luffing selection with five-language labels", () => {
 });
 
 test("describes performance matching without performance inventory totals", () => {
-  assert.match(selectorSource, /输入全部吊点要求，匹配可满足性能的机型。/);
+  assert.match(selectorSource, /基于幅度、吊重要求，匹配可满足性能需求的机型。/);
   assert.match(selectorSource, /正式工程应按具体样本、配置和项目条件复核。/);
+  assert.doesNotMatch(selectorSource, /输入全部吊点要求，匹配可满足性能的机型。/);
   assert.doesNotMatch(selectorSource, /选型结果基于已录入厂家样本性能/);
   assert.doesNotMatch(selectorSource, /flatCount|luffingCount|totalCount|selector-data-count/);
 });
@@ -50,8 +51,15 @@ test("describes the selected result as based on a jib length", () => {
   assert.match(selectorSource, /labels\.jibLengthSuffix/);
 });
 
-test("stacks radius performance requirements above matching results without inventory totals", () => {
-  assert.match(selectorSource, /requirements: "幅度性能需求"/);
+test("uses radius, load and load-rate wording in the stacked selector results", () => {
+  assert.match(selectorSource, /requirements: "幅度吊重需求"/);
+  assert.match(selectorSource, /add: "增加幅度吊重需求"/);
+  assert.match(selectorSource, /result: "机型匹配结果"/);
+  assert.match(selectorSource, /point: "幅度"/);
+  assert.match(selectorSource, /required: "吊重"/);
+  assert.match(selectorSource, /loadRate: "负载率"/);
+  assert.match(selectorSource, /<strong>\{formatNumber\(point\.loadRate\)\}%<\/strong>/);
+  assert.doesNotMatch(selectorSource, /surplus: "富余量"/);
   assert.doesNotMatch(selectorSource, /selector-data-count/);
   assert.doesNotMatch(selectorSource, /labels\.loaded/);
   assert.match(selectorStyles, /\.selector-workspace\s*\{[\s\S]*?grid-template-columns:\s*1fr/);

@@ -47,6 +47,7 @@ test("selects the shortest jib that satisfies every lifting point", () => {
   assert.equal(result.matches[0].condition, "normal");
   assert.deepEqual(result.matches[0].points.map(point => point.lookupRadius), [50, 60]);
   assert.deepEqual(result.matches[0].points.map(point => point.surplus), [0.5, 0.5]);
+  assert.deepEqual(result.matches[0].points.map(point => point.loadRate), [83.3, 75]);
 });
 
 test("does not expose superlift when the normal condition satisfies all points", () => {

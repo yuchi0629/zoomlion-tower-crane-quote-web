@@ -95,6 +95,15 @@ test("option rows hide reference prices but keep option total pricing", () => {
   assert.match(source, /<span>\{L\.optionPrice\}<\/span><strong>\{formatMoney\(displayedOptionTotal/);
 });
 
+test("labels the machine and optional-parts prices precisely in every language", () => {
+  assert.match(source, /machinePrice: "主机价格"/);
+  assert.match(source, /optionPrice: "选配件价格"/);
+  assert.match(source, /machinePrice: "Main Unit Price"/);
+  assert.match(source, /optionPrice: "Optional Parts Price"/);
+  assert.doesNotMatch(source, /machinePrice: "整机价格"/);
+  assert.doesNotMatch(source, /optionPrice: "选配价格"/);
+});
+
 test("places language first and keeps product selection free of form and count controls", () => {
   const languageStart = source.indexOf('className="top-language-control"');
   const selectorStart = source.indexOf("<TowerCraneSelector");

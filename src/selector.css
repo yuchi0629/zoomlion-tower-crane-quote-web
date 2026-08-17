@@ -312,6 +312,11 @@
   font-size: 10px;
 }
 
+.selector-surplus > strong,
+.selector-shortfall > strong {
+  display: block;
+}
+
 .selector-surplus {
   color: #466000;
   font-weight: 800;

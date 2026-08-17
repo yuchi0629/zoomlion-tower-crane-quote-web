@@ -42,6 +42,7 @@ function evaluateJib(jib, requirements) {
       reeving: best.reeving,
       surplus,
       surplusRate: rounded((surplus / required) * 100, 1),
+      loadRate: rounded((required / best.capacity) * 100, 1),
     };
   });
 
