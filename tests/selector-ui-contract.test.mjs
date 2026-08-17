@@ -17,6 +17,9 @@ test("supports multiple removable lifting requirements", () => {
   assert.match(selectorSource, /removeRequirement/);
   assert.match(selectorSource, /requirements\.map/);
   assert.match(selectorSource, /type="number"/);
+  assert.match(selectorSource, /radiusPlaceholder: "例如 70"/);
+  assert.match(selectorSource, /loadPlaceholder: "例如 2\.5"/);
+  assert.doesNotMatch(selectorSource, /radiusPlaceholder: "例如 50"/);
 });
 
 test("shows only the top three matches until the full list is expanded", () => {

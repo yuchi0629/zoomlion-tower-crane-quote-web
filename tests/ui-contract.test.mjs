@@ -144,6 +144,13 @@ test("offers Turkish with complete runtime data translations", () => {
   assert.match(source, /translations\?\.tr/);
 });
 
+test("describes configuration availability as loaded instead of published", () => {
+  assert.match(source, /published: "配置已录入"/);
+  assert.match(source, /notPublished: "配置未录入"/);
+  assert.match(source, /published: "Configuration Loaded"/);
+  assert.doesNotMatch(source, /published: "配置表已发布"/);
+});
+
 test("uses equal product columns and places price after configuration and options", () => {
   const productStart = source.indexOf('<section className="top-grid">');
   const tablesStart = source.indexOf('<section className="tables">');
