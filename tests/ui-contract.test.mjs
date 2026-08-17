@@ -182,3 +182,17 @@ test("uses the editable quotation price in the PDF and starts each page load at 
   assert.match(source, /const unitPrice = `[\s\S]*formatNumber\(quotationPrice\)/);
   assert.doesNotMatch(source, /const unitPrice = `[\s\S]*formatNumber\(displayedTotalPrice\)/);
 });
+
+test("keeps actual sales price and quotation price on one synchronized value", () => {
+  assert.doesNotMatch(source, /const \[actualSalesPriceCny, setActualSalesPriceCny\]/);
+  assert.match(source, /saved\.quotationPriceCny[\s\S]*saved\.actualSalesPriceCny/);
+  assert.match(source, /quotationPriceCny,/);
+  assert.match(source, /const actualPremiumRate = calculateSalesPremium\(quotationPrice, truePrice\)/);
+
+  const settingsStart = source.indexOf('{adminModal === "settings"');
+  const settingsEnd = source.indexOf('{modalItem ?', settingsStart);
+  const settingsArea = source.slice(settingsStart, settingsEnd);
+  assert.match(settingsArea, /value=\{quotationPriceInput\}/);
+  assert.match(settingsArea, /onChange=\{event => updateQuotationPrice\(event\.target\.value\)\}/);
+  assert.doesNotMatch(settingsArea, /updateActualSalesPrice/);
+});

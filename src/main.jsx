@@ -885,7 +885,6 @@ function App() {
   const [usingFallbackRate, setUsingFallbackRate] = useState(true);
   const [externalPremiumRate, setExternalPremiumRate] = useState(10);
   const [quotationPriceCny, setQuotationPriceCny] = useState("");
-  const [actualSalesPriceCny, setActualSalesPriceCny] = useState("");
   const [adminModal, setAdminModal] = useState("");
   const [employeeId, setEmployeeId] = useState("");
   const [adminPassword, setAdminPassword] = useState("");
@@ -990,10 +989,11 @@ function App() {
           setTradeTerm(saved.tradeTerm || "FOB");
           setTradePlace(saved.tradePlace || data.ui.defaultTradePlace || "上海港");
           setCustomerName(saved.customerName || "");
-          setActualSalesPriceCny(
-            saved.actualSalesPriceCny === "" || saved.actualSalesPriceCny == null
+          const savedQuotationPriceCny = saved.quotationPriceCny ?? saved.actualSalesPriceCny;
+          setQuotationPriceCny(
+            savedQuotationPriceCny === "" || savedQuotationPriceCny == null
               ? ""
-              : Number(saved.actualSalesPriceCny),
+              : Number(savedQuotationPriceCny),
           );
         }
       })
@@ -1021,7 +1021,7 @@ function App() {
         tradePlace,
         customerName,
         quoteInfo,
-        actualSalesPriceCny,
+        quotationPriceCny,
       }),
     );
   }, [
@@ -1032,7 +1032,7 @@ function App() {
     tradePlace,
     customerName,
     quoteInfo,
-    actualSalesPriceCny,
+    quotationPriceCny,
   ]);
 
   const L = UI[language] || UI.zh;
@@ -1083,12 +1083,7 @@ function App() {
     : convertFromCny(quotationPriceCny, currency, exchangeRates);
   const quotationPriceInput = Number(quotationPrice.toFixed(2));
   const truePrice = convertFromCny(totalPrice, currency, exchangeRates);
-  const actualSalesPrice = actualSalesPriceCny === ""
-    ? ""
-    : convertFromCny(actualSalesPriceCny, currency, exchangeRates);
-  const actualPremiumRate = actualSalesPrice === ""
-    ? null
-    : calculateSalesPremium(actualSalesPrice, truePrice);
+  const actualPremiumRate = calculateSalesPremium(quotationPrice, truePrice);
 
   if (loadError) {
     return <div className="loading error">{UI.zh.loadError}: {loadError}</div>;
@@ -1143,15 +1138,6 @@ function App() {
     setAdminPassword("");
     setAdminError("");
     setAdminModal("settings");
-  }
-
-  function updateActualSalesPrice(value) {
-    if (value === "") {
-      setActualSalesPriceCny("");
-      return;
-    }
-    const rate = Number(exchangeRates[currency] || 0);
-    if (rate > 0) setActualSalesPriceCny(Number(value) / rate);
   }
 
   function updateQuotationPrice(value) {
@@ -1557,7 +1543,7 @@ function App() {
               </Field>
               <Field label={L.actualSalesPrice}>
                 <div className="input-with-suffix">
-                  <input type="number" min="0" step="0.01" value={actualSalesPrice} onChange={event => updateActualSalesPrice(event.target.value)} />
+                  <input type="number" min="0" step="0.01" value={quotationPriceInput} onChange={event => updateQuotationPrice(event.target.value)} />
                   <span>{currency}</span>
                 </div>
               </Field>
@@ -1573,7 +1559,7 @@ function App() {
               </div>
               <div className="admin-price-card emphasis">
                 <span>{L.actualPremiumRate}</span>
-                <strong>{actualPremiumRate == null ? "/" : `${actualPremiumRate >= 0 ? "+" : ""}${actualPremiumRate.toFixed(2)}%`}</strong>
+                <strong>{`${actualPremiumRate >= 0 ? "+" : ""}${actualPremiumRate.toFixed(2)}%`}</strong>
               </div>
             </div>
           </div>
